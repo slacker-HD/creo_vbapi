@@ -36,4 +36,15 @@ Module Module_vbapi
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Function
+
+    ''' <summary>
+    ''' 使用宏的方式刷新绘图
+    ''' </summary>
+    Public Sub Refresh()
+        Try
+            asyncConnection.Session.RunMacro("IMI ~ Command `ProCmdWinActivate` ;~ Command `ProCmdRegenPart`;")
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
 End Module

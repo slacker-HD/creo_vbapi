@@ -36,4 +36,32 @@ Module Module_vbapi
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Function
+
+    ''' <summary>
+    ''' 选择特征
+    ''' </summary>
+    Public Sub SelectFeat()
+        Dim selectionOptions As IpfcSelectionOptions
+        Dim selections As CpfcSelections
+        Dim selectFeats As IpfcSelection
+        Dim selectedfeat As IpfcModelItem
+        Try
+            '初始化selection选项
+            selectionOptions = (New CCpfcSelectionOptions).Create("feature") '设置可选特征的类型，这里为特征对象
+            selectionOptions.MaxNumSels = 1 '设置一次可选择特征的数量
+            selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+            '确定选择了一个对象
+            If selections.Count > 0 Then
+                selectFeats = selections.Item(0)
+                selectedfeat = selectFeats.SelItem
+                MessageBox.Show(String.Format("内部特征ID : {0}", selectedfeat.Id))
+            End If
+            '使用函数刷新，也很简单
+            asyncConnection.Session.CurrentWindow.Refresh()
+        Catch ex As Exception
+
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
+
 End Module
