@@ -59,9 +59,20 @@ Module Module_vbapi
             '使用函数刷新，也很简单
             asyncConnection.Session.CurrentWindow.Refresh()
         Catch ex As Exception
-
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Sub
-
+    Public Sub Selectionget()
+        Dim Selections As IpfcSelections
+        Selections = asyncConnection.Session.CurrentSelectionBuffer.Contents
+        Try
+            If (Selections.Count > 0) Then
+                For i = 0 To Selections.Count - 1
+                    MessageBox.Show(String.Format("内部特征ID : {0}", Selections.Item(i).SelItem.Id))
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
 End Module

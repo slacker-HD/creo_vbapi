@@ -4,6 +4,7 @@
             MsgBox("无法新建CREO对话！")
         Else
             Btn_select.Enabled = True
+            Btn_selectionget.Enabled = True
         End If
     End Sub
 
@@ -12,10 +13,15 @@
             MsgBox("无法连接到CREO对话！")
         Else
             Btn_select.Enabled = True
+            Btn_selectionget.Enabled = True
         End If
     End Sub
 
     Private Sub Btn_select_Click(sender As Object, e As EventArgs) Handles Btn_select.Click
         SelectFeat()
+    End Sub
+
+    Private Sub Btn_selectionget_Click(sender As Object, e As EventArgs) Handles Btn_selectionget.Click
+        Selectionget()
     End Sub
 End Class
