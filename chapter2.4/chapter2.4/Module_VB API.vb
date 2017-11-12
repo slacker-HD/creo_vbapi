@@ -31,7 +31,9 @@ Module Module_vbapi
             Dim TextPath As String = ConfigurationManager.AppSettings("TextPath").ToString()
             asyncConnection = (New CCpfcAsyncConnection).Start(CmdLine, TextPath)
             '''''''''''''''''''''''补充之前的问题，使用config文件'''''''''''''''''''''''''''''''''
-            asyncConnection.Session.LoadConfigFile("D:\ProeRes\config.pro")
+            asyncConnection.Session.LoadConfigFile(ConfigurationManager.AppSettings("Configfile").ToString())
+            '''''''''''''''''''''''选择工作目录'''''''''''''''''''''''''''''''''
+            asyncConnection.Session.ChangeDirectory(ConfigurationManager.AppSettings("WorkDirectory").ToString())
             Creo_New = True
         Catch ex As Exception
             Creo_New = False
@@ -59,9 +61,9 @@ Module Module_vbapi
             '使用ccpfc类初始化ipfc类，生成IpfcRetrieveModelOptions
             retrieveModelOptions = (New CCpfcRetrieveModelOptions).Create
             retrieveModelOptions.AskUserAboutReps = False
-            '以上为例行套路，打开文件
+            '加载零件
             model = asyncConnection.Session.RetrievemodelWithOpts(modelDesc, retrieveModelOptions)
-            '显示打开的零件
+            '显示零件
             model.Display()
             '激活当前窗体
             asyncConnection.Session.CurrentWindow.Activate()
