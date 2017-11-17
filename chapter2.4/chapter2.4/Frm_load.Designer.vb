@@ -27,6 +27,7 @@ Partial Class Frm_load
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Btn_open = New System.Windows.Forms.Button()
         Me.Btn_save = New System.Windows.Forms.Button()
+        Me.Btn_listfiles = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -36,7 +37,7 @@ Partial Class Frm_load
         Me.Btn_new.Location = New System.Drawing.Point(4, 4)
         Me.Btn_new.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_new.Name = "Btn_new"
-        Me.Btn_new.Size = New System.Drawing.Size(274, 67)
+        Me.Btn_new.Size = New System.Drawing.Size(274, 52)
         Me.Btn_new.TabIndex = 0
         Me.Btn_new.Text = "启动新会话"
         Me.Btn_new.UseVisualStyleBackColor = True
@@ -44,10 +45,10 @@ Partial Class Frm_load
         'Btn_Connect
         '
         Me.Btn_Connect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Connect.Location = New System.Drawing.Point(4, 79)
+        Me.Btn_Connect.Location = New System.Drawing.Point(4, 64)
         Me.Btn_Connect.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Connect.Name = "Btn_Connect"
-        Me.Btn_Connect.Size = New System.Drawing.Size(274, 67)
+        Me.Btn_Connect.Size = New System.Drawing.Size(274, 52)
         Me.Btn_Connect.TabIndex = 1
         Me.Btn_Connect.Text = "连接现有会话"
         Me.Btn_Connect.UseVisualStyleBackColor = True
@@ -60,15 +61,17 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_save, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_listfiles, 0, 4)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 4
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.RowCount = 5
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(282, 302)
         Me.TableLayoutPanel2.TabIndex = 3
         '
@@ -76,9 +79,9 @@ Partial Class Frm_load
         '
         Me.Btn_open.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Btn_open.Enabled = False
-        Me.Btn_open.Location = New System.Drawing.Point(3, 153)
+        Me.Btn_open.Location = New System.Drawing.Point(3, 123)
         Me.Btn_open.Name = "Btn_open"
-        Me.Btn_open.Size = New System.Drawing.Size(276, 69)
+        Me.Btn_open.Size = New System.Drawing.Size(276, 54)
         Me.Btn_open.TabIndex = 5
         Me.Btn_open.Text = "打开模型"
         Me.Btn_open.UseVisualStyleBackColor = True
@@ -87,12 +90,23 @@ Partial Class Frm_load
         '
         Me.Btn_save.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Btn_save.Enabled = False
-        Me.Btn_save.Location = New System.Drawing.Point(3, 228)
+        Me.Btn_save.Location = New System.Drawing.Point(3, 183)
         Me.Btn_save.Name = "Btn_save"
-        Me.Btn_save.Size = New System.Drawing.Size(276, 71)
+        Me.Btn_save.Size = New System.Drawing.Size(276, 54)
         Me.Btn_save.TabIndex = 7
         Me.Btn_save.Text = "保存当前模型"
         Me.Btn_save.UseVisualStyleBackColor = True
+        '
+        'Btn_listfiles
+        '
+        Me.Btn_listfiles.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_listfiles.Enabled = False
+        Me.Btn_listfiles.Location = New System.Drawing.Point(3, 243)
+        Me.Btn_listfiles.Name = "Btn_listfiles"
+        Me.Btn_listfiles.Size = New System.Drawing.Size(276, 56)
+        Me.Btn_listfiles.TabIndex = 8
+        Me.Btn_listfiles.Text = "枚举工作目录下所有prt"
+        Me.Btn_listfiles.UseVisualStyleBackColor = True
         '
         'Frm_load
         '
@@ -112,4 +126,5 @@ Partial Class Frm_load
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Btn_open As Button
     Friend WithEvents Btn_save As Button
+    Friend WithEvents Btn_listfiles As Button
 End Class

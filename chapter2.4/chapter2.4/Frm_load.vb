@@ -4,6 +4,8 @@
             MsgBox("无法新建CREO对话！")
         Else
             Btn_open.Enabled = True
+            Btn_listfiles.Enabled = True
+            Btn_save.Enabled = True
         End If
     End Sub
 
@@ -12,19 +14,20 @@
             MsgBox("无法连接到CREO对话！")
         Else
             Btn_open.Enabled = True
+            Btn_listfiles.Enabled = True
+            Btn_save.Enabled = True
         End If
     End Sub
 
     Private Sub Btn_open_Click(sender As Object, e As EventArgs) Handles Btn_open.Click
         Openprt()
-        Btn_save.Enabled = True
     End Sub
 
     Private Sub Btn_save_Click(sender As Object, e As EventArgs) Handles Btn_save.Click
         Savepart()
     End Sub
 
-    Private Sub Btn_list_Click(sender As Object, e As EventArgs)
-
+    Private Sub Btn_listfiles_Click(sender As Object, e As EventArgs) Handles Btn_listfiles.Click
+        ListFiles()
     End Sub
 End Class
