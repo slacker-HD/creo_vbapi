@@ -17,16 +17,11 @@
         End If
     End Sub
 
-
-
     Private Sub Btn_delRel_Click(sender As Object, e As EventArgs) Handles Btn_delRel.Click
         DelRelations()
     End Sub
 
     Private Sub Btn_addRel_Click(sender As Object, e As EventArgs) Handles Btn_addRel.Click
-        For Each line As String In Rtb_rel.Lines
-            AddRelations(line)
-        Next
-        MessageBox.Show("关系已全部添加。")
+        AddRelations(Rtb_rel.Lines)
     End Sub
 End Class

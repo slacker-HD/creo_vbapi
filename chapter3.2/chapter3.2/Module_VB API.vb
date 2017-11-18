@@ -60,8 +60,8 @@ Module Module_vbapi
     ''' <summary>
     ''' 添加关系字符串
     ''' </summary>
-    ''' <param name="rel">y一行关系字符串</param>
-    Public Sub AddRelations(ByVal rel As String)
+    ''' <param name="rels">字符串数组</param>
+    Public Sub AddRelations(ByVal rels As String())
         Dim model As IpfcModel
         Dim relations As New Cstringseq
         Dim i As Integer
@@ -74,8 +74,14 @@ Module Module_vbapi
                     '子类转父类后读取已有关系
                     relations.Append(CType(model, IpfcRelationOwner).Relations.Item(i))
                 Next
-                relations.Append(rel)
+                '利用Cstringseq的Insert、Remove、Set等方法可以完成对应的修改
+
+
+                For Each line As String In rels
+                    relations.Append(line)
+                Next
                 CType(model, IpfcRelationOwner).Relations = relations
+                MessageBox.Show("关系已全部添加。")
             End If
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
