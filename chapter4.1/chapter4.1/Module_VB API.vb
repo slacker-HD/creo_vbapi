@@ -49,11 +49,71 @@ Module Module_vbapi
 
         Dim dwginstructions As IpfcDWG3DExportInstructions
         Try
-            dwginstructions = (New CCpfcDWG3DExportInstructions()).Create()
             model = asyncConnection.Session.CurrentModel
+
+            dwginstructions = (New CCpfcDWG3DExportInstructions()).Create()
             model.Export(model.InstanceName + ".dwg", dwginstructions)
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' 转换当前打开文件为pdf,文件保存在Creo工作目录下同名pdf文件。
+    ''' </summary>
+    Public Sub ConvertToPdf()
+        Dim model As IpfcModel
+        Dim pdfinstructions As IpfcPDFExportInstructions
+        Try
+            model = asyncConnection.Session.CurrentModel
+
+            pdfinstructions = (New CCpfcPDFExportInstructions()).Create()
+            model.Export(model.InstanceName + ".pdf", pdfinstructions)
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' 转换当前打开文件为stp,文件保存在Creo工作目录下同名stp文件。
+    ''' </summary>
+    Public Sub ConvertToStp()
+        Dim model As IpfcModel
+        Dim stepinstructions As IpfcSTEP3DExportInstructions
+        Dim flags As IpfcGeometryFlags
+
+        Try
+            model = asyncConnection.Session.CurrentModel
+
+            flags = (New CCpfcGeometryFlags()).Create()
+            flags.AsSolids = True
+
+            stepinstructions = (New CCpfcSTEP3DExportInstructions()).Create(EpfcAssemblyConfiguration.EpfcEXPORT_ASM_MULTI_FILES, flags)
+            model.Export(model.InstanceName + ".pdf", stepinstructions)
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' 转换当前打开文件为Igs,文件保存在Creo工作目录下同名igs文件。
+    ''' </summary>
+    Public Sub ConvertToIgs()
+        Dim model As IpfcModel
+        Dim geometryFlags As IpfcGeometryFlags
+        Dim igsinstructions As IpfcIGES3DNewExportInstructions
+
+        Try
+            model = asyncConnection.Session.CurrentModel
+
+
+            geometryFlags = (New CCpfcGeometryFlags).Create()
+            geometryFlags.AsSolids = True '导出为Solid选项
+
+            '第一个参数应该是EpfcAssemblyConfiguration，帮助文档有误；
+            igsinstructions = (New CCpfcIGES3DNewExportInstructions).Create(EpfcAssemblyConfiguration.EpfcEXPORT_ASM_SINGLE_FILE, geometryFlags)
+            model.Export(model.InstanceName + ".igs", igsinstructions)
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
+
 End Module
