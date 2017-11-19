@@ -86,6 +86,7 @@ Module Module_vbapi
             flags = (New CCpfcGeometryFlags()).Create()
             flags.AsSolids = True
 
+            '第一个参数应该是EpfcAssemblyConfiguration，帮助文档有误；
             stepinstructions = (New CCpfcSTEP3DExportInstructions()).Create(EpfcAssemblyConfiguration.EpfcEXPORT_ASM_MULTI_FILES, flags)
             model.Export(model.InstanceName + ".pdf", stepinstructions)
         Catch ex As Exception
@@ -103,7 +104,6 @@ Module Module_vbapi
 
         Try
             model = asyncConnection.Session.CurrentModel
-
 
             geometryFlags = (New CCpfcGeometryFlags).Create()
             geometryFlags.AsSolids = True '导出为Solid选项
