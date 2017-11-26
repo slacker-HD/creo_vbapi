@@ -8,6 +8,8 @@
             MsgBox("无法新建CREO对话！")
         Else
             Btn_listFeat.Enabled = True
+            Btn_delFeat.Enabled = True
+            Btn_suppressFeat.Enabled = True
         End If
     End Sub
 
@@ -16,6 +18,16 @@
             MsgBox("无法连接到CREO对话！")
         Else
             Btn_listFeat.Enabled = True
+            Btn_delFeat.Enabled = True
+            Btn_suppressFeat.Enabled = True
         End If
+    End Sub
+
+    Private Sub Btn_delFeat_Click(sender As Object, e As EventArgs) Handles Btn_delFeat.Click
+        DeleteFeat()
+    End Sub
+
+    Private Sub Btn_suppressFeat_Click(sender As Object, e As EventArgs) Handles Btn_suppressFeat.Click
+        SuppressFeat()
     End Sub
 End Class

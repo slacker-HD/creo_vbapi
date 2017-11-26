@@ -24,10 +24,13 @@ Partial Class Frm_load
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_suppressFeat = New System.Windows.Forms.Button()
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.Btn_listFeat = New System.Windows.Forms.Button()
+        Me.Btn_delFeat = New System.Windows.Forms.Button()
         Me.Rtb_featInfo = New System.Windows.Forms.RichTextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -51,9 +54,12 @@ Partial Class Frm_load
         '
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_suppressFeat, 0, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_listFeat, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_delFeat, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 0, 5)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
@@ -67,6 +73,17 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(192, 458)
         Me.TableLayoutPanel2.TabIndex = 4
+        '
+        'Btn_suppressFeat
+        '
+        Me.Btn_suppressFeat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_suppressFeat.Enabled = False
+        Me.Btn_suppressFeat.Location = New System.Drawing.Point(3, 307)
+        Me.Btn_suppressFeat.Name = "Btn_suppressFeat"
+        Me.Btn_suppressFeat.Size = New System.Drawing.Size(186, 70)
+        Me.Btn_suppressFeat.TabIndex = 4
+        Me.Btn_suppressFeat.Text = "确保打开一个prt，点此选择特征并隐含"
+        Me.Btn_suppressFeat.UseVisualStyleBackColor = True
         '
         'Btn_new
         '
@@ -101,6 +118,17 @@ Partial Class Frm_load
         Me.Btn_listFeat.Text = "打开模型后点击列出当前模型特征列表"
         Me.Btn_listFeat.UseVisualStyleBackColor = True
         '
+        'Btn_delFeat
+        '
+        Me.Btn_delFeat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_delFeat.Enabled = False
+        Me.Btn_delFeat.Location = New System.Drawing.Point(3, 231)
+        Me.Btn_delFeat.Name = "Btn_delFeat"
+        Me.Btn_delFeat.Size = New System.Drawing.Size(186, 70)
+        Me.Btn_delFeat.TabIndex = 3
+        Me.Btn_delFeat.Text = "确保打开一个prt，点此选择特征并删除"
+        Me.Btn_delFeat.UseVisualStyleBackColor = True
+        '
         'Rtb_featInfo
         '
         Me.Rtb_featInfo.Dock = System.Windows.Forms.DockStyle.Fill
@@ -110,6 +138,15 @@ Partial Class Frm_load
         Me.Rtb_featInfo.Size = New System.Drawing.Size(359, 460)
         Me.Rtb_featInfo.TabIndex = 5
         Me.Rtb_featInfo.Text = ""
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(3, 383)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Frm_load
         '
@@ -130,4 +167,7 @@ Partial Class Frm_load
     Friend WithEvents Btn_Connect As Button
     Friend WithEvents Btn_listFeat As Button
     Friend WithEvents Rtb_featInfo As RichTextBox
+    Friend WithEvents Btn_delFeat As Button
+    Friend WithEvents Btn_suppressFeat As Button
+    Friend WithEvents Button1 As Button
 End Class

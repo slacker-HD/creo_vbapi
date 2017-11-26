@@ -26,7 +26,19 @@ Partial Class Frm_load
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Tb_paramNameDel = New System.Windows.Forms.TextBox()
+        Me.Btn_delParam = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Tb_paramNameMod = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Btn_modParam = New System.Windows.Forms.Button()
+        Me.Tb_paramValueMod = New System.Windows.Forms.TextBox()
+        Me.Cmb_paramTypeMod = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Btn_addParam = New System.Windows.Forms.Button()
@@ -36,25 +48,13 @@ Partial Class Frm_load
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Tb_paramNameAdd = New System.Windows.Forms.TextBox()
         Me.Cmb_paramTypeAdd = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Tb_paramNameDel = New System.Windows.Forms.TextBox()
-        Me.Btn_delParam = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Tb_paramNameMod = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Btn_modParam = New System.Windows.Forms.Button()
-        Me.Tb_paramValueMod = New System.Windows.Forms.TextBox()
-        Me.Cmb_paramTypeMod = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Btn_new
@@ -112,6 +112,55 @@ Partial Class Frm_load
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "删除一个参数，确保当前模型包含这个参数名"
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 4
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Tb_paramNameDel, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Btn_delParam, 3, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 21)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(677, 95)
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Location = New System.Drawing.Point(3, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(163, 47)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "参数名"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Tb_paramNameDel
+        '
+        Me.Tb_paramNameDel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Tb_paramNameDel.Location = New System.Drawing.Point(3, 50)
+        Me.Tb_paramNameDel.Name = "Tb_paramNameDel"
+        Me.Tb_paramNameDel.Size = New System.Drawing.Size(163, 25)
+        Me.Tb_paramNameDel.TabIndex = 1
+        '
+        'Btn_delParam
+        '
+        Me.Btn_delParam.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_delParam.Enabled = False
+        Me.Btn_delParam.Location = New System.Drawing.Point(510, 3)
+        Me.Btn_delParam.Name = "Btn_delParam"
+        Me.Btn_delParam.Size = New System.Drawing.Size(164, 41)
+        Me.Btn_delParam.TabIndex = 3
+        Me.Btn_delParam.Text = "删除"
+        Me.Btn_delParam.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel4)
@@ -122,6 +171,100 @@ Partial Class Frm_load
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "修改一个参数值，确保当前模型包含这个参数名"
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 4
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.Tb_paramNameMod, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label5, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label6, 1, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label7, 2, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Btn_modParam, 3, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Tb_paramValueMod, 1, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.Cmb_paramTypeMod, 2, 1)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 21)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(677, 94)
+        Me.TableLayoutPanel4.TabIndex = 0
+        '
+        'Tb_paramNameMod
+        '
+        Me.Tb_paramNameMod.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Tb_paramNameMod.Location = New System.Drawing.Point(3, 50)
+        Me.Tb_paramNameMod.Name = "Tb_paramNameMod"
+        Me.Tb_paramNameMod.Size = New System.Drawing.Size(163, 25)
+        Me.Tb_paramNameMod.TabIndex = 5
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Location = New System.Drawing.Point(3, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(163, 47)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "参数名"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Location = New System.Drawing.Point(172, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(163, 47)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "参数值"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Location = New System.Drawing.Point(341, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(163, 47)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "参数类型"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Btn_modParam
+        '
+        Me.Btn_modParam.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_modParam.Enabled = False
+        Me.Btn_modParam.Location = New System.Drawing.Point(510, 3)
+        Me.Btn_modParam.Name = "Btn_modParam"
+        Me.Btn_modParam.Size = New System.Drawing.Size(164, 41)
+        Me.Btn_modParam.TabIndex = 8
+        Me.Btn_modParam.Text = "修改"
+        Me.Btn_modParam.UseVisualStyleBackColor = True
+        '
+        'Tb_paramValueMod
+        '
+        Me.Tb_paramValueMod.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Tb_paramValueMod.Location = New System.Drawing.Point(172, 50)
+        Me.Tb_paramValueMod.Name = "Tb_paramValueMod"
+        Me.Tb_paramValueMod.Size = New System.Drawing.Size(163, 25)
+        Me.Tb_paramValueMod.TabIndex = 9
+        '
+        'Cmb_paramTypeMod
+        '
+        Me.Cmb_paramTypeMod.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cmb_paramTypeMod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Cmb_paramTypeMod.FormattingEnabled = True
+        Me.Cmb_paramTypeMod.Items.AddRange(New Object() {"浮点型", "整形", "布尔型", "字符串"})
+        Me.Cmb_paramTypeMod.Location = New System.Drawing.Point(341, 50)
+        Me.Cmb_paramTypeMod.Name = "Cmb_paramTypeMod"
+        Me.Cmb_paramTypeMod.Size = New System.Drawing.Size(163, 23)
+        Me.Cmb_paramTypeMod.TabIndex = 10
         '
         'GroupBox1
         '
@@ -228,149 +371,6 @@ Partial Class Frm_load
         Me.Cmb_paramTypeAdd.Size = New System.Drawing.Size(163, 23)
         Me.Cmb_paramTypeAdd.TabIndex = 6
         '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 4
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Tb_paramNameDel, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Btn_delParam, 3, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 21)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(677, 95)
-        Me.TableLayoutPanel3.TabIndex = 0
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Location = New System.Drawing.Point(3, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(163, 47)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "参数名"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Tb_paramNameDel
-        '
-        Me.Tb_paramNameDel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Tb_paramNameDel.Location = New System.Drawing.Point(3, 50)
-        Me.Tb_paramNameDel.Name = "Tb_paramNameDel"
-        Me.Tb_paramNameDel.Size = New System.Drawing.Size(163, 25)
-        Me.Tb_paramNameDel.TabIndex = 1
-        '
-        'Btn_delParam
-        '
-        Me.Btn_delParam.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_delParam.Enabled = False
-        Me.Btn_delParam.Location = New System.Drawing.Point(510, 3)
-        Me.Btn_delParam.Name = "Btn_delParam"
-        Me.Btn_delParam.Size = New System.Drawing.Size(164, 41)
-        Me.Btn_delParam.TabIndex = 3
-        Me.Btn_delParam.Text = "删除"
-        Me.Btn_delParam.UseVisualStyleBackColor = True
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 4
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.Tb_paramNameMod, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label5, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label6, 1, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label7, 2, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Btn_modParam, 3, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Tb_paramValueMod, 1, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.Cmb_paramTypeMod, 2, 1)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 21)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(677, 94)
-        Me.TableLayoutPanel4.TabIndex = 0
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Location = New System.Drawing.Point(3, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(163, 47)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "参数名"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Tb_paramNameMod
-        '
-        Me.Tb_paramNameMod.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Tb_paramNameMod.Location = New System.Drawing.Point(3, 50)
-        Me.Tb_paramNameMod.Name = "Tb_paramNameMod"
-        Me.Tb_paramNameMod.Size = New System.Drawing.Size(163, 25)
-        Me.Tb_paramNameMod.TabIndex = 5
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Location = New System.Drawing.Point(172, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(163, 47)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "参数值"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Location = New System.Drawing.Point(341, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(163, 47)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "参数类型"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Btn_modParam
-        '
-        Me.Btn_modParam.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_modParam.Enabled = False
-        Me.Btn_modParam.Location = New System.Drawing.Point(510, 3)
-        Me.Btn_modParam.Name = "Btn_modParam"
-        Me.Btn_modParam.Size = New System.Drawing.Size(164, 41)
-        Me.Btn_modParam.TabIndex = 8
-        Me.Btn_modParam.Text = "修改"
-        Me.Btn_modParam.UseVisualStyleBackColor = True
-        '
-        'Tb_paramValueMod
-        '
-        Me.Tb_paramValueMod.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Tb_paramValueMod.Location = New System.Drawing.Point(172, 50)
-        Me.Tb_paramValueMod.Name = "Tb_paramValueMod"
-        Me.Tb_paramValueMod.Size = New System.Drawing.Size(163, 25)
-        Me.Tb_paramValueMod.TabIndex = 9
-        '
-        'Cmb_paramTypeMod
-        '
-        Me.Cmb_paramTypeMod.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cmb_paramTypeMod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Cmb_paramTypeMod.FormattingEnabled = True
-        Me.Cmb_paramTypeMod.Items.AddRange(New Object() {"浮点型", "整形", "布尔型", "字符串"})
-        Me.Cmb_paramTypeMod.Location = New System.Drawing.Point(341, 50)
-        Me.Cmb_paramTypeMod.Name = "Cmb_paramTypeMod"
-        Me.Cmb_paramTypeMod.Size = New System.Drawing.Size(163, 23)
-        Me.Cmb_paramTypeMod.TabIndex = 10
-        '
         'Frm_load
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -381,14 +381,14 @@ Partial Class Frm_load
         Me.Text = "启动界面"
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
