@@ -13,6 +13,17 @@
         End If
     End Sub
 
+    Private Sub Export(Cmd As String)
+        Dim p As New Process
+        p.StartInfo.CreateNoWindow = True
+        Try
+            p.Start(Application.StartupPath + "\" + Cmd, """" + Tb_exe.Text + """  """ + Tb_inputDir.Text + """  """ + Tb_outputDir.Text + """").WaitForExit()
+            MessageBox.Show("转化完成。")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+    End Sub
+
     Private Sub Btn_selOutputDir_Click(sender As Object, e As EventArgs) Handles Btn_selOutputDir.Click
         Fbd.ShowNewFolderButton = True
         If (Fbd.ShowDialog = DialogResult.OK) Then
@@ -21,46 +32,18 @@
     End Sub
 
     Private Sub Btn_exportDwg_Click(sender As Object, e As EventArgs) Handles Btn_exportDwg.Click
-        Dim p As New Process
-        p.StartInfo.CreateNoWindow = True
-        Try
-            p.Start(Application.StartupPath + "\CreoExportDwg.exe", """" + Tb_exe.Text + """  """ + Tb_inputDir.Text + """  """ + Tb_outputDir.Text + """").WaitForExit()
-            MessageBox.Show("转化完成。")
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-        End Try
+        Export("CreoExportDwg.exe")
     End Sub
 
     Private Sub Btn_exportPdf_Click(sender As Object, e As EventArgs) Handles Btn_exportPdf.Click
-        Dim p As New Process
-        p.StartInfo.CreateNoWindow = True
-        Try
-            p.Start(Application.StartupPath + "\CreoDirExportPdf.exe", """" + Tb_exe.Text + """  """ + Tb_inputDir.Text + """  """ + Tb_outputDir.Text + """").WaitForExit()
-            MessageBox.Show("转化完成。")
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-        End Try
+        Export("CreoDirExportPdf.exe")
     End Sub
 
     Private Sub Btn_exportStep_Click(sender As Object, e As EventArgs) Handles Btn_exportStep.Click
-        Dim p As New Process
-        p.StartInfo.CreateNoWindow = True
-        Try
-            p.Start(Application.StartupPath + "\CreoDirExportStep.exe", """" + Tb_exe.Text + """  """ + Tb_inputDir.Text + """  """ + Tb_outputDir.Text + """").WaitForExit()
-            MessageBox.Show("转化完成。")
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-        End Try
+        Export("CreoDirExportStep.exe")
     End Sub
 
     Private Sub Btn_exportIges_Click(sender As Object, e As EventArgs) Handles Btn_exportIges.Click
-        Dim p As New Process
-        p.StartInfo.CreateNoWindow = True
-        Try
-            p.Start(Application.StartupPath + "\CreoDirExportIges.exe", """" + Tb_exe.Text + """  """ + Tb_inputDir.Text + """  """ + Tb_outputDir.Text + """").WaitForExit()
-            MessageBox.Show("转化完成。")
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-        End Try
+        Export("CreoDirExportIges.exe")
     End Sub
 End Class
