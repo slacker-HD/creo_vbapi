@@ -48,7 +48,7 @@ Module Module_vbapi
     ''' <param name="ParamName">参数名</param>
     ''' <param name="ParamValue">参数值</param>
     ''' <param name="ParamType">参数类型</param>
-    Public Sub AddParam(ByVal ParamName As String, ByVal ParamValue As String， ByVal ParamType As String)
+    Public Sub AddParam(ByVal ParamName As String, ByVal ParamValue As String, ByVal ParamType As String)
         Dim model As IpfcModel
         Dim iParamValue As IpfcParamValue
         Dim iParameterOwner As IpfcParameterOwner
