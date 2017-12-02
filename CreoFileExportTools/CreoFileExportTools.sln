@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Tools", "Tools\Tools.vbproj", "{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreoDirExportDwg", "CreoDirExportDwg\CreoDirExportDwg.csproj", "{A9142EA3-1C86-499F-A71F-566294BC9E47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreoDirExportPdf", "CreoDirExportPdf\CreoDirExportPdf.csproj", "{5C607686-F664-4F8F-9F85-DCF07BA55517}"
@@ -12,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreoDirExportStep", "CreoDirExportStep\CreoDirExportStep.csproj", "{4D0F9382-DA1A-4391-835F-0F13E791367E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreoDirExportIges", "CreoDirExportIgs\CreoDirExportIges.csproj", "{1F487CDE-BBD9-4EC0-A3B1-0831DC804E08}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CreoFileExportTools", "CreoFileExportTools\CreoFileExportTools.vbproj", "{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +21,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|x86.Build.0 = Debug|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|x86.ActiveCfg = Release|Any CPU
-		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|x86.Build.0 = Release|Any CPU
 		{A9142EA3-1C86-499F-A71F-566294BC9E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A9142EA3-1C86-499F-A71F-566294BC9E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9142EA3-1C86-499F-A71F-566294BC9E47}.Debug|x86.ActiveCfg = Debug|x86
@@ -61,6 +53,14 @@ Global
 		{1F487CDE-BBD9-4EC0-A3B1-0831DC804E08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F487CDE-BBD9-4EC0-A3B1-0831DC804E08}.Release|x86.ActiveCfg = Release|Any CPU
 		{1F487CDE-BBD9-4EC0-A3B1-0831DC804E08}.Release|x86.Build.0 = Release|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Debug|x86.Build.0 = Debug|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|x86.ActiveCfg = Release|Any CPU
+		{CDEC5D06-97A4-414B-B76F-1F20FEFE9B32}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
