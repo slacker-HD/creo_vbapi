@@ -41,6 +41,10 @@ Module Module_vbapi
         End Try
     End Function
 
+    ''' <summary>
+    ''' 列出零件包含的所有特征
+    ''' </summary>
+    ''' <returns>特征数据</returns>
     Public Function FeatureTreeInfo() As String
         Dim info As String
         Dim model As IpfcModel
@@ -150,75 +154,41 @@ Module Module_vbapi
         End Try
     End Sub
 
-
-
-    'Returning a Feature Object
-    '======================================================================
-    'Function   :   createImportFeatureFromDataFile   
-    'Purpose    :   This function will return a feature object when 
-    '               provided with a solid coordinate system name and an 
-    '               import feature's file name. The method will find the 
-    '               coordinate system in the model, set the Import Feature 
-    '               Attributes, and create an import feature.
-    '======================================================================
-    Public Function CreateImportFeatureFromDataFile(ByVal solid As IpfcSolid,
-                                                    ByVal csys As String,
-                                                    ByVal fileName As String,
-                                                    ByVal type As EpfcIntfType) _
-                                                    As IpfcFeature
-
-        Dim dataSource As IpfcIntfDataSource
-        Dim cSystems As IpfcModelItems
-        Dim cSystem As IpfcCoordSystem = Nothing
-        Dim importFeature As IpfcFeature
-        Dim featAttr As IpfcImportFeatAttr
-        Dim i As Integer
-
+    Public Sub CreateImportFeatureFromDataFile(ByVal stepfile As String)
+        Dim datasource As IpfcIntfStep
+        Dim featattr As IpfcImportFeatAttr
+        Dim model As IpfcModel
+        Dim solid As IpfcSolid
+        Dim coordsystem As IpfcCoordSystem
+        Dim selectionOptions As IpfcSelectionOptions
+        Dim selections As CpfcSelections
+        Dim selectCoordsystems As IpfcSelection
+        Dim selectedcoordsystem As IpfcModelItem
         Try
-
-            Select Case type
-                Case EpfcIntfType.EpfcINTF_NEUTRAL
-                    dataSource = (New CCpfcIntfNeutralFile).Create(fileName)
-                Case EpfcIntfType.EpfcINTF_IGES
-                    dataSource = (New CCpfcIntfIges).Create(fileName)
-                Case EpfcIntfType.EpfcINTF_STEP
-                    dataSource = (New CCpfcIntfStep).Create(fileName)
-                Case EpfcIntfType.EpfcINTF_VDA
-                    dataSource = (New CCpfcIntfVDA).Create(fileName)
-                Case Else
-                    Throw New Exception("Unknown File Type")
-            End Select
-
-            cSystems = solid.ListItems(EpfcModelItemType.EpfcITEM_COORD_SYS)
-
-            For i = 0 To cSystems.Count - 1
-                If (cSystems.Item(i).GetName.ToString = csys) Then
-                    cSystem = cSystems.Item(i)
-                    Exit For
-                End If
-            Next
-
-            If cSystem Is Nothing Then
-                Throw New Exception("Coordinate System not found in current Solid")
+            model = asyncConnection.Session.CurrentModel
+            solid = CType(model, IpfcSolid)
+            '初始化selection选项
+            selectionOptions = (New CCpfcSelectionOptions).Create("csys") '设置可选特征的类型，这里为坐标系对象
+            selectionOptions.MaxNumSels = 1 '设置一次可选择特征的数量
+            selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+            '确定选择了一个对象
+            If selections.Count > 0 Then
+                selectCoordsystems = selections.Item(0)
+                selectedcoordsystem = selectCoordsystems.SelItem
+                '设置插入的step对象所在坐标系
+                coordsystem = CType(selectedcoordsystem, IpfcCoordSystem)
+                '初始化插入的step对象
+                datasource = (New CCpfcIntfStep).Create(stepfile)
+                '设置特征的属性
+                featattr = (New CCpfcImportFeatAttr).Create()
+                featattr.JoinSurfs = True
+                featattr.MakeSolid = True
+                featattr.Operation = EpfcOperationType.EpfcADD_OPERATION
+                '插入特征
+                solid.CreateImportFeat(datasource, coordsystem, featattr)
             End If
-
-            '======================================================================
-            'Create the import ImportFeatAttr structure join surfaces, make solids 
-            'from every closed quilt using the add operation
-            '======================================================================
-            featAttr = (New CCpfcImportFeatAttr).Create()
-            featAttr.JoinSurfs = True
-            featAttr.MakeSolid = True
-            featAttr.Operation = EpfcOperationType.EpfcADD_OPERATION
-
-            importFeature = solid.CreateImportFeat(dataSource, cSystem, featAttr)
-
-            Return importFeature
-
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-            Return Nothing
         End Try
-    End Function
-
+    End Sub
 End Module

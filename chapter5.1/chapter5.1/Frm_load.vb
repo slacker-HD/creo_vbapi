@@ -10,6 +10,7 @@
             Btn_listFeat.Enabled = True
             Btn_delFeat.Enabled = True
             Btn_suppressFeat.Enabled = True
+            Btn_importFeatFromStep.Enabled = True
         End If
     End Sub
 
@@ -20,6 +21,7 @@
             Btn_listFeat.Enabled = True
             Btn_delFeat.Enabled = True
             Btn_suppressFeat.Enabled = True
+            Btn_importFeatFromStep.Enabled = True
         End If
     End Sub
 
@@ -29,5 +31,11 @@
 
     Private Sub Btn_suppressFeat_Click(sender As Object, e As EventArgs) Handles Btn_suppressFeat.Click
         SuppressFeat()
+    End Sub
+
+    Private Sub Btn_importFeatFromStep_Click(sender As Object, e As EventArgs) Handles Btn_importFeatFromStep.Click
+        If (Ofd.ShowDialog = DialogResult.OK) Then
+            CreateImportFeatureFromDataFile(Ofd.FileName)
+        End If
     End Sub
 End Class

@@ -29,8 +29,9 @@ Partial Class Frm_load
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.Btn_listFeat = New System.Windows.Forms.Button()
         Me.Btn_delFeat = New System.Windows.Forms.Button()
+        Me.Btn_importFeatFromStep = New System.Windows.Forms.Button()
         Me.Rtb_featInfo = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Ofd = New System.Windows.Forms.OpenFileDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -59,7 +60,7 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_listFeat, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_delFeat, 0, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 0, 5)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_importFeatFromStep, 0, 5)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
@@ -115,7 +116,7 @@ Partial Class Frm_load
         Me.Btn_listFeat.Name = "Btn_listFeat"
         Me.Btn_listFeat.Size = New System.Drawing.Size(186, 70)
         Me.Btn_listFeat.TabIndex = 2
-        Me.Btn_listFeat.Text = "打开模型后点击列出当前模型特征列表"
+        Me.Btn_listFeat.Text = "确保打开一个prt，点此列出当前模型特征列表"
         Me.Btn_listFeat.UseVisualStyleBackColor = True
         '
         'Btn_delFeat
@@ -129,6 +130,17 @@ Partial Class Frm_load
         Me.Btn_delFeat.Text = "确保打开一个prt，点此选择特征并删除"
         Me.Btn_delFeat.UseVisualStyleBackColor = True
         '
+        'Btn_importFeatFromStep
+        '
+        Me.Btn_importFeatFromStep.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_importFeatFromStep.Enabled = False
+        Me.Btn_importFeatFromStep.Location = New System.Drawing.Point(3, 383)
+        Me.Btn_importFeatFromStep.Name = "Btn_importFeatFromStep"
+        Me.Btn_importFeatFromStep.Size = New System.Drawing.Size(186, 72)
+        Me.Btn_importFeatFromStep.TabIndex = 5
+        Me.Btn_importFeatFromStep.Text = "确保打开一个prt，点此打开一个step文件后在Creo窗口选择一个坐标系后导入"
+        Me.Btn_importFeatFromStep.UseVisualStyleBackColor = True
+        '
         'Rtb_featInfo
         '
         Me.Rtb_featInfo.Dock = System.Windows.Forms.DockStyle.Fill
@@ -139,14 +151,9 @@ Partial Class Frm_load
         Me.Rtb_featInfo.TabIndex = 5
         Me.Rtb_featInfo.Text = ""
         '
-        'Button1
+        'Ofd
         '
-        Me.Button1.Location = New System.Drawing.Point(3, 383)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Ofd.Filter = "(*.stp;*.step)|*.stp;*.step"
         '
         'Frm_load
         '
@@ -169,5 +176,6 @@ Partial Class Frm_load
     Friend WithEvents Rtb_featInfo As RichTextBox
     Friend WithEvents Btn_delFeat As Button
     Friend WithEvents Btn_suppressFeat As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Btn_importFeatFromStep As Button
+    Friend WithEvents Ofd As OpenFileDialog
 End Class

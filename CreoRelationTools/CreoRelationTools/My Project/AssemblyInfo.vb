@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("CreoFileExportTools")>
+<Assembly: AssemblyTitle("CreoRelationTools")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("合肥工业大学智能制造技术研究院")>
-<Assembly: AssemblyProduct("CreoFileExportTools")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("CreoRelationTools")>
 <Assembly: AssemblyCopyright("Copyright ©  2017")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 '如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-<Assembly: Guid("e93e763b-35d1-47b0-a3cf-ec193a72ec06")>
+<Assembly: Guid("725821de-6da9-4036-b017-d1d9ee9230a0")>
 
 ' 程序集的版本信息由下列四个值组成: 
 '
