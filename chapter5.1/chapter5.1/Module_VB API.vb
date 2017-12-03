@@ -154,6 +154,10 @@ Module Module_vbapi
         End Try
     End Sub
 
+    ''' <summary>
+    ''' 导入一个step特征
+    ''' </summary>
+    ''' <param name="stepfile">step文件路径</param>
     Public Sub CreateImportFeatureFromDataFile(ByVal stepfile As String)
         Dim datasource As IpfcIntfStep
         Dim featattr As IpfcImportFeatAttr
