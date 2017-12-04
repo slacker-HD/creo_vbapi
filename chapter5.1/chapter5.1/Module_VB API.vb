@@ -53,16 +53,22 @@ Module Module_vbapi
         Dim modelItem As IpfcModelItem
         Dim i As Integer
         info = ""
+        i = 0
         Try
             model = asyncConnection.Session.CurrentModel
             solid = CType(model, IpfcSolid)
 
             features = solid.ListFeaturesByType(False, EpfcFeatureType.EpfcFeatureType_nil)
-
-            For i = 0 To features.Count - 1
-                modelItem = CType(features.Item(i), IpfcModelItem)
+            '这里用foreach，使用count也可以，见下面的注释
+            For Each feature As IpfcFeature In features
+                modelItem = CType(feature, IpfcModelItem)
                 info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + modelItem.GetName() + "  类型：" + features.Item(i).FeatTypeName + Chr(13)
+                i = i + 1
             Next
+            'For i = 0 To features.Count - 1
+            '    modelItem = CType(features.Item(i), IpfcModelItem)
+            '    info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + modelItem.GetName() + "  类型：" + features.Item(i).FeatTypeName + Chr(13)
+            'Next
         Catch ex As Exception
             info = ex.Message.ToString + Chr(13) + ex.StackTrace.ToString
         End Try
