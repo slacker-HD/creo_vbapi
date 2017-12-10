@@ -107,7 +107,7 @@ Module Module_vbapi
                 deleteOperation.Clip = True '是否删除该特征后的所有选项，本例设置为真。其余的删除选项请查看帮助文档。
                 featureOperations.Append(deleteOperation)
                 '生产删除操作的重生选项
-                regenInstructions = (New CCpfcRegenInstructions).Create(True, True, Nothing)
+                regenInstructions = (New CCpfcRegenInstructions).Create(True, True, True)
                 regenInstructions.UpdateInstances = False '是否更新内存。其余的选项请查看帮助文档。
                 solid.ExecuteFeatureOps（featureOperations, regenInstructions） 'regenInstructions是可选选项，也可以直接设置为Nothing
             End If
