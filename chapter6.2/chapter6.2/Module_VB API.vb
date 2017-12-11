@@ -78,4 +78,40 @@ Module Module_vbapi
         Return ret
     End Function
 
+
+    Public Function GetSelInterferences() As String
+        Dim selectionOptions As IpfcSelectionOptions
+        Dim selections As CpfcSelections
+        Dim selectionspair As IpfcSelectionPair
+        Dim selectionEvaluator As IpfcSelectionEvaluator
+        Dim asm As IpfcModel
+        Dim interferenceVolume As IpfcInterferenceVolume
+
+        Dim ret As String = ""
+        Try
+            asm = asyncConnection.Session.CurrentModel
+            If asm.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
+                '初始化selection选项
+                selectionOptions = (New CCpfcSelectionOptions).Create("part") '设置可选特征的类型，这里为零件
+                selectionOptions.MaxNumSels = 2 '设置一次可选择特征的数量，这里判断两个零件的干涉，所以为2
+                selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+                '确定选择了两个对象
+                If selections.Count = 2 Then
+                    selectionspair = (New CCpfcSelectionPair).Create(selections.Item(0), selections.Item(1))
+                    selectionEvaluator = (New CMpfcInterference).CreateSelectionEvaluator(selectionspair)
+                    interferenceVolume = selectionEvaluator.ComputeInterference(True)
+                    ret = "干涉量为：" + interferenceVolume.ComputeVolume().ToString() + Chr(13)
+                Else
+                    ret = "用户未完成选择！"
+                End If
+            End If
+            '使用函数刷新，也很简单
+            asyncConnection.Session.CurrentWindow.Refresh()
+        Catch ex As Exception
+            ret = ex.Message.ToString + Chr(13) + ex.StackTrace.ToString
+        End Try
+        Return ret
+    End Function
+
+
 End Module
