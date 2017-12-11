@@ -44,6 +44,15 @@
 + 选中一个特征并隐含
 + 导入step特征
 
+## chapter6.1对应vbapi二次开发-6-零件装配（not finished yet）
+
++ 插入一个零件
++ 添加一个约束
+
+## chapter6.2对应vbapi二次开发-6-干涉检测
+
++ 列出所有干涉零件及其干涉量
+
 ## CreoFileExportTools对应开发的批量格式导出小工具
 
 + 批量将选定目录下的drw文件导出到指定目录下的dwg文件
