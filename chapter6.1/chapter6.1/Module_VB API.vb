@@ -49,6 +49,8 @@ Module Module_vbapi
         Dim fileOpenopts As IpfcFileOpenOptions
         Dim filename As String
         Dim retrieveModelOptions As IpfcRetrieveModelOptions
+        Dim matrix As New CpfcMatrix3D
+        Dim transform3D As IpfcTransform3D
         Try
             model = asyncConnection.Session.CurrentModel
             If model Is Nothing Then
@@ -68,7 +70,18 @@ Module Module_vbapi
                 '加载零件
                 componentModel = asyncConnection.Session.RetrievemodelWithOpts(modelDesc, retrieveModelOptions)
                 assembly = CType(model, IpfcAssembly)
-                assembly.AssembleComponent(componentModel, Nothing)
+                '初始化位姿矩阵，这是默认位置,可以根据位姿矩阵定义自己修改零件初始化插入位置
+                For i = 0 To 3
+                    For j = 0 To 3
+                        If i = j Then
+                            matrix.Set(i, j, 1.0)
+                        Else
+                            matrix.Set(i, j, 0.0)
+                        End If
+                    Next
+                Next
+                transform3D = (New CCpfcTransform3D).Create(matrix)
+                assembly.AssembleComponent(componentModel, transform3D)
             End If
             asyncConnection.Session.CurrentWindow.Refresh()
         Catch ex As Exception
@@ -76,41 +89,5 @@ Module Module_vbapi
                 MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
             End If
         End Try
-
-
     End Sub
-
-
-    ''' <summary>
-    ''' 打开一个模型
-    ''' </summary>
-    Public Function Prt()
-        Dim modelDesc As IpfcModelDescriptor
-        Dim fileOpenopts As IpfcFileOpenOptions
-        Dim filename As String
-        Dim retrieveModelOptions As IpfcRetrieveModelOptions
-        Dim model As IpfcModel
-        Try
-            '使用ccpfc类初始化ipfc类，生成creo打开文件的对话框的选项
-            fileOpenopts = (New CCpfcFileOpenOptions).Create("*.prt")
-            '如果点击取消按钮，会throw一个"pfcExceptions::XToolkitUserAbort" Exception，被下面的catch捕捉
-            filename = asyncConnection.Session.UIOpenFile(fileOpenopts)
-            '使用ccpfc类初始化ipfc类，生成IpfcModelDescriptor
-            modelDesc = (New CCpfcModelDescriptor).Create(EpfcModelType.EpfcMDL_PART, Nothing, Nothing)
-            modelDesc.Path = filename
-            '使用ccpfc类初始化ipfc类，生成IpfcRetrieveModelOptions
-            retrieveModelOptions = (New CCpfcRetrieveModelOptions).Create
-            retrieveModelOptions.AskUserAboutReps = False
-            '加载零件
-            model = asyncConnection.Session.RetrievemodelWithOpts(modelDesc, retrieveModelOptions)
-            '显示零件
-            model.Display()
-            '激活当前窗体
-            asyncConnection.Session.CurrentWindow.Activate()
-        Catch ex As Exception
-            If ex.Message <> "pfcExceptions::XToolkitUserAbort" Then
-                MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-            End If
-        End Try
-    End Function
 End Module

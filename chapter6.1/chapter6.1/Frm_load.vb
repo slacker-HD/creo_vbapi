@@ -1,4 +1,6 @@
-﻿Public Class Frm_load
+﻿Imports pfcls
+
+Public Class Frm_load
     Private Sub Btn_Connect_Click(sender As Object, e As EventArgs) Handles Btn_Connect.Click
         If Creo_Connect() <> True Then
             MsgBox("无法新建CREO对话！")
@@ -15,5 +17,9 @@
 
     Private Sub Btn_assemble_Click(sender As Object, e As EventArgs) Handles Btn_assemble.Click
         InsertComp()
+    End Sub
+
+    Private Sub Btn_rotate_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class
