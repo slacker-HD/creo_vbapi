@@ -7,7 +7,7 @@
 
     Private Sub Btn_Connect_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Btn_Connect.Click
         If Creo_Connect() <> True Then
-            MsgBox("无法连接到CREO对话！")
+            MsgBox("无法连接CREO对话！")
         End If
     End Sub
 End Class

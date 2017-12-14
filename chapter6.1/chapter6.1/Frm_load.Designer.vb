@@ -24,10 +24,10 @@ Partial Class Frm_load
     Private Sub InitializeComponent()
         Me.Ofd = New System.Windows.Forms.OpenFileDialog()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_constrainsAdd = New System.Windows.Forms.Button()
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.Btn_assemble = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,7 +39,7 @@ Partial Class Frm_load
         '
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Button3, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_constrainsAdd, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_assemble, 0, 2)
@@ -56,6 +56,17 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(336, 445)
         Me.TableLayoutPanel2.TabIndex = 5
+        '
+        'Btn_constrainsAdd
+        '
+        Me.Btn_constrainsAdd.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_constrainsAdd.Enabled = False
+        Me.Btn_constrainsAdd.Location = New System.Drawing.Point(3, 336)
+        Me.Btn_constrainsAdd.Name = "Btn_constrainsAdd"
+        Me.Btn_constrainsAdd.Size = New System.Drawing.Size(330, 106)
+        Me.Btn_constrainsAdd.TabIndex = 5
+        Me.Btn_constrainsAdd.Text = "添加一个约束"
+        Me.Btn_constrainsAdd.UseVisualStyleBackColor = True
         '
         'Btn_new
         '
@@ -82,22 +93,13 @@ Partial Class Frm_load
         'Btn_assemble
         '
         Me.Btn_assemble.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_assemble.Enabled = False
         Me.Btn_assemble.Location = New System.Drawing.Point(3, 225)
         Me.Btn_assemble.Name = "Btn_assemble"
         Me.Btn_assemble.Size = New System.Drawing.Size(330, 105)
         Me.Btn_assemble.TabIndex = 2
         Me.Btn_assemble.Text = "确保当前打开了一个装配体，点击打开一个零件并根据矩阵插入"
         Me.Btn_assemble.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button3.Location = New System.Drawing.Point(3, 336)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(330, 106)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "添加一个约束"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'Frm_load
         '
@@ -115,5 +117,5 @@ Partial Class Frm_load
     Friend WithEvents Btn_new As Button
     Friend WithEvents Btn_Connect As Button
     Friend WithEvents Btn_assemble As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents Btn_constrainsAdd As Button
 End Class
