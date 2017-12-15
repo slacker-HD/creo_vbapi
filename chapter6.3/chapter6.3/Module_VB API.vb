@@ -42,76 +42,70 @@ Module Module_vbapi
         End Try
     End Function
 
-    Public Function GetGlobalInterferences() As String
-        Dim asm As IpfcModel
-        Dim globalEvaluator As IpfcGlobalEvaluator
-        Dim globalInterferences As IpfcGlobalInterferences
-        Dim selParts As IpfcSelectionPair
-        Dim sel1, sel2 As IpfcSelection
-        Dim selItem1, selItem2 As IpfcModel
-        Dim volume As IpfcInterferenceVolume
-        Dim ret As String = ""
+    ''' <summary>
+    ''' 获取装配树结构
+    ''' </summary>
+    ''' <returns>返回装配树结构描述字符串</returns>
+    Public Function ComponentFeatTreeInfo() As String
+        Dim model As IpfcModel
+        Dim solid As IpfcSolid
+        Dim components As IpfcFeatures
+        Dim modelItem As IpfcModelItem
+        Dim componentFeat As IpfcComponentFeat
+        Dim i As Integer = 0
+        Dim info As String = ""
         Try
-            asm = asyncConnection.Session.CurrentModel
-            If asm.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
-
-                globalEvaluator = (New CMpfcInterference).CreateGlobalEvaluator(CType(asm, IpfcAssembly))
-                globalInterferences = globalEvaluator.ComputeGlobalInterference(True)
-
-                If Not (globalInterferences Is Nothing) Then
-                    For Each interference As IpfcGlobalInterference In globalInterferences
-                        selParts = interference.SelParts
-                        sel1 = selParts.Sel1
-                        sel2 = selParts.Sel2
-                        selItem1 = sel1.SelModel
-                        selItem2 = sel2.SelModel
-                        volume = interference.Volume
-                        ret = ret + selItem1.InstanceName + "和" + selItem2.InstanceName + "发生干涉，干涉量为：" + volume.ComputeVolume.ToString() + Chr(13)
-                    Next
-                Else
-                    ret = asm.InstanceName + "未发生干涉."
+            model = asyncConnection.Session.CurrentModel
+            solid = CType(model, IpfcSolid)
+            components = solid.ListFeaturesByType(True, EpfcFeatureType.EpfcFEATTYPE_COMPONENT)
+            For Each component As IpfcFeature In components
+                modelItem = CType(component, IpfcModelItem)
+                componentFeat = CType(component, IpfcComponentFeat)
+                '如5.1所述，getname是基本无效的，还好可以通过model的instantname实现
+                info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + componentFeat.ModelDescr.GetFileName + "  类型：" + componentFeat.ModelDescr.GetExtension() + Chr(13)
+                i = i + 1
+                If componentFeat.ModelDescr.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
+                    info += GetSubassemblyinfo(i, componentFeat.ModelDescr, 0)
                 End If
-            End If
+            Next
         Catch ex As Exception
-            ret = ex.Message.ToString + Chr(13) + ex.StackTrace.ToString
+            info = ex.Message.ToString + Chr(13) + ex.StackTrace.ToString
         End Try
-        Return ret
+        Return info
     End Function
 
-
-    Public Function GetSelInterferences() As String
-        Dim selectionOptions As IpfcSelectionOptions
-        Dim selections As CpfcSelections
-        Dim selectionspair As IpfcSelectionPair
-        Dim selectionEvaluator As IpfcSelectionEvaluator
-        Dim asm As IpfcModel
-        Dim interferenceVolume As IpfcInterferenceVolume
-
-        Dim ret As String = ""
-        Try
-            asm = asyncConnection.Session.CurrentModel
-            If asm.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
-                '初始化selection选项
-                selectionOptions = (New CCpfcSelectionOptions).Create("part") '设置可选特征的类型，这里为零件
-                selectionOptions.MaxNumSels = 2 '设置一次可选择特征的数量，这里判断两个零件的干涉，所以为2
-                selections = asyncConnection.Session.Select(selectionOptions, Nothing)
-                '确定选择了两个对象
-                If selections.Count = 2 Then
-                    selectionspair = (New CCpfcSelectionPair).Create(selections.Item(0), selections.Item(1))
-                    selectionEvaluator = (New CMpfcInterference).CreateSelectionEvaluator(selectionspair)
-                    interferenceVolume = selectionEvaluator.ComputeInterference(True)
-                    ret = "干涉量为：" + interferenceVolume.ComputeVolume().ToString() + Chr(13)
-                Else
-                    ret = "用户未完成选择！"
-                End If
+    ''' <summary>
+    ''' 递归获取子装配体的信息
+    ''' </summary>
+    ''' <param name="i">序号，byref传递保证序号对应</param>
+    ''' <param name="ModelDescr">模型描述</param>
+    ''' <param name="level">装配树level</param>
+    ''' <returns>子装配体树结构</returns>
+    Private Function GetSubassemblyinfo(ByRef i As Integer, ByVal ModelDescr As IpfcModelDescriptor, ByVal level As Integer) As String
+        Dim model As IpfcModel
+        Dim solid As IpfcSolid
+        Dim components As IpfcFeatures
+        Dim info As String = ""
+        Dim j As Integer
+        Dim tabstr As String = ""
+        Dim modelItem As IpfcModelItem
+        Dim componentFeat As IpfcComponentFeat
+        model = asyncConnection.Session.GetModelFromDescr(ModelDescr)
+        solid = CType(model, IpfcSolid)
+        components = solid.ListFeaturesByType(True, EpfcFeatureType.EpfcFEATTYPE_COMPONENT)
+        For j = 0 To level
+            tabstr += vbTab
+        Next
+        For Each component As IpfcFeature In components
+            modelItem = CType(component, IpfcModelItem)
+            componentFeat = CType(component, IpfcComponentFeat)
+            info += tabstr + "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + componentFeat.ModelDescr.InstanceName + "  类型：" + componentFeat.ModelDescr.GetExtension() + Chr(13)
+            i = i + 1
+            If componentFeat.ModelDescr.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
+                info += GetSubassemblyinfo(i, componentFeat.ModelDescr, level + 1)
             End If
-            '使用函数刷新，也很简单
-            asyncConnection.Session.CurrentWindow.Refresh()
-        Catch ex As Exception
-            ret = ex.Message.ToString + Chr(13) + ex.StackTrace.ToString
-        End Try
-        Return ret
+        Next
+        Return info
     End Function
-
 
 End Module

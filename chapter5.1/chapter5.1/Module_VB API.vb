@@ -62,7 +62,8 @@ Module Module_vbapi
             '这里用foreach，使用count也可以，见下面的注释
             For Each feature As IpfcFeature In features
                 modelItem = CType(feature, IpfcModelItem)
-                info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + modelItem.GetName() + "  类型：" + features.Item(i).FeatTypeName + Chr(13)
+                'modelItem.GetName()，不像toolkit那样有getdefaultname方法，所以基本是无法获取到modelitem的名称的，这里vbapi功能不全
+                info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + modelItem.GetName() + "  类型：" + feature.FeatTypeName + Chr(13)
                 i = i + 1
             Next
             'For i = 0 To features.Count - 1

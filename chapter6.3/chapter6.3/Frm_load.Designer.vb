@@ -26,7 +26,7 @@ Partial Class Frm_load
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
-        Me.Btn_globalInterferenceInfo = New System.Windows.Forms.Button()
+        Me.Btn_assemblyTreeinfo = New System.Windows.Forms.Button()
         Me.Btn_interferenceSel = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Rtb_info = New System.Windows.Forms.RichTextBox()
@@ -44,7 +44,7 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Btn_globalInterferenceInfo, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_assemblyTreeinfo, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_interferenceSel, 0, 3)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
@@ -80,16 +80,16 @@ Partial Class Frm_load
         Me.Btn_Connect.Text = "连接现有会话"
         Me.Btn_Connect.UseVisualStyleBackColor = True
         '
-        'Btn_globalInterferenceInfo
+        'Btn_assemblyTreeinfo
         '
-        Me.Btn_globalInterferenceInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_globalInterferenceInfo.Enabled = False
-        Me.Btn_globalInterferenceInfo.Location = New System.Drawing.Point(3, 235)
-        Me.Btn_globalInterferenceInfo.Name = "Btn_globalInterferenceInfo"
-        Me.Btn_globalInterferenceInfo.Size = New System.Drawing.Size(136, 110)
-        Me.Btn_globalInterferenceInfo.TabIndex = 2
-        Me.Btn_globalInterferenceInfo.Text = "确保当前打开了一个装配体，点击获取全局干涉信息"
-        Me.Btn_globalInterferenceInfo.UseVisualStyleBackColor = True
+        Me.Btn_assemblyTreeinfo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_assemblyTreeinfo.Enabled = False
+        Me.Btn_assemblyTreeinfo.Location = New System.Drawing.Point(3, 235)
+        Me.Btn_assemblyTreeinfo.Name = "Btn_assemblyTreeinfo"
+        Me.Btn_assemblyTreeinfo.Size = New System.Drawing.Size(136, 110)
+        Me.Btn_assemblyTreeinfo.TabIndex = 2
+        Me.Btn_assemblyTreeinfo.Text = "确保当前打开了一个装配体，点击获取装配树信息"
+        Me.Btn_assemblyTreeinfo.UseVisualStyleBackColor = True
         '
         'Btn_interferenceSel
         '
@@ -142,7 +142,7 @@ Partial Class Frm_load
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Btn_new As Button
     Friend WithEvents Btn_Connect As Button
-    Friend WithEvents Btn_globalInterferenceInfo As Button
+    Friend WithEvents Btn_assemblyTreeinfo As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Rtb_info As RichTextBox
     Friend WithEvents Btn_interferenceSel As Button
