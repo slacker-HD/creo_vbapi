@@ -65,7 +65,7 @@ Partial Class Frm_load
         Me.Btn_constrainsAdd.Name = "Btn_constrainsAdd"
         Me.Btn_constrainsAdd.Size = New System.Drawing.Size(330, 106)
         Me.Btn_constrainsAdd.TabIndex = 5
-        Me.Btn_constrainsAdd.Text = "添加一个约束"
+        Me.Btn_constrainsAdd.Text = "添加一个距离约束，默认距离为100。操作时先选择一个零件，再选择其它零件的一个面，最后选择选中零件的一个面，三次选择完成操作。"
         Me.Btn_constrainsAdd.UseVisualStyleBackColor = True
         '
         'Btn_new

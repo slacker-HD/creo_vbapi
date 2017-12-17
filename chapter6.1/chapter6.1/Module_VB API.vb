@@ -91,25 +91,60 @@ Module Module_vbapi
         End Try
     End Sub
 
-    Public Sub SelectFeat()
+    ''' <summary>
+    ''' 添加一个MATE_OFF约束，默认OFFSET为100
+    ''' </summary>
+    Public Sub AddConstrainOffSet()
         Dim selectionOptions As IpfcSelectionOptions
         Dim selections As CpfcSelections
         Dim selectFeats As IpfcSelection
-        Dim selectedfeat As IpfcModelItem
+        Dim selectedComponent As IpfcModelItem
         Dim componentFeat As IpfcComponentFeat
-        Dim feature As IpfcFeature
+        Dim compConstraints As New CpfcComponentConstraints
+        Dim compConstraint As IpfcComponentConstraint
+        Dim asmReference As IpfcSelection
+        Dim compReference As IpfcSelection
+        Dim offset As Double = 100 '默认值OFFSET为100，为简单起见，实际应该作为函数的参数
         Try
             '初始化selection选项
             selectionOptions = (New CCpfcSelectionOptions).Create("component") '设置可选特征的类型，这里为特征对象
             selectionOptions.MaxNumSels = 1 '设置一次可选择特征的数量
             selections = asyncConnection.Session.Select(selectionOptions, Nothing)
-            '确定选择了一个对象
+            '第一步，选择一个零件，确保零件没有约束或者添加的约束不会冲突
             If selections.Count > 0 Then
                 selectFeats = selections.Item(0)
-                selectedfeat = selectFeats.SelItem
-                feature = CType(selectedfeat, IpfcFeature) '可以用featureType判断是零件还是装配体等
-                componentFeat = CType(feature, IpfcComponentFeat)
-                MessageBox.Show(componentFeat.GetConstraints().Count)
+                selectedComponent = selectFeats.SelItem
+                componentFeat = CType(selectedComponent, IpfcComponentFeat)
+                '第二步，选择装配体中其余零件的表面
+                selectionOptions = (New CCpfcSelectionOptions).Create("surface")
+                selectionOptions.MaxNumSels = 1
+                selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+                If selections.Count > 0 Then
+                    asmReference = selections.Item(0)
+                Else
+                    MessageBox.Show("请选择装配体中其余零件的表面！")
+                    Return
+                End If
+                '第三步，选择选中零件的表面
+                selectionOptions = (New CCpfcSelectionOptions).Create("surface")
+                selectionOptions.MaxNumSels = 1
+                selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+                If selections.Count > 0 Then
+                    compReference = selections.Item(0)
+                Else
+                    MessageBox.Show("请选择当前零件的表面！")
+                    Return
+                End If
+                '以上两个选择根据约束的要求可以更换不同的filter获取
+                '为简单起见认为是EpfcComponentConstraintType.EpfcASM_CONSTRAINT_MATE_OFF，其实应该作为函数参数传入
+                compConstraint = (New CCpfcComponentConstraint).Create(EpfcComponentConstraintType.EpfcASM_CONSTRAINT_MATE_OFF)
+                compConstraint.AssemblyReference = asmReference
+                compConstraint.ComponentReference = compReference
+                compConstraint.Offset = offset
+                '完成compConstraint的设置，增加到compConstraints
+                compConstraints.Append(compConstraint)
+                '实际应该将compConstraints与componentFeat.GetConstraints读到的约束合并，这里仅为做示例默认去除了原有的约束
+                componentFeat.SetConstraints(compConstraints, Nothing)
             End If
             '使用函数刷新，也很简单
             asyncConnection.Session.CurrentWindow.Refresh()

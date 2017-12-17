@@ -24,6 +24,6 @@ Public Class Frm_load
     End Sub
 
     Private Sub Btn_constrainsAdd_Click(sender As Object, e As EventArgs) Handles Btn_constrainsAdd.Click
-        SelectFeat()
+        AddConstrainOffSet()
     End Sub
 End Class
