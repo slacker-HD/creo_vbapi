@@ -27,7 +27,6 @@ Partial Class Frm_load
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.Btn_assemblyTreeinfo = New System.Windows.Forms.Button()
-        Me.Btn_interferenceSel = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Rtb_info = New System.Windows.Forms.RichTextBox()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -45,16 +44,15 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_assemblyTreeinfo, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Btn_interferenceSel, 0, 3)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 4
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.RowCount = 3
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(142, 466)
         Me.TableLayoutPanel2.TabIndex = 5
         '
@@ -64,7 +62,7 @@ Partial Class Frm_load
         Me.Btn_new.Location = New System.Drawing.Point(4, 4)
         Me.Btn_new.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_new.Name = "Btn_new"
-        Me.Btn_new.Size = New System.Drawing.Size(134, 108)
+        Me.Btn_new.Size = New System.Drawing.Size(134, 147)
         Me.Btn_new.TabIndex = 0
         Me.Btn_new.Text = "启动新会话"
         Me.Btn_new.UseVisualStyleBackColor = True
@@ -72,10 +70,10 @@ Partial Class Frm_load
         'Btn_Connect
         '
         Me.Btn_Connect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Connect.Location = New System.Drawing.Point(4, 120)
+        Me.Btn_Connect.Location = New System.Drawing.Point(4, 159)
         Me.Btn_Connect.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Connect.Name = "Btn_Connect"
-        Me.Btn_Connect.Size = New System.Drawing.Size(134, 108)
+        Me.Btn_Connect.Size = New System.Drawing.Size(134, 147)
         Me.Btn_Connect.TabIndex = 1
         Me.Btn_Connect.Text = "连接现有会话"
         Me.Btn_Connect.UseVisualStyleBackColor = True
@@ -84,22 +82,12 @@ Partial Class Frm_load
         '
         Me.Btn_assemblyTreeinfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Btn_assemblyTreeinfo.Enabled = False
-        Me.Btn_assemblyTreeinfo.Location = New System.Drawing.Point(3, 235)
+        Me.Btn_assemblyTreeinfo.Location = New System.Drawing.Point(3, 313)
         Me.Btn_assemblyTreeinfo.Name = "Btn_assemblyTreeinfo"
-        Me.Btn_assemblyTreeinfo.Size = New System.Drawing.Size(136, 110)
+        Me.Btn_assemblyTreeinfo.Size = New System.Drawing.Size(136, 150)
         Me.Btn_assemblyTreeinfo.TabIndex = 2
         Me.Btn_assemblyTreeinfo.Text = "确保当前打开了一个装配体，点击获取装配树信息"
         Me.Btn_assemblyTreeinfo.UseVisualStyleBackColor = True
-        '
-        'Btn_interferenceSel
-        '
-        Me.Btn_interferenceSel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_interferenceSel.Location = New System.Drawing.Point(3, 351)
-        Me.Btn_interferenceSel.Name = "Btn_interferenceSel"
-        Me.Btn_interferenceSel.Size = New System.Drawing.Size(136, 112)
-        Me.Btn_interferenceSel.TabIndex = 3
-        Me.Btn_interferenceSel.Text = "确保当前打开了一个装配体，点击按钮后在Creo窗口选择两个零件查看其干涉情况" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Btn_interferenceSel.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -145,5 +133,4 @@ Partial Class Frm_load
     Friend WithEvents Btn_assemblyTreeinfo As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Rtb_info As RichTextBox
-    Friend WithEvents Btn_interferenceSel As Button
 End Class
