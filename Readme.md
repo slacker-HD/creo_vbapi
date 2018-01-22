@@ -58,6 +58,24 @@
 
 + 获取装配树结构
 
+## ~~chapter7.1对应vbapi二次开发-7-尺寸修饰~~
+
+## ~~chapter7.1对应vbapi二次开发-7-公差标注~~
+
+## ~~chapter7.2对应vbapi二次开发-7-插入符号~~
+
+## ~~chapter7.3对应vbapi二次开发-7-插入文字~~
+
+## ~~chapter7.4对应vbapi二次开发-7-表格操作~~
+
+## ~~chapter7.4对应vbapi二次开发-7-BOM操作~~
+
+## ~~chapter7.4对应vbapi二次开发-7-倒角~~
+
+## ~~chapter7.4对应vbapi二次开发-7-图幅~~
+
+## ~~chapter7.4对应vbapi二次开发-7-打印~~
+
 ## CreoFileExportTools对应开发的批量格式导出小工具
 
 + 批量将选定目录下的drw文件导出到指定目录下的dwg文件

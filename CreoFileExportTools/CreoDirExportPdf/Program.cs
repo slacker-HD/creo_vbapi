@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Copyright (c) 2018 胡迪
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+using System;
 using System.IO;
 using pfcls;
 

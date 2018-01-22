@@ -94,7 +94,7 @@ Module Module_vbapi
     ''' <summary>
     ''' 添加一个MATE_OFF约束，默认OFFSET为100
     ''' </summary>
-    Public Sub AddConstrainOffSet()
+    Public Sub SetConstrainOffSet()
         Dim selectionOptions As IpfcSelectionOptions
         Dim selections As CpfcSelections
         Dim selectFeats As IpfcSelection
