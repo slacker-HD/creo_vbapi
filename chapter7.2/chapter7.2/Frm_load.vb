@@ -3,9 +3,6 @@
         If Creo_Connect() <> True Then
             MsgBox("无法连接CREO对话！")
         Else
-            Btn_Prefix.Enabled = True
-            Btn_Surffix.Enabled = True
-            Btn_DownText.Enabled = True
         End If
     End Sub
 
@@ -13,9 +10,6 @@
         If Creo_New() <> True Then
             MsgBox("无法新建CREO对话！")
         Else
-            Btn_Prefix.Enabled = True
-            Btn_Surffix.Enabled = True
-            Btn_DownText.Enabled = True
         End If
     End Sub
 

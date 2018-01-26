@@ -59,7 +59,6 @@ Partial Class Frm_load
         'Btn_DownText
         '
         Me.Btn_DownText.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_DownText.Enabled = False
         Me.Btn_DownText.Location = New System.Drawing.Point(4, 352)
         Me.Btn_DownText.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_DownText.Name = "Btn_DownText"
@@ -71,7 +70,6 @@ Partial Class Frm_load
         'Btn_Surffix
         '
         Me.Btn_Surffix.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Surffix.Enabled = False
         Me.Btn_Surffix.Location = New System.Drawing.Point(4, 265)
         Me.Btn_Surffix.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Surffix.Name = "Btn_Surffix"
@@ -83,7 +81,6 @@ Partial Class Frm_load
         'Btn_Prefix
         '
         Me.Btn_Prefix.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Prefix.Enabled = False
         Me.Btn_Prefix.Location = New System.Drawing.Point(4, 178)
         Me.Btn_Prefix.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Prefix.Name = "Btn_Prefix"
