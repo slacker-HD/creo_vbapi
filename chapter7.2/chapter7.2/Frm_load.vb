@@ -5,6 +5,10 @@ Public Class Frm_load
         If Creo_Connect() <> True Then
             MsgBox("无法连接CREO对话！")
         Else
+            Btn_Symmetrical.Enabled = True
+            Btn_PlusMinus.Enabled = True
+            Btn_TolTable.Enabled = True
+            Btn_TolFit.Enabled = True
         End If
     End Sub
 
@@ -12,6 +16,10 @@ Public Class Frm_load
         If Creo_New() <> True Then
             MsgBox("无法新建CREO对话！")
         Else
+            Btn_Symmetrical.Enabled = True
+            Btn_PlusMinus.Enabled = True
+            Btn_TolTable.Enabled = True
+            Btn_TolFit.Enabled = True
         End If
     End Sub
 

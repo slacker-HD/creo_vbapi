@@ -64,6 +64,7 @@ Partial Class Frm_load
         'Btn_TolTable
         '
         Me.Btn_TolTable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_TolTable.Enabled = False
         Me.Btn_TolTable.Location = New System.Drawing.Point(4, 252)
         Me.Btn_TolTable.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_TolTable.Name = "Btn_TolTable"
@@ -75,6 +76,7 @@ Partial Class Frm_load
         'Btn_PlusMinus
         '
         Me.Btn_PlusMinus.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_PlusMinus.Enabled = False
         Me.Btn_PlusMinus.Location = New System.Drawing.Point(4, 190)
         Me.Btn_PlusMinus.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_PlusMinus.Name = "Btn_PlusMinus"
@@ -86,6 +88,7 @@ Partial Class Frm_load
         'Btn_Symmetrical
         '
         Me.Btn_Symmetrical.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Symmetrical.Enabled = False
         Me.Btn_Symmetrical.Location = New System.Drawing.Point(4, 128)
         Me.Btn_Symmetrical.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Symmetrical.Name = "Btn_Symmetrical"
@@ -133,6 +136,7 @@ Partial Class Frm_load
         'Btn_TolFit
         '
         Me.Btn_TolFit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_TolFit.Enabled = False
         Me.Btn_TolFit.Location = New System.Drawing.Point(4, 314)
         Me.Btn_TolFit.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_TolFit.Name = "Btn_TolFit"
