@@ -1,4 +1,6 @@
-﻿Public Class Frm_load
+﻿Imports System.Configuration
+
+Public Class Frm_load
     Private Sub Btn_Connect_Click(sender As Object, e As EventArgs) Handles Btn_Connect.Click
         If Creo_Connect() <> True Then
             MsgBox("无法连接CREO对话！")
@@ -13,16 +15,24 @@
         End If
     End Sub
 
-    Private Sub Btn_Prefix_Click(sender As Object, e As EventArgs) Handles Btn_Prefix.Click
-        Modify_text("4-", "", "")
+    Private Sub Frm_load_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '设置proe公差表文件的路径，在App.config增加新配置了
+        Tol_path = ConfigurationManager.AppSettings("TolFilepath").ToString()
     End Sub
 
-    Private Sub Btn_Surffix_Click(sender As Object, e As EventArgs) Handles Btn_Surffix.Click
-        Modify_text("", "-6H", "")
-
+    Private Sub Btn_Symmetrical_Click(sender As Object, e As EventArgs) Handles Btn_Symmetrical.Click
+        Symmetrical_tolerance（0.2）
     End Sub
 
-    Private Sub Btn_DownText_Click(sender As Object, e As EventArgs) Handles Btn_DownText.Click
-        Modify_text("", "", "跨中均布")
+    Private Sub Btn_Plusminus_Click(sender As Object, e As EventArgs) Handles Btn_PlusMinus.Click
+        Plusminus_tolerance(0.2, -0.1)
+    End Sub
+
+    Private Sub Btn_TolTable_Click(sender As Object, e As EventArgs) Handles Btn_TolTable.Click
+        Table_tolerance("h6", True)
+    End Sub
+
+    Private Sub Btn_TolFit_Click(sender As Object, e As EventArgs) Handles Btn_TolFit.Click
+        Fit_tolerance("H7/h6", True)
     End Sub
 End Class

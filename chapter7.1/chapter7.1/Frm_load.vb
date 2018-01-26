@@ -25,7 +25,6 @@
 
     Private Sub Btn_Surffix_Click(sender As Object, e As EventArgs) Handles Btn_Surffix.Click
         Modify_text("", "-6H", "")
-
     End Sub
 
     Private Sub Btn_DownText_Click(sender As Object, e As EventArgs) Handles Btn_DownText.Click

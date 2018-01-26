@@ -3,7 +3,6 @@ Imports pfcls
 
 Module Module_vbapi
     Public asyncConnection As IpfcAsyncConnection = Nothing '全局变量，用于存储连接会话的句柄
-    Dim model As IpfcModel
     ''' <summary>
     ''' 连接现有会话
     ''' </summary>
@@ -92,8 +91,9 @@ Module Module_vbapi
     ''' </summary>
     Private Sub Reg_Csheet()
         Dim drawing As IpfcDrawing
+        drawing = asyncConnection.Session.CurrentModel
         If Isdrawding() = True Then
-            drawing = CType(model, IpfcDrawing)
+            drawing = CType(drawing, IpfcDrawing)
             drawing.RegenerateSheet(drawing.CurrentSheetNumber)
         End If
     End Sub
@@ -103,10 +103,9 @@ Module Module_vbapi
     ''' <returns>是否为工程图</returns>
     Private Function Isdrawding() As Boolean
         Try
-            model = asyncConnection.Session.CurrentModel
-            If model Is Nothing Then
+            If asyncConnection.Session.CurrentModel Is Nothing Then
                 Isdrawding = False
-            ElseIf (model.Type = EpfcModelType.EpfcMDL_DRAWING) Then
+            ElseIf (asyncConnection.Session.CurrentModel.Type = EpfcModelType.EpfcMDL_DRAWING) Then
                 Isdrawding = True
             Else
                 Isdrawding = False

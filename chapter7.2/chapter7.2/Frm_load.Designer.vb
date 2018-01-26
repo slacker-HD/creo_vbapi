@@ -23,12 +23,14 @@ Partial Class Frm_load
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Btn_DownText = New System.Windows.Forms.Button()
-        Me.Btn_Surffix = New System.Windows.Forms.Button()
-        Me.Btn_Prefix = New System.Windows.Forms.Button()
+        Me.Btn_TolTable = New System.Windows.Forms.Button()
+        Me.Btn_PlusMinus = New System.Windows.Forms.Button()
+        Me.Btn_Symmetrical = New System.Windows.Forms.Button()
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_TolFit = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -37,57 +39,60 @@ Partial Class Frm_load
         '
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Btn_DownText, 0, 4)
-        Me.TableLayoutPanel2.Controls.Add(Me.Btn_Surffix, 0, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.Btn_Prefix, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_TolFit, 0, 5)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_TolTable, 0, 4)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_PlusMinus, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_Symmetrical, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 6)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 5
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.RowCount = 7
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(233, 438)
         Me.TableLayoutPanel2.TabIndex = 5
         '
-        'Btn_DownText
+        'Btn_TolTable
         '
-        Me.Btn_DownText.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_DownText.Location = New System.Drawing.Point(4, 352)
-        Me.Btn_DownText.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_DownText.Name = "Btn_DownText"
-        Me.Btn_DownText.Size = New System.Drawing.Size(225, 82)
-        Me.Btn_DownText.TabIndex = 4
-        Me.Btn_DownText.Text = "尺寸线下方加文字：跨中均布"
-        Me.Btn_DownText.UseVisualStyleBackColor = True
+        Me.Btn_TolTable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_TolTable.Location = New System.Drawing.Point(4, 252)
+        Me.Btn_TolTable.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_TolTable.Name = "Btn_TolTable"
+        Me.Btn_TolTable.Size = New System.Drawing.Size(225, 54)
+        Me.Btn_TolTable.TabIndex = 4
+        Me.Btn_TolTable.Text = "设置基轴制公差为h6并显示数值"
+        Me.Btn_TolTable.UseVisualStyleBackColor = True
         '
-        'Btn_Surffix
+        'Btn_PlusMinus
         '
-        Me.Btn_Surffix.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Surffix.Location = New System.Drawing.Point(4, 265)
-        Me.Btn_Surffix.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_Surffix.Name = "Btn_Surffix"
-        Me.Btn_Surffix.Size = New System.Drawing.Size(225, 79)
-        Me.Btn_Surffix.TabIndex = 3
-        Me.Btn_Surffix.Text = "后缀标注：-6H"
-        Me.Btn_Surffix.UseVisualStyleBackColor = True
+        Me.Btn_PlusMinus.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_PlusMinus.Location = New System.Drawing.Point(4, 190)
+        Me.Btn_PlusMinus.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_PlusMinus.Name = "Btn_PlusMinus"
+        Me.Btn_PlusMinus.Size = New System.Drawing.Size(225, 54)
+        Me.Btn_PlusMinus.TabIndex = 3
+        Me.Btn_PlusMinus.Text = "设置公差为：（+0.2,-0.1）"
+        Me.Btn_PlusMinus.UseVisualStyleBackColor = True
         '
-        'Btn_Prefix
+        'Btn_Symmetrical
         '
-        Me.Btn_Prefix.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Prefix.Location = New System.Drawing.Point(4, 178)
-        Me.Btn_Prefix.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_Prefix.Name = "Btn_Prefix"
-        Me.Btn_Prefix.Size = New System.Drawing.Size(225, 79)
-        Me.Btn_Prefix.TabIndex = 2
-        Me.Btn_Prefix.Text = "前缀标注：4-"
-        Me.Btn_Prefix.UseVisualStyleBackColor = True
+        Me.Btn_Symmetrical.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Symmetrical.Location = New System.Drawing.Point(4, 128)
+        Me.Btn_Symmetrical.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_Symmetrical.Name = "Btn_Symmetrical"
+        Me.Btn_Symmetrical.Size = New System.Drawing.Size(225, 54)
+        Me.Btn_Symmetrical.TabIndex = 2
+        Me.Btn_Symmetrical.Text = "设置公差为：±0.2"
+        Me.Btn_Symmetrical.UseVisualStyleBackColor = True
         '
         'Btn_new
         '
@@ -95,7 +100,7 @@ Partial Class Frm_load
         Me.Btn_new.Location = New System.Drawing.Point(4, 4)
         Me.Btn_new.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_new.Name = "Btn_new"
-        Me.Btn_new.Size = New System.Drawing.Size(225, 79)
+        Me.Btn_new.Size = New System.Drawing.Size(225, 54)
         Me.Btn_new.TabIndex = 0
         Me.Btn_new.Text = "启动新会话"
         Me.Btn_new.UseVisualStyleBackColor = True
@@ -103,10 +108,10 @@ Partial Class Frm_load
         'Btn_Connect
         '
         Me.Btn_Connect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Connect.Location = New System.Drawing.Point(4, 91)
+        Me.Btn_Connect.Location = New System.Drawing.Point(4, 66)
         Me.Btn_Connect.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Connect.Name = "Btn_Connect"
-        Me.Btn_Connect.Size = New System.Drawing.Size(225, 79)
+        Me.Btn_Connect.Size = New System.Drawing.Size(225, 54)
         Me.Btn_Connect.TabIndex = 1
         Me.Btn_Connect.Text = "连接现有会话"
         Me.Btn_Connect.UseVisualStyleBackColor = True
@@ -125,6 +130,30 @@ Partial Class Frm_load
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(241, 446)
         Me.TableLayoutPanel1.TabIndex = 6
         '
+        'Btn_TolFit
+        '
+        Me.Btn_TolFit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_TolFit.Location = New System.Drawing.Point(4, 314)
+        Me.Btn_TolFit.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_TolFit.Name = "Btn_TolFit"
+        Me.Btn_TolFit.Size = New System.Drawing.Size(225, 54)
+        Me.Btn_TolFit.TabIndex = 5
+        Me.Btn_TolFit.Text = "设置基轴配合公差为H7/h6并显示数值"
+        Me.Btn_TolFit.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 372)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(227, 66)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Tag = ""
+        Me.Label1.Text = "在设定公差时请先设定公差模式为ISO并加载公差表！！"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Frm_load
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -133,6 +162,7 @@ Partial Class Frm_load
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "Frm_load"
         Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -141,7 +171,9 @@ Partial Class Frm_load
     Friend WithEvents Btn_new As Button
     Friend WithEvents Btn_Connect As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Btn_DownText As Button
-    Friend WithEvents Btn_Surffix As Button
-    Friend WithEvents Btn_Prefix As Button
+    Friend WithEvents Btn_TolTable As Button
+    Friend WithEvents Btn_PlusMinus As Button
+    Friend WithEvents Btn_Symmetrical As Button
+    Friend WithEvents Btn_TolFit As Button
+    Friend WithEvents Label1 As Label
 End Class
