@@ -3,6 +3,7 @@ Imports pfcls
 
 Module Module_vbapi
     Public asyncConnection As IpfcAsyncConnection = Nothing '全局变量，用于存储连接会话的句柄
+
     ''' <summary>
     ''' 连接现有会话
     ''' </summary>
@@ -79,43 +80,21 @@ Module Module_vbapi
     Public Sub CreateNoteWithoutLeader(ByVal Texts As String)
         Dim model As IpfcModel
         Dim drawing As IpfcDrawing
-        Dim detailText As IpfcDetailText
-        Dim detailTexts As CpfcDetailTexts
-        Dim textLine As IpfcDetailTextLine
         Dim textLines As CpfcDetailTextLines
         Dim noteInstructions As IpfcDetailNoteInstructions
         Dim note As IpfcDetailNoteItem
-        Dim point As CpfcPoint3D
-        Dim mouse As IpfcMouseStatus
         Dim position As IpfcFreeAttachment
         Dim allAttachments As IpfcDetailLeaders
-        Dim i As Integer
-        Dim strs() As String
         Try
             If Isdrawding() = True Then
                 model = asyncConnection.Session.CurrentModel
                 drawing = CType(model, IpfcDrawing)
-                '将String赋值给textLines
-                textLines = New CpfcDetailTextLines
-                strs = Split(Texts, Chr(10)) '根据回车符分割确定行数
-                '根据行数创建对象并添加内容
-                For i = 0 To strs.Length - 1
-                    detailText = (New CCpfcDetailText).Create(strs(strs.Length - i - 1)) '注意顺序
-                    detailTexts = New CpfcDetailTexts
-                    detailTexts.Insert(0, detailText)
-                    textLine = (New CCpfcDetailTextLine).Create(detailTexts)
-                    textLines.Insert(0, textLine)
-                Next
-                '鼠标左键点选注解放置的位置   
-                asyncConnection.Session.UIDisplayMessage(Msg_file, "GetNotePos", Nothing) '显示提示，这里注意Msg_file的位置和内容
-                point = New CpfcPoint3D
-                mouse = asyncConnection.Session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
-                point = mouse.Position
-                '初始化Attachment为无引线
-                position = (New CCpfcFreeAttachment).Create(point)
-                '设置leader
-                allAttachments = (New CCpfcDetailLeaders).Create()
-                allAttachments.ItemAttachment = position
+                'String转CpfcDetailTextLines
+                textLines = StrstoTextlines(Texts)
+                '鼠标左键点选注解放置的位置
+                position = MousePosAttatchement()
+                '设置Attachments
+                allAttachments = SetAttatchements(Nothing, position)
                 '设置noteInstructions
                 noteInstructions = (New CCpfcDetailNoteInstructions).Create(textLines)
                 noteInstructions.Leader = allAttachments
@@ -138,64 +117,26 @@ Module Module_vbapi
     Public Sub CreateNoteWithLeader(ByVal Texts As String)
         Dim model As IpfcModel
         Dim drawing As IpfcDrawing
-        Dim selections As CpfcSelections
-        Dim selectionOptions As IpfcSelectionOptions
-        Dim selectEdge As IpfcSelection '选择获取一个边
+        Dim selectedEdge As IpfcSelection '选择获取一个边
         Dim leader As IpfcParametricAttachment
         Dim allAttachments As IpfcDetailLeaders
-        Dim attachments As CpfcAttachments
-        Dim point As CpfcPoint3D
-        Dim mouse As IpfcMouseStatus
         Dim position As IpfcFreeAttachment
-
-        Dim detailText As IpfcDetailText
-        Dim detailTexts As CpfcDetailTexts
-        Dim textLine As IpfcDetailTextLine
         Dim textLines As CpfcDetailTextLines
         Dim noteInstructions As IpfcDetailNoteInstructions
         Dim note As IpfcDetailNoteItem
-
-        Dim i As Integer
-        Dim strs() As String
         Try
             If Isdrawding() = True Then
                 model = asyncConnection.Session.CurrentModel
                 drawing = CType(model, IpfcDrawing)
-                '将String赋值给textLines
-                textLines = New CpfcDetailTextLines
-                strs = Split(Texts, Chr(10)) '根据回车符分割确定行数
-                '根据行数创建对象并添加内容
-                For i = 0 To strs.Length - 1
-                    detailText = (New CCpfcDetailText).Create(strs(strs.Length - i - 1)) '注意顺序
-                    detailTexts = New CpfcDetailTexts
-                    detailTexts.Insert(0, detailText)
-                    textLine = (New CCpfcDetailTextLine).Create(detailTexts)
-                    textLines.Insert(0, textLine)
-                Next
+                textLines = StrstoTextlines(Texts)
                 '动态选择一个边引出引线
-                '======================================================================
-                '这里为简化代码，未对selectEdge进行检测
-                '======================================================================
-                asyncConnection.Session.UIDisplayMessage(Msg_file, "GetEdgeForLeader", Nothing) '显示提示，这里注意Msg_file的位置和内容
-                selectionOptions = (New CCpfcSelectionOptions).Create("edge")
-                selectionOptions.MaxNumSels = 1
-                selections = asyncConnection.Session.Select(selectionOptions, Nothing)
-                selectEdge = selections.Item(0)
-                '鼠标左键点选注解放置的位置   
-                asyncConnection.Session.UIDisplayMessage(Msg_file, "GetNotePos", Nothing) '显示提示，这里注意Msg_file的位置和内容
-                point = New CpfcPoint3D
-                mouse = asyncConnection.Session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
-                point = mouse.Position
-                position = (New CCpfcFreeAttachment).Create(point)
+                selectedEdge = SelectEdge()
                 '初始化leader
-                leader = (New CCpfcParametricAttachment).Create(selectEdge)
-                '设置attachments
-                allAttachments = (New CCpfcDetailLeaders).Create()
-                allAttachments.ItemAttachment = position
-                allAttachments.ElbowLength = 0
-                attachments = New CpfcAttachments
-                attachments.Insert(0, leader)
-                allAttachments.Leaders = attachments
+                leader = (New CCpfcParametricAttachment).Create(selectedEdge)
+                '鼠标左键点选注解放置的位置
+                position = MousePosAttatchement()
+                '设置Attachments
+                allAttachments = SetAttatchements(leader, position)
                 '设置noteInstructions
                 noteInstructions = (New CCpfcDetailNoteInstructions).Create(textLines)
                 noteInstructions.Leader = allAttachments
@@ -210,4 +151,82 @@ Module Module_vbapi
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Sub
+
+    ''' <summary>
+    ''' String转CpfcDetailTexts
+    ''' </summary>
+    ''' <param name="Texts">Strings，Chr(10)分割行</param>
+    ''' <returns>CpfcDetailTexts对象</returns>
+    Private Function StrstoTextlines(ByVal Texts As String) As CpfcDetailTextLines
+        Dim detailText As IpfcDetailText
+        Dim detailTexts As CpfcDetailTexts
+        Dim textLine As IpfcDetailTextLine
+        Dim i As Integer
+        Dim Strs() As String
+        '将String赋值给textLines
+        StrstoTextlines = New CpfcDetailTextLines
+        Strs = Split(Texts, Chr(10)) '根据回车符分割确定行数
+        '根据行数创建对象并添加内容
+        For i = 0 To Strs.Length - 1
+            detailText = (New CCpfcDetailText).Create(Strs(Strs.Length - i - 1)) '注意顺序
+            detailTexts = New CpfcDetailTexts
+            detailTexts.Insert(0, detailText)
+            textLine = (New CCpfcDetailTextLine).Create(detailTexts)
+            StrstoTextlines.Insert(0, textLine)
+        Next
+    End Function
+
+    ''' <summary>
+    ''' '选择获取一个边
+    ''' </summary>
+    ''' <returns>'选择获取一个边,这里为简化代码，未对selectEdge进行检测</returns>
+    Private Function SelectEdge() As IpfcSelection
+        Dim selections As CpfcSelections
+        Dim selectionOptions As IpfcSelectionOptions
+        '======================================================================
+        '这里为简化代码，未对selectEdge进行检测
+        '======================================================================
+        asyncConnection.Session.UIDisplayMessage(Msg_file, "GetEdgeForLeader", Nothing) '显示提示，这里注意Msg_file的位置和内容
+        selectionOptions = (New CCpfcSelectionOptions).Create("edge")
+        selectionOptions.MaxNumSels = 1
+        selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+        SelectEdge = selections.Item(0)
+        Return SelectEdge
+    End Function
+
+    ''' <summary>
+    ''' 获取鼠标点击位置
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function MousePosAttatchement() As IpfcFreeAttachment
+        Dim point As CpfcPoint3D
+        Dim mouse As IpfcMouseStatus
+        '鼠标左键点选注解放置的位置
+        asyncConnection.Session.UIDisplayMessage(Msg_file, "GetNotePos", Nothing) '显示提示，这里注意Msg_file的位置和内容
+        point = New CpfcPoint3D
+        mouse = asyncConnection.Session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
+        point = mouse.Position
+        MousePosAttatchement = (New CCpfcFreeAttachment).Create(point)
+        Return MousePosAttatchement
+    End Function
+
+    ''' <summary>
+    ''' 生成Leaders
+    ''' </summary>
+    ''' <param name="leader"></param>
+    ''' <param name="position"></param>
+    ''' <returns></returns>
+    Private Function SetAttatchements(ByVal leader As IpfcParametricAttachment, ByVal position As IpfcFreeAttachment) As IpfcDetailLeaders
+        Dim attachments As CpfcAttachments
+        SetAttatchements = (New CCpfcDetailLeaders).Create()
+        SetAttatchements.ItemAttachment = position
+        SetAttatchements.ElbowLength = Nothing
+        If (leader IsNot Nothing) Then
+            attachments = New CpfcAttachments
+            attachments.Insert(0, leader)
+            SetAttatchements.Leaders = attachments
+        End If
+        Return SetAttatchements
+    End Function
+
 End Module

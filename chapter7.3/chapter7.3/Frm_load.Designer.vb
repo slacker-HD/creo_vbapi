@@ -112,7 +112,7 @@ Partial Class Frm_load
         Me.Label1.Size = New System.Drawing.Size(300, 65)
         Me.Label1.TabIndex = 6
         Me.Label1.Tag = ""
-        Me.Label1.Text = "请将工程中msg.txt文件放置到正确的位置！"
+        Me.Label1.Text = "请将工程中msg.txt文件放置到App.config文件对应正确的位置！"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TableLayoutPanel1
