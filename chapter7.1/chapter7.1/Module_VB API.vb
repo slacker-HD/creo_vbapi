@@ -70,7 +70,7 @@ Module Module_vbapi
                 TextStrs = bdimesion.Texts
                 '修改前后缀，只要修改Item（0）即可
                 TextStrs.Set(0, Prefix + bdimesion.Texts.Item(0) + Surffix)
-                '修改尺寸线下方文字，如果Item（0）存在则直接修改值，不存在添加一个
+                '修改尺寸线下方文字，如果Item（1）存在则直接修改值，不存在添加一个
                 If DownText <> "" Then
                     If TextStrs.Count > 1 Then
                         TextStrs.Set(1, DownText)

@@ -128,10 +128,8 @@ Module Module_vbapi
         Dim selectDim As IpfcSelection
         Dim dimension As IpfcDimension
         Dim limits As IpfcDimTolSymmetric
-
         Dim limitstab As IpfcDimTolISODIN
         Dim TolTableType As EpfcToleranceTableType
-
         Try
             If asyncConnection.Session.CurrentModel.Type = EpfcModelType.EpfcMDL_DRAWING Then
                 selectionOptions = (New CCpfcSelectionOptions).Create("dimension")
@@ -241,8 +239,7 @@ Module Module_vbapi
                     Get_tol_table(table, name, column)
                     limitstab = (New CCpfcDimTolISODIN).Create(TolTableType, name, CInt(column))
                     dimension.Tolerance = limitstab
-
-
+                    '需要这么设置下才能正确显示
                     limitsPM = (New CCpfcDimTolPlusMinus).Create(0, 0)
                     dimension.Tolerance = limitsPM
                 End If
@@ -263,7 +260,7 @@ Module Module_vbapi
         Dim selections As CpfcSelections
         Dim selectDim As IpfcSelection
         Dim dimension As IpfcBaseDimension
-        Dim ss As Istringseq
+        Dim Texts As Istringseq
         Try
             If asyncConnection.Session.CurrentModel.Type = EpfcModelType.EpfcMDL_DRAWING Then
                 selectionOptions = (New CCpfcSelectionOptions).Create("dimension")
@@ -274,13 +271,13 @@ Module Module_vbapi
                 Else
                     selectDim = selections.Item(0)
                     dimension = selectDim.SelItem
-                    ss = dimension.Texts
+                    Texts = dimension.Texts
                     If ShowNumber = True Then
-                        ss.Set(0, "@D" + Fit_tolerance_name(dimension.DimValue, TolName))
+                        Texts.Set(0, "@D" + Fit_tolerance_name(dimension.DimValue, TolName))
                     Else
-                        ss.Set(0, "@D" + TolName)
+                        Texts.Set(0, "@D" + TolName)
                     End If
-                    dimension.Texts = ss
+                    dimension.Texts = Texts
                 End If
                 Reg_Csheet()
             End If

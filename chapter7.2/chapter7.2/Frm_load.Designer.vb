@@ -23,14 +23,14 @@ Partial Class Frm_load
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_TolFit = New System.Windows.Forms.Button()
         Me.Btn_TolTable = New System.Windows.Forms.Button()
         Me.Btn_PlusMinus = New System.Windows.Forms.Button()
         Me.Btn_Symmetrical = New System.Windows.Forms.Button()
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Btn_TolFit = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -60,6 +60,18 @@ Partial Class Frm_load
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(233, 438)
         Me.TableLayoutPanel2.TabIndex = 5
+        '
+        'Btn_TolFit
+        '
+        Me.Btn_TolFit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_TolFit.Enabled = False
+        Me.Btn_TolFit.Location = New System.Drawing.Point(4, 314)
+        Me.Btn_TolFit.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_TolFit.Name = "Btn_TolFit"
+        Me.Btn_TolFit.Size = New System.Drawing.Size(225, 54)
+        Me.Btn_TolFit.TabIndex = 5
+        Me.Btn_TolFit.Text = "设置基轴配合公差为H7/h6并显示数值"
+        Me.Btn_TolFit.UseVisualStyleBackColor = True
         '
         'Btn_TolTable
         '
@@ -119,6 +131,19 @@ Partial Class Frm_load
         Me.Btn_Connect.Text = "连接现有会话"
         Me.Btn_Connect.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 372)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(227, 66)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Tag = ""
+        Me.Label1.Text = "在设定公差时请先将模型和工程图均设定公差模式为ISO并加载公差表！！"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 1
@@ -132,31 +157,6 @@ Partial Class Frm_load
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(241, 446)
         Me.TableLayoutPanel1.TabIndex = 6
-        '
-        'Btn_TolFit
-        '
-        Me.Btn_TolFit.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_TolFit.Enabled = False
-        Me.Btn_TolFit.Location = New System.Drawing.Point(4, 314)
-        Me.Btn_TolFit.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_TolFit.Name = "Btn_TolFit"
-        Me.Btn_TolFit.Size = New System.Drawing.Size(225, 54)
-        Me.Btn_TolFit.TabIndex = 5
-        Me.Btn_TolFit.Text = "设置基轴配合公差为H7/h6并显示数值"
-        Me.Btn_TolFit.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 372)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(227, 66)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Tag = ""
-        Me.Label1.Text = "在设定公差时请先设定公差模式为ISO并加载公差表！！"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Frm_load
         '
