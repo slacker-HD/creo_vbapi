@@ -1,0 +1,203 @@
+#UGC USER_SYMBOL 252 0 0
+#Pro/ENGINEER  TM  Version A-19-04  (c) 1988-90 by Parametric Technology Corporation  All Rights Reserved.
+0 usr_def_symbol ->
+1 type 45
+1 attribute 813
+1 id 5
+1 revnum 1
+1 name STANDARD1
+1 path ->
+2 version -1
+2 name standard1.sym
+2 path surface_finishes/machined
+2 path_from_start_point usr/user/bwb/surffins
+2 logical_device 
+2 machine 
+1 outline [2][3]
+2 outline[0] 3.927703145901,2.96875,0.
+2 outline[1] 4.3325700221702,3.436525,0.
+1 height 0.467775
+1 data NULL
+1 attach_pnt ->
+2 type 8
+2 attach_id 24
+2 index [2]
+3 index 2*0
+2 att_offsets [1]
+3 att_offsets ->
+4 offset_type 6
+4 offset 1.
+2 view_id -1
+2 point [3]
+3 point 4.0625,2.96875,0.
+2 vec [3]
+3 vec 3*0.
+2 attribute 0
+1 next_attach_ptr ->
+2 type 13
+2 attach_id 24
+2 index [2]
+3 index 2*0
+2 att_offsets [1]
+3 att_offsets ->
+4 offset_type 6
+4 offset 1.
+2 view_id -1
+2 point [3]
+3 point 4.0625,2.96875,0.
+2 vec [3]
+3 vec 3*0.
+2 attribute 0
+1 next_attach_ptr ->
+2 type 12
+2 attach_id 24
+2 index [2]
+3 index 2*0
+2 att_offsets [1]
+3 att_offsets ->
+4 offset_type 6
+4 offset 1.
+2 view_id -1
+2 point [3]
+3 point 4.0625,2.96875,0.
+2 vec [3]
+3 vec 3*0.
+2 attribute 0
+1 next_attach_ptr ->
+2 type 14
+2 attach_id -1
+2 index [2]
+3 index 2*0
+2 view_id -1
+2 point [3]
+3 point 4.0300698730457,2.9365446397713,0.
+2 vec [3]
+3 vec 3*0.
+2 attribute 0
+1 next_attach_ptr ->
+2 type 8
+2 attach_id 24
+2 index [2]
+3 index 2*0
+2 att_offsets [1]
+3 att_offsets ->
+4 offset_type 6
+4 offset 1.
+2 view_id -1
+2 point [3]
+3 point 4.0625,2.96875,0.
+2 vec [3]
+3 vec 3*0.
+2 attribute 0
+1 next_attach_ptr NULL
+1 prompts [1]
+2 prompts ->
+3 name roughness_height
+3 ent_index 0
+3 line_arr_pos [2]
+4 line_arr_pos 2*0
+3 def_value ->
+4 type 50
+4 value(d_val) 32.
+1 sym_entities [5]
+2 sym_entities 
+3 type 2
+3 attribute 0
+3 p_data(note) 
+4 note ->
+5 type 0
+5 attributes 384
+5 line_array [1]
+6 line_array 
+7 text_array [1]
+8 text_array 
+9 type 6
+9 text_type 18
+9 text_value \roughness_height\
+9 txt_attrib 192
+9 coord [3]
+9 owner_id -1
+9 part_id 0
+9 height 0.15625
+9 angle 0.
+9 width_factor -1.
+9 font_id 0
+9 slant_angle 0.
+5 attach_pnt_ptr ->
+6 type 14
+6 attach_id -1
+6 index [2]
+7 index 2*0
+6 view_id -1
+6 point [3]
+7 point 4.1796875,3.26171875,0.
+6 vec [3]
+7 vec 3*0.
+6 attribute 0
+5 next_attach_ptr NULL
+5 note_pnt_ptr NULL
+2 sym_entities 
+3 type 1
+3 attribute 0
+3 p_data(ent) 
+4 entity(line) ->
+5 type 2
+5 id 31
+5 gen_info 
+6 font 1
+6 color 1
+6 width 0.
+5 flip 1
+5 end1 [3]
+6 end1 3.927703145901,3.202225,0.
+5 end2 [3]
+6 end2 4.197296854099,3.202225,0.
+2 sym_entities 
+3 type 1
+3 attribute 0
+3 p_data(ent) 
+4 entity(line) ->
+5 type 2
+5 id 32
+5 gen_info 
+6 font 1
+6 color 1
+6 width 0.
+5 flip 1
+5 end1 [3]
+6 end1 3.927703145901,3.202225,0.
+5 end2 [3]
+6 end2 4.0625,2.96875,0.
+2 sym_entities 
+3 type 1
+3 attribute 0
+3 p_data(ent) 
+4 entity(line) ->
+5 type 2
+5 id 33
+5 gen_info 
+6 font 1
+6 color 1
+6 width 0.
+5 flip 1
+5 end1 [3]
+6 end1 4.0625,2.96875,0.
+5 end2 [3]
+6 end2 4.197296854099,3.202225,0.
+2 sym_entities 
+3 type 1
+3 attribute 0
+3 p_data(ent) 
+4 entity(line) ->
+5 type 2
+5 id 34
+5 gen_info 
+6 font 1
+6 color 1
+6 width 0.
+5 flip 1
+5 end1 [3]
+6 end1 4.197296854099,3.202225,0.
+5 end2 [3]
+6 end2 4.3325700221702,3.436525,0.
+#END_OF_UGC
