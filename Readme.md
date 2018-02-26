@@ -82,15 +82,25 @@
 + 插入有引线的符号
 + 插入垂直于图元的符号
 
-## ~~chapter7.5对应vbapi二次开发-7-表格操作~~
+## ~~chapter7.5对应vbapi二次开发-7-层管理~~
 
-## ~~chapter7.6对应vbapi二次开发-7-BOM操作~~
++添加层
++删除层
++向层内添加对应的元素
+
+## ~~chapter7.5对应vbapi二次开发-7-表格操作~~
 
 ## ~~chapter7.7对应vbapi二次开发-7-倒角~~
 
 ## ~~chapter7.8对应vbapi二次开发-7-图幅~~
 
 ## ~~chapter7.4对应vbapi二次开发-7-打印~~
+
+## ~~chapter7.6对应vbapi二次开发-7-BOM操作~~
+
+## ~~chapter8.1对应vbapi二次开发-8-UI操作（全异步模式，程序经常卡死）~~
+
+## ~~chapter9.1对应vbapi二次开发-9-调用Protoolkit函数~~
 
 ## CreoFileExportTools对应开发的批量格式导出小工具
 
