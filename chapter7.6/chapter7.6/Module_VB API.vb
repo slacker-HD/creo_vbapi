@@ -81,6 +81,7 @@ Module Module_vbapi
         Dim drawing As IpfcDrawing
         Dim model2D As IpfcModel2D
         Dim tables, layers, notes, symbols As IpfcModelItems
+        Dim detailSymbols As IpfcDetailItems
         Dim models As IpfcModels
         Dim dimensions As IpfcDimension2Ds '显示尺寸有点特殊,无法通过MODELITEM的ListItems方法获取，而是通过IpfcModel2D的ListShownDimensions方法获取
         Dim layer As IpfcLayer
@@ -145,5 +146,6 @@ Module Module_vbapi
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Sub
+
 
 End Module
