@@ -7,7 +7,9 @@ Public Class Frm_load
         If Creo_Connect() <> True Then
             MsgBox("无法连接CREO对话！")
         Else
-            Btn_layerCreate.Enabled = True
+            Btn_listTables.Enabled = True
+            Btn_setTableCell.Enabled = True
+            Btn_getTableCell.Enabled = True
         End If
     End Sub
 
@@ -15,18 +17,22 @@ Public Class Frm_load
         If Creo_New() <> True Then
             MsgBox("无法新建CREO对话！")
         Else
-            Btn_layerCreate.Enabled = True
+            Btn_listTables.Enabled = True
+            Btn_setTableCell.Enabled = True
+            Btn_getTableCell.Enabled = True
         End If
     End Sub
 
-    Private Sub Frm_load_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        '设置消息文件路径，在App.config增加新配置了
-        Msg_file = ConfigurationManager.AppSettings("Messagefile").ToString()
-        '设置符号文件目录，在App.config增加新配置了
-        Symbolpath = ConfigurationManager.AppSettings("SymbolFilePath").ToString()
+    Private Sub Btn_listTables_Click(sender As Object, e As EventArgs) Handles Btn_listTables.Click
+        MessageBox.Show(TablesInfo())
     End Sub
 
-    Private Sub Btn_layerCreate_Click(sender As Object, e As EventArgs) Handles Btn_layerCreate.Click
-        CreateLayers()
+    Private Sub Btn_setTableCell_Click(sender As Object, e As EventArgs) Handles Btn_setTableCell.Click
+        SetTableInfo("这是修改后的文字", 1, 1)
+    End Sub
+
+    Private Sub Btn_getTableCell_Click(sender As Object, e As EventArgs) Handles Btn_getTableCell.Click
+        MessageBox.Show(GetTableInfo(1, 1))
+
     End Sub
 End Class

@@ -5,6 +5,23 @@ Module Module_vbapi
     Public asyncConnection As IpfcAsyncConnection = Nothing '全局变量，用于存储连接会话的句柄
 
     ''' <summary>
+    ''' 排列方式
+    ''' </summary>
+    Private Enum Placement
+
+        ''' <summary>
+        ''' 垂直排列
+        ''' </summary>
+        Vertical = 0
+
+        ''' <summary>
+        ''' 水平排列
+        ''' </summary>
+        Horizon = 1
+
+    End Enum
+
+    ''' <summary>
     ''' 连接现有会话
     ''' </summary>
     ''' <returns>是否连接成功</returns>
@@ -74,78 +91,144 @@ Module Module_vbapi
     End Function
 
     ''' <summary>
-    ''' 创建三个层，分别包含所有的表格、尺寸、图形符号、文字注解
+    ''' 列举所有table
     ''' </summary>
-    Public Sub CreateLayers()
+    Public Function TablesInfo() As String
+        Dim tableOwner As IpfcTableOwner
         Dim model As IpfcModel
-        Dim drawing As IpfcDrawing
-        Dim model2D As IpfcModel2D
-        Dim tables, layers, notes, symbols As IpfcModelItems
-        Dim detailSymbols As IpfcDetailItems
-        Dim models As IpfcModels
-        Dim dimensions As IpfcDimension2Ds '显示尺寸有点特殊,无法通过MODELITEM的ListItems方法获取，而是通过IpfcModel2D的ListShownDimensions方法获取
-        Dim layer As IpfcLayer
+        Dim tables As IpfcTables
+        Dim table As IpfcTable
         Dim i As Integer
+        TablesInfo = "无法获取表格信息"
         Try
             If Isdrawding() = True Then
-                model = asyncConnection.Session.CurrentModel
-                drawing = CType(model, IpfcDrawing)
-                model2D = CType(model, IpfcModel2D)
-                '列举现有的所有层
-                layers = CType(model, IpfcModelItemOwner).ListItems(EpfcModelItemType.EpfcITEM_LAYER)
-                '如果是NOTE，DIMENSION或者SYMBOL就先删除
-                For i = 0 To layers.Count - 1
-                    If layers.Item(i).GetName = "TABLE" Or layers.Item(i).GetName = "NOTE" Or layers.Item(i).GetName = "DIMENSION" Or layers.Item(i).GetName = "SYMBOL" Then
-                        layer = CType(layers.Item(i), IpfcLayer)
-                        layer.Delete()
-                    End If
-                Next
-                '=========================================================================================================================================================
-                '下面为添加layer并增加元素
-                '为方便描述定义多个变量，同时没有用函数封装
-                '=========================================================================================================================================================
-                '添加包含所有表格的层
-                layer = model.CreateLayer("TABLE")
-                tables = CType(model, IpfcModelItemOwner).ListItems(EpfcModelItemType.EpfcITEM_TABLE)
-                For i = 0 To tables.Count - 1
-                    layer.AddItem(tables.Item(i))
-                Next
-                '添加包含所有注解的层
-                layer = model.CreateLayer("NOTE")
-                notes = CType(model, IpfcModelItemOwner).ListItems(EpfcModelItemType.EpfcITEM_DTL_NOTE)
-                For i = 0 To notes.Count - 1
-                    layer.AddItem(notes.Item(i))
-                Next
-                '添加包含所有符号的层
-                layer = model.CreateLayer("SYMBOL")
-                symbols = CType(model, IpfcModelItemOwner).ListItems(EpfcModelItemType.EpfcITEM_DTL_SYM_INSTANCE)
-                For i = 0 To symbols.Count - 1
-                    layer.AddItem(symbols.Item(i))
-                Next
-                'detailSymbols = CType(drawing, IpfcDetailItemOwner).ListDetailItems(EpfcDetailType.EpfcDETAIL_SYM_INSTANCE, drawing.CurrentSheetNumber)
-                'For i = 0 To detailSymbols.Count - 1
-                '    layer.AddItem(detailSymbols.Item(i))
-                'Next
-                '添加包含所有尺寸的层
-                layer = model.CreateLayer("DIMENSION")
-                models = model2D.ListModels()
-                For Each refmodel As IpfcModel In models
-                    '添加该model的所有尺寸
-                    dimensions = model2D.ListShownDimensions(refmodel, EpfcModelItemType.EpfcITEM_DIMENSION)
-                    For i = 0 To dimensions.Count - 1
-                        layer.AddItem(dimensions.Item(i))
+                tableOwner = CType(asyncConnection.Session.CurrentModel, IpfcTableOwner)
+                If HasTable() = True Then
+                    model = asyncConnection.Session.CurrentModel
+                    tableOwner = CType(model, IpfcTableOwner)
+                    tables = tableOwner.ListTables()
+                    TablesInfo = "当前绘图包含" + tables.Count.ToString + "个表格。" + Chr(10)
+                    For i = 0 To tables.Count - 1
+                        table = tables.Item(i)
+                        TablesInfo += "第" + (i + 1).ToString() + "个表格为" + table.GetRowCount.ToString() + "X" + table.GetColumnCount.ToString() + "的表格。" + Chr(10)
                     Next
-                    '添加该model的所有参考尺寸
-                    dimensions = model2D.ListShownDimensions(refmodel, EpfcModelItemType.EpfcITEM_REF_DIMENSION)
-                    For i = 0 To dimensions.Count - 1
-                        layer.AddItem(dimensions.Item(i))
-                    Next
-                Next
+                Else
+                    TablesInfo = "当前绘图未包含表格。"
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+        Return TablesInfo
+    End Function
+
+    ''' <summary>
+    ''' 设置选中表格的第row行第col列值，row,col索引从1开始
+    ''' </summary>
+    ''' <param name="content">文字内容</param>
+    ''' <param name="row">行</param>
+    ''' <param name="col">列</param>
+    Public Sub SetTableInfo(ByVal content As String， ByVal row As Integer, ByVal col As Integer)
+        Dim tableOwner As IpfcTableOwner
+        Dim table As IpfcTable
+        Dim tablecell As IpfcTableCell
+        Dim Lines As New Cstringseq
+        Try
+            If Isdrawding() = True Then
+                tableOwner = CType(asyncConnection.Session.CurrentModel, IpfcTableOwner)
+                If HasTable() = True Then
+                    table = SelectObject("dwg_table").SelItem
+                    tablecell = (New CCpfcTableCell).Create(row, col)
+                    Lines.Append(content)
+                    table.SetText(tablecell, Lines)
+                    Reg_Csheet()
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
     End Sub
 
+    ''' <summary>
+    ''' 读取选中表格的第row行第col列值
+    ''' </summary>
+    ''' <param name="row">行</param>
+    ''' <param name="col">列</param>
+    ''' <returns></returns>
+    Public Function GetTableInfo(ByVal row As Integer, ByVal col As Integer) As String
+        Dim tableOwner As IpfcTableOwner
+        Dim table As IpfcTable
+        Dim tablecell As IpfcTableCell
+        Dim cellnote As IpfcModelItem
+        Dim detailNoteItem As IpfcDetailNoteItem
+        Dim detailNoteInstructions As IpfcDetailNoteInstructions
+        Dim i As Integer
+        GetTableInfo = "未能读取到内容。"
+        Try
+            If Isdrawding() = True Then
+                tableOwner = CType(asyncConnection.Session.CurrentModel, IpfcTableOwner)
+                If HasTable() = True Then
+                    table = SelectObject("dwg_table").SelItem
+                    tablecell = (New CCpfcTableCell).Create(row, col)
+                    cellnote = table.GetCellNote(tablecell)
+                    If cellnote IsNot Nothing Then
+                        If cellnote.Type = EpfcModelItemType.EpfcITEM_DTL_NOTE Then
+                            detailNoteItem = CType(cellnote, IpfcDetailNoteItem)
+                            detailNoteInstructions = detailNoteItem.GetInstructions(True)
+                            GetTableInfo = “”
+                            If detailNoteInstructions.TextLines.Item(0).Texts.Count > 0 Then
+                                For i = 0 To detailNoteInstructions.TextLines.Count - 1
+                                    GetTableInfo += detailNoteInstructions.TextLines.Item(0).Texts.Item(0).Text
+                                Next
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
+        End Try
+        Return GetTableInfo
+    End Function
+
+    ''' <summary>
+    ''' 判断当前打开绘图是否包含表格
+    ''' </summary>
+    ''' <returns>当前打开绘图是否包含表格</returns>
+    Private Function HasTable() As Boolean
+        Dim model As IpfcModel
+        Dim tableOwner As IpfcTableOwner
+        Dim tables As IpfcTables
+
+        HasTable = False
+        model = asyncConnection.Session.CurrentModel
+        tableOwner = CType(model, IpfcTableOwner)
+        tables = tableOwner.ListTables()
+        If tables Is Nothing Then
+            Return False
+        End If
+        If tables.Count = 0 Then
+            Return False
+        End If
+        Return True
+    End Function
+
+    ''' <summary>
+    ''' 选择获取一个对象,这里为简化代码，未进行有效性检测
+    ''' </summary>
+    ''' <param name="filter">选择对象类型，默认为边</param>
+    ''' <returns>选择对象</returns>
+    Private Function SelectObject(Optional ByVal filter As String = "edge") As IpfcSelection
+        Dim selections As CpfcSelections
+        Dim selectionOptions As IpfcSelectionOptions
+        '======================================================================
+        '这里为简化代码，未对select进行检测
+        '======================================================================
+        selectionOptions = (New CCpfcSelectionOptions).Create(filter)
+        selectionOptions.MaxNumSels = 1
+        selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+        SelectObject = selections.Item(0)
+        Return SelectObject
+    End Function
 
 End Module

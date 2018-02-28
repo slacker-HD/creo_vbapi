@@ -23,11 +23,12 @@ Partial Class Frm_load
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Btn_layerCreate = New System.Windows.Forms.Button()
+        Me.Btn_setTableCell = New System.Windows.Forms.Button()
+        Me.Btn_listTables = New System.Windows.Forms.Button()
         Me.Btn_new = New System.Windows.Forms.Button()
         Me.Btn_Connect = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_getTableCell = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -36,48 +37,47 @@ Partial Class Frm_load
         '
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.Btn_layerCreate, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_getTableCell, 0, 4)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_setTableCell, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_listTables, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_new, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Btn_Connect, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 4
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(320, 244)
+        Me.TableLayoutPanel2.RowCount = 5
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(184, 336)
         Me.TableLayoutPanel2.TabIndex = 5
         '
-        'Label1
+        'Btn_setTableCell
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 183)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(314, 61)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Tag = ""
-        Me.Label1.Text = "注意为简化代码，在添加TABLE、NOTE、DIMENSION和SYMBO层前首先将已有同名图层删除。vbapi暂时没有找到表面粗糙度和形位公差的对象，所以无法加" &
-    "到layer中"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Btn_setTableCell.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_setTableCell.Enabled = False
+        Me.Btn_setTableCell.Location = New System.Drawing.Point(3, 204)
+        Me.Btn_setTableCell.Name = "Btn_setTableCell"
+        Me.Btn_setTableCell.Size = New System.Drawing.Size(178, 61)
+        Me.Btn_setTableCell.TabIndex = 11
+        Me.Btn_setTableCell.Text = "修改选中表格第一行第一列单元格内容为""这是修改后的文字"""
+        Me.Btn_setTableCell.UseVisualStyleBackColor = True
         '
-        'Btn_layerCreate
+        'Btn_listTables
         '
-        Me.Btn_layerCreate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_layerCreate.Enabled = False
-        Me.Btn_layerCreate.Location = New System.Drawing.Point(4, 126)
-        Me.Btn_layerCreate.Margin = New System.Windows.Forms.Padding(4)
-        Me.Btn_layerCreate.Name = "Btn_layerCreate"
-        Me.Btn_layerCreate.Size = New System.Drawing.Size(312, 53)
-        Me.Btn_layerCreate.TabIndex = 7
-        Me.Btn_layerCreate.Text = "创建TABLE、NOTE、DIMENSION和SYMBO层并将所有对应对象放置该层"
-        Me.Btn_layerCreate.UseCompatibleTextRendering = True
-        Me.Btn_layerCreate.UseVisualStyleBackColor = True
+        Me.Btn_listTables.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_listTables.Enabled = False
+        Me.Btn_listTables.Location = New System.Drawing.Point(4, 138)
+        Me.Btn_listTables.Margin = New System.Windows.Forms.Padding(4)
+        Me.Btn_listTables.Name = "Btn_listTables"
+        Me.Btn_listTables.Size = New System.Drawing.Size(176, 59)
+        Me.Btn_listTables.TabIndex = 7
+        Me.Btn_listTables.Text = "列举所有表格"
+        Me.Btn_listTables.UseCompatibleTextRendering = True
+        Me.Btn_listTables.UseVisualStyleBackColor = True
         '
         'Btn_new
         '
@@ -85,7 +85,7 @@ Partial Class Frm_load
         Me.Btn_new.Location = New System.Drawing.Point(4, 4)
         Me.Btn_new.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_new.Name = "Btn_new"
-        Me.Btn_new.Size = New System.Drawing.Size(312, 53)
+        Me.Btn_new.Size = New System.Drawing.Size(176, 59)
         Me.Btn_new.TabIndex = 0
         Me.Btn_new.Text = "启动新会话"
         Me.Btn_new.UseVisualStyleBackColor = True
@@ -93,10 +93,10 @@ Partial Class Frm_load
         'Btn_Connect
         '
         Me.Btn_Connect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Connect.Location = New System.Drawing.Point(4, 65)
+        Me.Btn_Connect.Location = New System.Drawing.Point(4, 71)
         Me.Btn_Connect.Margin = New System.Windows.Forms.Padding(4)
         Me.Btn_Connect.Name = "Btn_Connect"
-        Me.Btn_Connect.Size = New System.Drawing.Size(312, 53)
+        Me.Btn_Connect.Size = New System.Drawing.Size(176, 59)
         Me.Btn_Connect.TabIndex = 1
         Me.Btn_Connect.Text = "连接现有会话"
         Me.Btn_Connect.UseVisualStyleBackColor = True
@@ -111,18 +111,28 @@ Partial Class Frm_load
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(328, 252)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(192, 344)
         Me.TableLayoutPanel1.TabIndex = 6
+        '
+        'Btn_getTableCell
+        '
+        Me.Btn_getTableCell.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_getTableCell.Enabled = False
+        Me.Btn_getTableCell.Location = New System.Drawing.Point(3, 271)
+        Me.Btn_getTableCell.Name = "Btn_getTableCell"
+        Me.Btn_getTableCell.Size = New System.Drawing.Size(178, 62)
+        Me.Btn_getTableCell.TabIndex = 12
+        Me.Btn_getTableCell.Text = "读取选中表格第一行第一列单元格内容"
+        Me.Btn_getTableCell.UseVisualStyleBackColor = True
         '
         'Frm_load
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(328, 252)
+        Me.ClientSize = New System.Drawing.Size(192, 344)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "Frm_load"
         Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -131,6 +141,7 @@ Partial Class Frm_load
     Friend WithEvents Btn_new As Button
     Friend WithEvents Btn_Connect As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Btn_layerCreate As Button
+    Friend WithEvents Btn_listTables As Button
+    Friend WithEvents Btn_setTableCell As Button
+    Friend WithEvents Btn_getTableCell As Button
 End Class
