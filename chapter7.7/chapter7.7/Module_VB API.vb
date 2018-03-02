@@ -208,7 +208,7 @@ Module Module_vbapi
     End Function
 
     ''' <summary>
-    ''' 返回包含&rpt.index的表格ID，即包含BOM的表格
+    ''' 返回包含&&rpt.index的表格ID，即包含BOM的表格
     ''' </summary>
     ''' <returns>返回包含包含BOM的表格</returns>
     Private Function TableIDwithBom() As Integer
