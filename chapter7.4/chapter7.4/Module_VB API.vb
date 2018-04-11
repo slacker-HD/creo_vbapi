@@ -177,30 +177,6 @@ Module Module_vbapi
     End Function
 
     ''' <summary>
-    ''' String转CpfcDetailTexts
-    ''' </summary>
-    ''' <param name="Texts">Strings，Chr(10)分割行</param>
-    ''' <returns>CpfcDetailTexts对象</returns>
-    Private Function StrstoTextlines(ByVal Texts As String) As CpfcDetailTextLines
-        Dim detailText As IpfcDetailText
-        Dim detailTexts As CpfcDetailTexts
-        Dim textLine As IpfcDetailTextLine
-        Dim i As Integer
-        Dim Strs() As String
-        '将String赋值给textLines
-        StrstoTextlines = New CpfcDetailTextLines
-        Strs = Split(Texts, Chr(10)) '根据回车符分割确定行数
-        '根据行数创建对象并添加内容
-        For i = 0 To Strs.Length - 1
-            detailText = (New CCpfcDetailText).Create(Strs(Strs.Length - i - 1)) '注意顺序
-            detailTexts = New CpfcDetailTexts
-            detailTexts.Insert(0, detailText)
-            textLine = (New CCpfcDetailTextLine).Create(detailTexts)
-            StrstoTextlines.Insert(0, textLine)
-        Next
-    End Function
-
-    ''' <summary>
     ''' 选择获取一个对象,这里为简化代码，未进行有效性检测
     ''' </summary>
     ''' <param name="filter">选择对象类型，默认为边</param>

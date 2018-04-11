@@ -1,7 +1,4 @@
-﻿Imports System.Configuration
-Imports pfcls
-
-Public Class Frm_load
+﻿Public Class Frm_load
 
     Private Sub Btn_Connect_Click(sender As Object, e As EventArgs) Handles Btn_Connect.Click
         If Creo_Connect() <> True Then
@@ -33,6 +30,6 @@ Public Class Frm_load
 
     Private Sub Btn_getTableCell_Click(sender As Object, e As EventArgs) Handles Btn_getTableCell.Click
         MessageBox.Show(GetTableInfo(1, 1))
-
     End Sub
+
 End Class

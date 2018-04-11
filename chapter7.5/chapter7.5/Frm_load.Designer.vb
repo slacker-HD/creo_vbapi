@@ -56,14 +56,14 @@ Partial Class Frm_load
         '
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Font = New System.Drawing.Font("SimSun", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 183)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(314, 61)
         Me.Label1.TabIndex = 8
         Me.Label1.Tag = ""
-        Me.Label1.Text = "注意为简化代码，在添加TABLE、NOTE、DIMENSION和SYMBO层前首先将已有同名图层删除。vbapi暂时没有找到表面粗糙度和形位公差的对象，所以无法加" &
-    "到layer中"
+        Me.Label1.Text = "注意为简化代码，在添加TABLE、NOTE、DIMENSION和SYMBOL层前首先将已有同名图层删除。vbapi暂时没有找到表面粗糙度和形位公差的对象，所以无法" &
+    "加到layer中"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Btn_layerCreate
@@ -75,7 +75,7 @@ Partial Class Frm_load
         Me.Btn_layerCreate.Name = "Btn_layerCreate"
         Me.Btn_layerCreate.Size = New System.Drawing.Size(312, 53)
         Me.Btn_layerCreate.TabIndex = 7
-        Me.Btn_layerCreate.Text = "创建TABLE、NOTE、DIMENSION和SYMBO层并将所有对应对象放置该层"
+        Me.Btn_layerCreate.Text = "创建TABLE、NOTE、DIMENSION和SYMBOL层并将所有对应对象放置该层"
         Me.Btn_layerCreate.UseCompatibleTextRendering = True
         Me.Btn_layerCreate.UseVisualStyleBackColor = True
         '
