@@ -29,7 +29,7 @@
     End Sub
 
     Private Sub Btn_getTableCell_Click(sender As Object, e As EventArgs) Handles Btn_getTableCell.Click
-        MessageBox.Show(GetTableInfo(1, 1))
+        MessageBox.Show(GetTableInfo(2, 1))
     End Sub
 
 End Class

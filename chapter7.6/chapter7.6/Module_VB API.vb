@@ -110,7 +110,7 @@ Module Module_vbapi
                     TablesInfo = "当前绘图包含" + tables.Count.ToString + "个表格。" + Chr(10)
                     For i = 0 To tables.Count - 1
                         table = tables.Item(i)
-                        TablesInfo += "第" + (i + 1).ToString() + "个表格为" + table.GetRowCount.ToString() + "X" + table.GetColumnCount.ToString() + "的表格。" + Chr(10)
+                        TablesInfo += "第" + (i + 1).ToString() + "个表格ID为" + table.Id.ToString() + "," + table.GetRowCount.ToString() + "X" + table.GetColumnCount.ToString() + "的表格。" + Chr(10)
                     Next
                 Else
                     TablesInfo = "当前绘图未包含表格。"
@@ -175,7 +175,7 @@ Module Module_vbapi
                         If cellnote.Type = EpfcModelItemType.EpfcITEM_DTL_NOTE Then
                             detailNoteItem = CType(cellnote, IpfcDetailNoteItem)
                             detailNoteInstructions = detailNoteItem.GetInstructions(True)
-                            GetTableInfo = “”
+                            GetTableInfo = ""
                             If detailNoteInstructions.TextLines.Item(0).Texts.Count > 0 Then
                                 For i = 0 To detailNoteInstructions.TextLines.Count - 1
                                     GetTableInfo += detailNoteInstructions.TextLines.Item(0).Texts.Item(0).Text

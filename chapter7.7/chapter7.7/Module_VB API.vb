@@ -243,6 +243,7 @@ Module Module_vbapi
                                         If detailNoteInstructions.TextLines.Item(0).Texts.Count > 0 Then
                                             If (detailNoteInstructions.TextLines.Item(0).Texts.Item(0).Text = "&rpt.index") Then
                                                 TableIDwithBom = table.Id
+                                                Return TableIDwithBom
                                             End If
                                         End If
                                     End If
