@@ -73,78 +73,13 @@ Module Module_vbapi
         End Try
     End Function
 
-    Public Sub ChangeSheet(ByVal DrawingFormatFile As String)
-        Dim tableOwner As IpfcTableOwner
-        Dim model As IpfcModel
-        Dim tables As IpfcTables
-        Dim table As IpfcTable
-        Dim se As IpfcSelection
-        Dim tabcel As IpfcTableCell
 
-        Dim selectionOptions As IpfcSelectionOptions
-        Dim selections As CpfcSelections
-        Dim selectFeats As IpfcSelection
-        Dim selectedfeat As IpfcModelItem
-        '初始化selection选项
-        selectionOptions = (New CCpfcSelectionOptions).Create("table_cell") '设置可选特征的类型，这里为特征对象
-        selectionOptions.MaxNumSels = 1 '设置一次可选择特征的数量
-        selections = asyncConnection.Session.Select(selectionOptions, Nothing)
-        ''确定选择了一个对象
-        If selections.Count > 0 Then
-            selectFeats = selections.Item(0)
-        End If
-
-        'tableOwner = CType(asyncConnection.Session.CurrentModel, IpfcTableOwner)
-        'model = asyncConnection.Session.CurrentModel
-
-        'asyncConnection.Session.select
-
-        'tableOwner = CType(model, IpfcTableOwner)
-        'tables = tableOwner.ListTables()
-
-        'table = tables.Item(0)
-
-        'tabcel = (New CCpfcTableCell).Create(2, 1)
-
-        'se = (New CMpfcSelect).CreateModelItemSelection(table, Nothing)
-        'se.SelTableCell = tabcel
-
-        'CType(asyncConnection.Session, IpfcBaseSession).CurrentSelectionBuffer.Clear()
-        'CType(asyncConnection.Session, IpfcBaseSession).CurrentSelectionBuffer.AddSelection(se)
-
-        'asyncConnection.Session.RunMacro("IMI ~ Open `main_dlg_cur` `Sst_bar.filter_list`;~ Close `main_dlg_cur` `Sst_bar.filter_list`;~ Select `main_dlg_cur` `Sst_bar.filter_list` 1 `23_Table Cell_SEL FILTER`;~ Timer `UI Desktop` `UI Desktop` `popupMenuRMBTimerCB`;~ Close `rmb_popup` `PopupMenu`;~ Command `ProCmdDwgEditRptSymbol` ;~ Select `popuplist` `list` 1 `asm...`;~ Select `popuplist` `list` 1 `mbr...`;~ Select `popuplist` `list` 1 `User Defined`;XH;~ Command `ProCmdDwgTblRegUpd`;")
-
-        'se = CType(asyncConnection.Session, IpfcBaseSession).CurrentSelectionBuffer.Contents.Item(0)
-        'Try
-        '    If Isdrawding() = True Then
-
-        '    sheetOwner = CType(asyncConnection.Session.CurrentModel, IpfcSheetOwner)
-        '        '打开一个图框文件
-        '        modelDesc = (New CCpfcModelDescriptor).Create(EpfcModelType.EpfcMDL_DWG_FORMAT, Nothing, Nothing)
-        '        modelDesc.Path = DrawingFormatFile
-        '        retrieveModelOptions = (New CCpfcRetrieveModelOptions).Create
-        '        retrieveModelOptions.AskUserAboutReps = False
-        '        '加载零件
-        '        model = asyncConnection.Session.RetrievemodelWithOpts(modelDesc, retrieveModelOptions)
-        '        DrawingFormat = CType（model, IpfcDrawingFormat）
-        '        sheetOwner.SetSheetFormat(sheetOwner.CurrentSheetNumber, DrawingFormat, Nothing, Nothing)
-        '        Reg_Csheet()
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-        'End Try
-    End Sub
-
-    'Create draft line with pre defined colour
-    '======================================================================
-    'Function   :   createLine
-    'Purpose    :   This function creates a draft line in one of the
-    '               colors predefined in Creo Parametric. The start and end
-    '               points are interactively selected by the user.
-    '======================================================================
+    ''' <summary>
+    ''' 添加一个直线草绘
+    ''' </summary>
     Public Sub CreateLine()
         Dim model As IpfcModel
-        Dim rgbColour As IpfcColorRGB
+        Dim linecolor As IpfcColorRGB
         Dim drawing As IpfcDrawing
         Dim currSheet As Integer
         Dim view As IpfcView2D
@@ -154,59 +89,30 @@ Module Module_vbapi
         Dim finish As IpfcPoint3D
         Dim geom As IpfcLineDescriptor
         Dim lineInstructions As IpfcDetailEntityInstructions
-        Dim session As IpfcSession = asyncConnection.Session
-
         Try
-            session.SetLineStyle(EpfcStdLineStyle.EpfcLINE_DASH)
-
-            '======================================================================
-            'Get the current drawing and its background view
-            '======================================================================
-            model = session.CurrentModel
-            If model Is Nothing Then
-                Throw New Exception("Model not present")
+            If Isdrawding() Then
+                model = asyncConnection.Session.CurrentModel
+                drawing = CType(model, IpfcDrawing)
+                currSheet = drawing.CurrentSheetNumber
+                view = drawing.GetSheetBackgroundView(currSheet)
+                '鼠标左键点击获取起点和终点
+                mouse1 = asyncConnection.Session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
+                start = mouse1.Position
+                mouse2 = asyncConnection.Session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
+                finish = mouse2.Position
+                '初始化IpfcLineDescriptor
+                geom = (New CCpfcLineDescriptor).Create(start, finish)
+                '设点线颜色
+                linecolor = asyncConnection.Session.GetRGBFromStdColor(EpfcStdColor.EpfcCOLOR_CURVE)
+                '初始化IpfcDetailEntityInstructions
+                lineInstructions = (New CCpfcDetailEntityInstructions).Create(geom, view)
+                lineInstructions.Color = linecolor
+                '创建并显示直线草绘
+                drawing.CreateDetailItem(lineInstructions)
+                Reg_Csheet()
             End If
-            If Not model.Type = EpfcModelType.EpfcMDL_DRAWING Then
-                Throw New Exception("Model is not drawing")
-            End If
-            drawing = CType(model, IpfcDrawing)
-
-            currSheet = drawing.CurrentSheetNumber
-            view = drawing.GetSheetBackgroundView(currSheet)
-
-            '======================================================================
-            'Set end points of the line
-            '======================================================================
-            mouse1 = session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
-            start = mouse1.Position
-
-            mouse2 = session.UIGetNextMousePick(EpfcMouseButton.EpfcMOUSE_BTN_LEFT)
-            finish = mouse2.Position
-
-            '======================================================================
-            'Allocate and initialize curve descriptor
-            '======================================================================
-            geom = (New CCpfcLineDescriptor).Create(start, finish)
-
-            rgbColour = session.GetRGBFromStdColor(EpfcStdColor.EpfcCOLOR_QUILT)
-
-            '======================================================================
-            'Allocate data for draft entity
-            '======================================================================
-            lineInstructions = (New CCpfcDetailEntityInstructions).Create(geom, view)
-            lineInstructions.Color = rgbColour
-
-            '======================================================================
-            'Create and display the line
-            '======================================================================
-            drawing.CreateDetailItem(lineInstructions)
-
-            session.CurrentWindow.Repaint()
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-
         End Try
-
     End Sub
-
 End Module
