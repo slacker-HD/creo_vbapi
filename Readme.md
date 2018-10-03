@@ -116,14 +116,6 @@
 
 + 国标倒角标注
 
-## chapter7.11对应vbapi二次开发-7-设定图幅
-
-+ 设定图幅
-
-## ~~chapter7.4对应vbapi二次开发-7-打印~~
-
-## ~~chapter7.7对应vbapi二次开发-7-草绘~~
-
 ## ~~chapter8.1对应vbapi二次开发-8-UI操作（全异步模式，程序经常卡死）~~
 
 ## ~~chapter9.1对应vbapi二次开发-9-调用Protoolkit函数~~
