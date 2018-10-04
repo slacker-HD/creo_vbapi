@@ -116,7 +116,12 @@
 
 + 国标倒角标注
 
-## ~~chapter8.1对应vbapi二次开发-8-UI操作（全异步模式，程序经常卡死）~~
+## chapter8.1对应vbapi二次开发-8-事件操作
+
++ 截获所有Session相关事件
++ 取消ModelErase事件
+
+## ~~chapter8.1对应vbapi二次开发-8-UI操作（全异步模式）~~
 
 ## ~~chapter9.1对应vbapi二次开发-9-调用Protoolkit函数~~
 
