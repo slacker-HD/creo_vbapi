@@ -121,7 +121,11 @@
 + 侦听所有Session相关事件
 + 取消ModelErase事件
 
-## ~~chapter8.1对应vbapi二次开发-8-UI操作（全异步模式）~~
+## chapter8.2对应vbapi二次开发-8-UI操作（全异步模式）
+
++ 添加菜单
++ 添加右键菜单
++ 添加导航器栏
 
 ## ~~chapter9.1对应vbapi二次开发-9-调用Protoolkit函数~~
 
