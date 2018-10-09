@@ -6,7 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-assets/files/
+.vscode/
 # Electron out
 out/
 

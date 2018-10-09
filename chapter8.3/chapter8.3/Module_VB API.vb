@@ -50,7 +50,6 @@ Module Module_vbapi
             toolkitdll = CType(asyncConnection.Session, IpfcBaseSession).LoadProToolkitDll(TKDLLName, DllPath, TextPath, True)
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
-
         End Try
     End Sub
     ''' <summary>
