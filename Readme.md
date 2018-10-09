@@ -127,7 +127,14 @@
 + 添加右键菜单
 + 添加导航器栏
 
-## ~~chapter8.3对应vbapi二次开发-8-调用Protoolkit函数~~
+## chapter8.3对应vbapi二次开发-8-调用Protoolkit程序
+
++ 加载Dll
++ 运行Dll定义的函数
+
+## TkDllEample
+
++ Toolkit程序，供chapter8.3调用
 
 ## CreoFileExportTools对应开发的批量格式导出小工具
 

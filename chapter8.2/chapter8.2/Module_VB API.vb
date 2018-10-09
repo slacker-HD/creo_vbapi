@@ -101,7 +101,7 @@ Module Module_vbapi
         End Function
 
         ''' <summary>
-        ''' 判断按钮在当前会话是否可用，这里只是简单判断必须是打开PRT才可用
+        ''' 判断按钮在当前会话是否可用，这里只是简单判断必须是打开DRWING才可用
         ''' </summary>
         ''' <param name="_AllowErrorMessages"></param>
         ''' <returns></returns>
@@ -113,7 +113,6 @@ Module Module_vbapi
             End If
             Return EpfcCommandAccess.EpfcACCESS_AVAILABLE
         End Function
-
     End Class
 
     ''' <summary>
@@ -203,9 +202,8 @@ Module Module_vbapi
             UICommand.AddActionListener(UICommandAccessListener)
             '添加自定义菜单按钮
             asyncConnection.Session.UIAddButton(UICommand, "Windows", Nothing, "MyPushButton", "MyPushButtonHelp", Msg_file)
-            '设定pfcAsyncConnection层级的listener，必须有，不然会死
+            '设定IpfcAsyncConnection层级的listener，必须有，不然会死
             AsyncActionListener = New MyAsyncActionListener()
-
             asyncConnection.AddActionListener(AsyncActionListener)
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
@@ -253,8 +251,7 @@ Module Module_vbapi
             '添加右键菜单菜弹出规则
             PopupmenuListener = New MyPopupmenuListener(asyncConnection)
             asyncConnection.Session.AddActionListener(PopupmenuListener)
-
-            '设定pfcAsyncConnection层级的listener，必须有，不然会死
+            '设定IpfcAsyncConnection层级的listener，必须有，不然会死
             AsyncActionListener = New MyAsyncActionListener()
             asyncConnection.AddActionListener(AsyncActionListener)
         Catch ex As Exception
