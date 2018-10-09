@@ -7,6 +7,7 @@ Public Class Frm_load
             MsgBox("无法连接CREO对话！")
         Else
             Btn_LoadToolkitDll.Enabled = True
+            Btn_ExcuteFun.Enabled = True
         End If
     End Sub
 
@@ -15,6 +16,7 @@ Public Class Frm_load
             MsgBox("无法新建CREO对话！")
         Else
             Btn_LoadToolkitDll.Enabled = True
+            Btn_ExcuteFun.Enabled = True
         End If
     End Sub
 
@@ -29,7 +31,7 @@ Public Class Frm_load
         LoadToolkitDll()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Btn_ExcuteFun.Click
+    Private Sub Btn_ExcuteFun_Click(sender As Object, e As EventArgs) Handles Btn_ExcuteFun.Click
         ExecuteFunction(2)
     End Sub
 End Class

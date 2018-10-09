@@ -77,6 +77,7 @@ Partial Class Frm_load
         'Btn_LoadToolkitDll
         '
         Me.Btn_LoadToolkitDll.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_LoadToolkitDll.Enabled = False
         Me.Btn_LoadToolkitDll.Location = New System.Drawing.Point(3, 219)
         Me.Btn_LoadToolkitDll.Name = "Btn_LoadToolkitDll"
         Me.Btn_LoadToolkitDll.Size = New System.Drawing.Size(237, 102)
@@ -87,6 +88,7 @@ Partial Class Frm_load
         'Btn_ExcuteFun
         '
         Me.Btn_ExcuteFun.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_ExcuteFun.Enabled = False
         Me.Btn_ExcuteFun.Location = New System.Drawing.Point(3, 327)
         Me.Btn_ExcuteFun.Name = "Btn_ExcuteFun"
         Me.Btn_ExcuteFun.Size = New System.Drawing.Size(237, 104)
