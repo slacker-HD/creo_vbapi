@@ -2,7 +2,6 @@
 
 文档可参见： [我的博客](http://www.hudi.site/)。
 
-
 ## chapter2.1对应vbapi二次开发-2.会话操作实例
 
 + 连接现有会话
@@ -131,6 +130,10 @@
 
 + 加载Dll
 + 运行Dll定义的函数
+
+## chapter9.1对应vbapi二次开发-9-文件预览
+
++ 调用CreoView OCX插件预览文件
 
 ## TkDllEample
 
