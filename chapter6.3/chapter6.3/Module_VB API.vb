@@ -62,7 +62,8 @@ Module Module_vbapi
                 modelItem = CType(component, IpfcModelItem)
                 componentFeat = CType(component, IpfcComponentFeat)
                 '如5.1所述，getname是基本无效的，还好可以通过model的instantname实现
-                info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + componentFeat.ModelDescr.GetFileName + "  类型：" + componentFeat.ModelDescr.GetExtension() + Chr(13)
+                info += "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + componentFeat.ModelDescr.InstanceName + "  类型：" + componentFeat.ModelDescr.GetExtension()
+                info += "(" + Constrains(componentFeat) + ")" + Chr(13)
                 i = i + 1
                 If componentFeat.ModelDescr.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
                     info += GetSubassemblyinfo(i, componentFeat.ModelDescr, 0)
@@ -99,7 +100,8 @@ Module Module_vbapi
         For Each component As IpfcFeature In components
             modelItem = CType(component, IpfcModelItem)
             componentFeat = CType(component, IpfcComponentFeat)
-            info += tabstr + "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + componentFeat.ModelDescr.InstanceName + "  类型：" + componentFeat.ModelDescr.GetExtension() + Chr(13)
+            info += tabstr + "序号：" + (i + 1).ToString() + "  ID:" + modelItem.Id.ToString() + "  名称：" + componentFeat.ModelDescr.InstanceName + "  类型：" + componentFeat.ModelDescr.GetExtension()
+            info += "(" + Constrains(componentFeat) + ")" + Chr(13)
             i = i + 1
             If componentFeat.ModelDescr.Type = EpfcModelType.EpfcMDL_ASSEMBLY Then
                 info += GetSubassemblyinfo(i, componentFeat.ModelDescr, level + 1)
@@ -107,5 +109,17 @@ Module Module_vbapi
         Next
         Return info
     End Function
-
+    ''' <summary>
+    ''' 获取子装配体的装配约束
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function Constrains(ByVal Component As IpfcComponentFeat) As String
+        Constrains = ""
+        If Component.GetConstraints() IsNot Nothing Then
+            For Each constrain As IpfcComponentConstraint In Component.GetConstraints()
+                Constrains += "约束类型：" + constrain.Type.ToString() + ", "
+            Next
+        End If
+        Return Constrains
+    End Function
 End Module
