@@ -32,3 +32,7 @@ Private Sub Cmd_Start_Click()
     Set cAC = New CCpfcAsyncConnection
     Set asyncConnection = cAC.Start("C:\PTC\Creo 2.0\Parametric\bin\parametric.exe", "")
 End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    asyncConnection.End
+End Sub
