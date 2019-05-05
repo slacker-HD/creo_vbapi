@@ -45,7 +45,6 @@ Module Module_vbapi
         Dim selections As CpfcSelections
         Dim selectFeats As IpfcSelection
         Dim selectedfeat As IpfcModelItem
-        dim componentFeat as IpfcComponentFeat
         Try
             '初始化selection选项
             selectionOptions = (New CCpfcSelectionOptions).Create("feature") '设置可选特征的类型，这里为特征对象
