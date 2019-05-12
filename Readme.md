@@ -165,3 +165,7 @@
 ## vb6creo对应VB6调用VBAPI开发简单实例
 
 ## CreoCSharp对应C#调用vbapi接口二次开发实例
+
+## Familyexport对应开发的族表文件批量导出小工具
+
++ 命令行工具，注意命令行参数
