@@ -22,4 +22,8 @@ Public Class Frm_load
     Private Sub Btn_assemble_Click(sender As Object, e As EventArgs) Handles Btn_assemble.Click
         InsertComp()
     End Sub
+
+    Private Sub Btn_constrainsAdd_Click(sender As Object, e As EventArgs) Handles Btn_constrainsAdd.Click
+        SetConstrainOffSet()
+    End Sub
 End Class
