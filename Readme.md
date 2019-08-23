@@ -135,6 +135,11 @@
 
 + 调用CreoView OCX插件预览文件
 
+## chapter10.1对应vbapi二次开发-10-外部数据
+
++ 读取外部数据
++ 写入外部数据
+
 ## TkDllEample
 
 + Toolkit程序，供chapter8.3调用
