@@ -22,7 +22,7 @@ Public Class VBapitool
     ''' <returns>新建会话是否成功</returns>
     Public Function NewSession() As Boolean
         Try
-            asyncConnection = (New CCpfcAsyncConnection).Start(_apppath, "")
+            asyncConnection = (New CCpfcAsyncConnection).Start(_apppath + " -g:no_graphics -i:rpc_input", "")
             asyncConnection.Session.LoadConfigFile("D:\ProeRes\config.pro")
             NewSession = True
         Catch ex As Exception
@@ -51,7 +51,7 @@ Public Class VBapitool
             asyncConnection.Session.ChangeDirectory(_outpath)
             solid = CType(model, IpfcSolid)
             familyTableRows = CType(solid, IpfcFamilyMember).ListRows()
-            For i = 0 To familyTableRows.Count
+            For i = 0 To familyTableRows.Count - 1
                 familyTableRow = familyTableRows.Item(i)
                 instmodel = familyTableRow.CreateInstance()
                 instmodel.Copy("IMI_" + instmodel.InstanceName + ".prt", Nothing)
