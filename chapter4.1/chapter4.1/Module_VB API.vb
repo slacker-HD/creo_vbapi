@@ -88,7 +88,7 @@ Module Module_vbapi
 
             '第一个参数应该是EpfcAssemblyConfiguration，帮助文档有误；
             stepinstructions = (New CCpfcSTEP3DExportInstructions()).Create(EpfcAssemblyConfiguration.EpfcEXPORT_ASM_MULTI_FILES, flags)
-            model.Export(model.InstanceName + ".pdf", stepinstructions)
+            model.Export(model.InstanceName + ".stp", stepinstructions)
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
         End Try
