@@ -144,6 +144,11 @@
 
 + 读取族表信息
 
+## chapter10.3对应vbapi二次开发-10-材料
+
++ 设定当前零件材料
++ 读取当前零件材料信息
+
 ## TkDllEample
 
 + Toolkit程序，供chapter8.3调用
