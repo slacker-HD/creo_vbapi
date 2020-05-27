@@ -134,6 +134,7 @@
     <Compile Include="Module_Object.vb" />
     <Compile Include="Module_Param.vb" />
     <Compile Include="Module_Relations.vb" />
+    <Compile Include="Module_Material.vb" />
     <Compile Include="Module_Unit.vb" />
     <Compile Include="Module_Win.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

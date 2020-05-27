@@ -36,8 +36,29 @@ Partial Class FrmMain
         Me.LinkLabelModelPurge = New System.Windows.Forms.LinkLabel()
         Me.LinkLabelFamTab = New System.Windows.Forms.LinkLabel()
         Me.LinkLabelFrm = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelMaterialSet = New System.Windows.Forms.LinkLabel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanelMaterialSet = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel26 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ButtonMaterialPrtPathChoose = New System.Windows.Forms.Button()
+        Me.TextBoxMaterialPrt = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.DataGridViewMaterial = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewComboBoxColumn2 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.TableLayoutPanel27 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBoxMaterialMtl = New System.Windows.Forms.TextBox()
+        Me.ButtonMaterialMtlPathChoose = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel28 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ButtonMaterialRead = New System.Windows.Forms.Button()
+        Me.ButtonMaterialSet = New System.Windows.Forms.Button()
         Me.PanelHelp = New System.Windows.Forms.Panel()
         Me.WebBrowserAbout = New System.Windows.Forms.WebBrowser()
         Me.TableLayoutPanelUnit = New System.Windows.Forms.TableLayoutPanel()
@@ -192,6 +213,12 @@ Partial Class FrmMain
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanelMaterialSet.SuspendLayout()
+        Me.TableLayoutPanel26.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        CType(Me.DataGridViewMaterial, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel27.SuspendLayout()
+        Me.TableLayoutPanel28.SuspendLayout()
         Me.PanelHelp.SuspendLayout()
         Me.TableLayoutPanelUnit.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -242,9 +269,10 @@ Partial Class FrmMain
         LinkLabelConfig.AutoSize = True
         LinkLabelConfig.Dock = System.Windows.Forms.DockStyle.Fill
         LinkLabelConfig.LinkColor = System.Drawing.SystemColors.HotTrack
-        LinkLabelConfig.Location = New System.Drawing.Point(3, 0)
+        LinkLabelConfig.Location = New System.Drawing.Point(4, 0)
+        LinkLabelConfig.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         LinkLabelConfig.Name = "LinkLabelConfig"
-        LinkLabelConfig.Size = New System.Drawing.Size(182, 40)
+        LinkLabelConfig.Size = New System.Drawing.Size(243, 50)
         LinkLabelConfig.TabIndex = 0
         LinkLabelConfig.TabStop = True
         LinkLabelConfig.Text = "设置"
@@ -256,9 +284,10 @@ Partial Class FrmMain
         LinkLabelHelp.AutoSize = True
         LinkLabelHelp.Dock = System.Windows.Forms.DockStyle.Top
         LinkLabelHelp.LinkColor = System.Drawing.SystemColors.HotTrack
-        LinkLabelHelp.Location = New System.Drawing.Point(3, 40)
+        LinkLabelHelp.Location = New System.Drawing.Point(4, 50)
+        LinkLabelHelp.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         LinkLabelHelp.Name = "LinkLabelHelp"
-        LinkLabelHelp.Size = New System.Drawing.Size(182, 12)
+        LinkLabelHelp.Size = New System.Drawing.Size(243, 15)
         LinkLabelHelp.TabIndex = 1
         LinkLabelHelp.TabStop = True
         LinkLabelHelp.Text = "关于和帮助"
@@ -270,17 +299,18 @@ Partial Class FrmMain
         Me.TableLayoutPanel1.BackColor = System.Drawing.SystemColors.Window
         Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 561.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(967, 604)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 701.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1289, 755)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TableLayoutPanel2
@@ -288,16 +318,17 @@ Partial Class FrmMain
         Me.TableLayoutPanel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 5)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.20848!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.79152!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(194, 596)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(259, 745)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'TableLayoutPanel3
@@ -312,20 +343,23 @@ Partial Class FrmMain
         Me.TableLayoutPanel3.Controls.Add(Me.LinkLabelModelPurge, 0, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.LinkLabelFamTab, 0, 6)
         Me.TableLayoutPanel3.Controls.Add(Me.LinkLabelFrm, 0, 7)
+        Me.TableLayoutPanel3.Controls.Add(Me.LinkLabelMaterialSet, 0, 8)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 9
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(188, 454)
+        Me.TableLayoutPanel3.RowCount = 10
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(251, 567)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'LinkLabelRelation
@@ -334,9 +368,10 @@ Partial Class FrmMain
         Me.LinkLabelRelation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelRelation.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelRelation.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelRelation.Location = New System.Drawing.Point(3, 68)
+        Me.LinkLabelRelation.Location = New System.Drawing.Point(4, 84)
+        Me.LinkLabelRelation.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelRelation.Name = "LinkLabelRelation"
-        Me.LinkLabelRelation.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelRelation.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelRelation.TabIndex = 2
         Me.LinkLabelRelation.TabStop = True
         Me.LinkLabelRelation.Text = "批量关系处理"
@@ -348,9 +383,10 @@ Partial Class FrmMain
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Location = New System.Drawing.Point(4, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(182, 42)
+        Me.Label1.Size = New System.Drawing.Size(243, 52)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "工具列表"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -361,9 +397,10 @@ Partial Class FrmMain
         Me.LinkLabelParam.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelParam.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelParam.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelParam.Location = New System.Drawing.Point(3, 42)
+        Me.LinkLabelParam.Location = New System.Drawing.Point(4, 52)
+        Me.LinkLabelParam.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelParam.Name = "LinkLabelParam"
-        Me.LinkLabelParam.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelParam.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelParam.TabIndex = 1
         Me.LinkLabelParam.TabStop = True
         Me.LinkLabelParam.Text = "批量参数处理"
@@ -375,9 +412,10 @@ Partial Class FrmMain
         Me.LinkLabelObject.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelObject.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelObject.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelObject.Location = New System.Drawing.Point(3, 94)
+        Me.LinkLabelObject.Location = New System.Drawing.Point(4, 116)
+        Me.LinkLabelObject.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelObject.Name = "LinkLabelObject"
-        Me.LinkLabelObject.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelObject.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelObject.TabIndex = 3
         Me.LinkLabelObject.TabStop = True
         Me.LinkLabelObject.Text = "批量格式导出"
@@ -389,9 +427,10 @@ Partial Class FrmMain
         Me.LinkLabelUnit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelUnit.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelUnit.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelUnit.Location = New System.Drawing.Point(3, 120)
+        Me.LinkLabelUnit.Location = New System.Drawing.Point(4, 148)
+        Me.LinkLabelUnit.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelUnit.Name = "LinkLabelUnit"
-        Me.LinkLabelUnit.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelUnit.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelUnit.TabIndex = 5
         Me.LinkLabelUnit.TabStop = True
         Me.LinkLabelUnit.Text = "批量单位转换"
@@ -403,9 +442,10 @@ Partial Class FrmMain
         Me.LinkLabelModelPurge.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelModelPurge.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelModelPurge.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelModelPurge.Location = New System.Drawing.Point(3, 146)
+        Me.LinkLabelModelPurge.Location = New System.Drawing.Point(4, 180)
+        Me.LinkLabelModelPurge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelModelPurge.Name = "LinkLabelModelPurge"
-        Me.LinkLabelModelPurge.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelModelPurge.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelModelPurge.TabIndex = 7
         Me.LinkLabelModelPurge.TabStop = True
         Me.LinkLabelModelPurge.Text = "批量旧版本删除"
@@ -417,9 +457,10 @@ Partial Class FrmMain
         Me.LinkLabelFamTab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelFamTab.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelFamTab.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelFamTab.Location = New System.Drawing.Point(3, 172)
+        Me.LinkLabelFamTab.Location = New System.Drawing.Point(4, 212)
+        Me.LinkLabelFamTab.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelFamTab.Name = "LinkLabelFamTab"
-        Me.LinkLabelFamTab.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelFamTab.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelFamTab.TabIndex = 8
         Me.LinkLabelFamTab.TabStop = True
         Me.LinkLabelFamTab.Text = "批量导出族表实例"
@@ -431,13 +472,27 @@ Partial Class FrmMain
         Me.LinkLabelFrm.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LinkLabelFrm.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.LinkLabelFrm.LinkColor = System.Drawing.SystemColors.Highlight
-        Me.LinkLabelFrm.Location = New System.Drawing.Point(3, 198)
+        Me.LinkLabelFrm.Location = New System.Drawing.Point(4, 244)
+        Me.LinkLabelFrm.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LinkLabelFrm.Name = "LinkLabelFrm"
-        Me.LinkLabelFrm.Size = New System.Drawing.Size(182, 26)
+        Me.LinkLabelFrm.Size = New System.Drawing.Size(243, 32)
         Me.LinkLabelFrm.TabIndex = 10
         Me.LinkLabelFrm.TabStop = True
         Me.LinkLabelFrm.Text = "批量转换图框"
         Me.LinkLabelFrm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LinkLabelMaterialSet
+        '
+        Me.LinkLabelMaterialSet.AutoSize = True
+        Me.LinkLabelMaterialSet.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LinkLabelMaterialSet.LinkColor = System.Drawing.SystemColors.Highlight
+        Me.LinkLabelMaterialSet.Location = New System.Drawing.Point(3, 276)
+        Me.LinkLabelMaterialSet.Name = "LinkLabelMaterialSet"
+        Me.LinkLabelMaterialSet.Size = New System.Drawing.Size(245, 32)
+        Me.LinkLabelMaterialSet.TabIndex = 11
+        Me.LinkLabelMaterialSet.TabStop = True
+        Me.LinkLabelMaterialSet.Text = "批量设定材料"
+        Me.LinkLabelMaterialSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TableLayoutPanel4
         '
@@ -446,16 +501,18 @@ Partial Class FrmMain
         Me.TableLayoutPanel4.Controls.Add(LinkLabelConfig, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(LinkLabelHelp, 0, 1)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 493)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 616)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(188, 100)
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(251, 125)
         Me.TableLayoutPanel4.TabIndex = 1
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.TableLayoutPanelMaterialSet)
         Me.Panel1.Controls.Add(Me.PanelHelp)
         Me.Panel1.Controls.Add(Me.TableLayoutPanelUnit)
         Me.Panel1.Controls.Add(Me.TableLayoutPanelObject)
@@ -466,27 +523,282 @@ Partial Class FrmMain
         Me.Panel1.Controls.Add(Me.TableLayoutPanelFamTab)
         Me.Panel1.Controls.Add(Me.TableLayoutPanelParam)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(205, 4)
+        Me.Panel1.Location = New System.Drawing.Point(273, 5)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(758, 596)
+        Me.Panel1.Size = New System.Drawing.Size(1011, 745)
         Me.Panel1.TabIndex = 1
+        '
+        'TableLayoutPanelMaterialSet
+        '
+        Me.TableLayoutPanelMaterialSet.ColumnCount = 1
+        Me.TableLayoutPanelMaterialSet.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanelMaterialSet.Controls.Add(Me.TableLayoutPanel26, 0, 2)
+        Me.TableLayoutPanelMaterialSet.Controls.Add(Me.Label29, 0, 0)
+        Me.TableLayoutPanelMaterialSet.Controls.Add(Me.Label30, 0, 1)
+        Me.TableLayoutPanelMaterialSet.Controls.Add(Me.GroupBox10, 0, 4)
+        Me.TableLayoutPanelMaterialSet.Controls.Add(Me.TableLayoutPanel27, 0, 3)
+        Me.TableLayoutPanelMaterialSet.Controls.Add(Me.TableLayoutPanel28, 0, 5)
+        Me.TableLayoutPanelMaterialSet.Location = New System.Drawing.Point(13, 276)
+        Me.TableLayoutPanelMaterialSet.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPanelMaterialSet.Name = "TableLayoutPanelMaterialSet"
+        Me.TableLayoutPanelMaterialSet.RowCount = 6
+        Me.TableLayoutPanelMaterialSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
+        Me.TableLayoutPanelMaterialSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelMaterialSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelMaterialSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelMaterialSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanelMaterialSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelMaterialSet.Size = New System.Drawing.Size(984, 313)
+        Me.TableLayoutPanelMaterialSet.TabIndex = 18
+        '
+        'TableLayoutPanel26
+        '
+        Me.TableLayoutPanel26.ColumnCount = 3
+        Me.TableLayoutPanel26.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
+        Me.TableLayoutPanel26.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel26.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
+        Me.TableLayoutPanel26.Controls.Add(Me.ButtonMaterialPrtPathChoose, 0, 0)
+        Me.TableLayoutPanel26.Controls.Add(Me.TextBoxMaterialPrt, 0, 0)
+        Me.TableLayoutPanel26.Controls.Add(Me.Label32, 0, 0)
+        Me.TableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel26.Location = New System.Drawing.Point(3, 73)
+        Me.TableLayoutPanel26.Name = "TableLayoutPanel26"
+        Me.TableLayoutPanel26.RowCount = 1
+        Me.TableLayoutPanel26.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel26.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TableLayoutPanel26.Size = New System.Drawing.Size(978, 34)
+        Me.TableLayoutPanel26.TabIndex = 2
+        '
+        'ButtonMaterialPrtPathChoose
+        '
+        Me.ButtonMaterialPrtPathChoose.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonMaterialPrtPathChoose.Location = New System.Drawing.Point(889, 4)
+        Me.ButtonMaterialPrtPathChoose.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonMaterialPrtPathChoose.Name = "ButtonMaterialPrtPathChoose"
+        Me.ButtonMaterialPrtPathChoose.Size = New System.Drawing.Size(85, 26)
+        Me.ButtonMaterialPrtPathChoose.TabIndex = 3
+        Me.ButtonMaterialPrtPathChoose.Text = "选择目录"
+        Me.ButtonMaterialPrtPathChoose.UseVisualStyleBackColor = True
+        '
+        'TextBoxMaterialPrt
+        '
+        Me.TextBoxMaterialPrt.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxMaterialPrt.Location = New System.Drawing.Point(140, 4)
+        Me.TextBoxMaterialPrt.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxMaterialPrt.Name = "TextBoxMaterialPrt"
+        Me.TextBoxMaterialPrt.Size = New System.Drawing.Size(741, 25)
+        Me.TextBoxMaterialPrt.TabIndex = 2
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label32.Location = New System.Drawing.Point(4, 0)
+        Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(128, 34)
+        Me.Label32.TabIndex = 1
+        Me.Label32.Text = "包含prt的目录："
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.BackColor = System.Drawing.SystemColors.InactiveBorder
+        Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label29.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label29.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label29.Location = New System.Drawing.Point(4, 0)
+        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(976, 38)
+        Me.Label29.TabIndex = 0
+        Me.Label29.Text = "批量设定材料"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label30.Location = New System.Drawing.Point(4, 38)
+        Me.Label30.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(976, 32)
+        Me.Label30.TabIndex = 1
+        Me.Label30.Text = "查看选定目录下所有prt的单位，同时提供批量替换prt材料的功能，可用材料来自选定的目录。"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.DataGridViewMaterial)
+        Me.GroupBox10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox10.Location = New System.Drawing.Point(4, 154)
+        Me.GroupBox10.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox10.Size = New System.Drawing.Size(976, 115)
+        Me.GroupBox10.TabIndex = 2
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "prt材料"
+        '
+        'DataGridViewMaterial
+        '
+        Me.DataGridViewMaterial.AllowUserToAddRows = False
+        Me.DataGridViewMaterial.AllowUserToDeleteRows = False
+        Me.DataGridViewMaterial.AllowUserToOrderColumns = True
+        Me.DataGridViewMaterial.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.DataGridViewMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewMaterial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewComboBoxColumn2})
+        Me.DataGridViewMaterial.Cursor = System.Windows.Forms.Cursors.Default
+        Me.DataGridViewMaterial.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridViewMaterial.Location = New System.Drawing.Point(4, 22)
+        Me.DataGridViewMaterial.Margin = New System.Windows.Forms.Padding(4)
+        Me.DataGridViewMaterial.Name = "DataGridViewMaterial"
+        Me.DataGridViewMaterial.RowHeadersWidth = 51
+        Me.DataGridViewMaterial.RowTemplate.Height = 23
+        Me.DataGridViewMaterial.Size = New System.Drawing.Size(968, 89)
+        Me.DataGridViewMaterial.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "序号"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 60
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "模型"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 250
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.HeaderText = "原设定材料"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 250
+        '
+        'DataGridViewComboBoxColumn2
+        '
+        Me.DataGridViewComboBoxColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.DataGridViewComboBoxColumn2.HeaderText = "可设定的材料"
+        Me.DataGridViewComboBoxColumn2.Items.AddRange(New Object() {"转换尺寸", "解释尺寸"})
+        Me.DataGridViewComboBoxColumn2.MinimumWidth = 6
+        Me.DataGridViewComboBoxColumn2.Name = "DataGridViewComboBoxColumn2"
+        Me.DataGridViewComboBoxColumn2.Width = 125
+        '
+        'TableLayoutPanel27
+        '
+        Me.TableLayoutPanel27.ColumnCount = 3
+        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
+        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel27.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
+        Me.TableLayoutPanel27.Controls.Add(Me.Label31, 0, 0)
+        Me.TableLayoutPanel27.Controls.Add(Me.TextBoxMaterialMtl, 1, 0)
+        Me.TableLayoutPanel27.Controls.Add(Me.ButtonMaterialMtlPathChoose, 2, 0)
+        Me.TableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel27.Location = New System.Drawing.Point(4, 114)
+        Me.TableLayoutPanel27.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPanel27.Name = "TableLayoutPanel27"
+        Me.TableLayoutPanel27.RowCount = 1
+        Me.TableLayoutPanel27.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel27.Size = New System.Drawing.Size(976, 32)
+        Me.TableLayoutPanel27.TabIndex = 5
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label31.Location = New System.Drawing.Point(4, 0)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(128, 32)
+        Me.Label31.TabIndex = 0
+        Me.Label31.Text = "包含mtl的目录："
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBoxMaterialMtl
+        '
+        Me.TextBoxMaterialMtl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxMaterialMtl.Location = New System.Drawing.Point(140, 4)
+        Me.TextBoxMaterialMtl.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxMaterialMtl.Name = "TextBoxMaterialMtl"
+        Me.TextBoxMaterialMtl.Size = New System.Drawing.Size(739, 25)
+        Me.TextBoxMaterialMtl.TabIndex = 1
+        '
+        'ButtonMaterialMtlPathChoose
+        '
+        Me.ButtonMaterialMtlPathChoose.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonMaterialMtlPathChoose.Location = New System.Drawing.Point(887, 4)
+        Me.ButtonMaterialMtlPathChoose.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonMaterialMtlPathChoose.Name = "ButtonMaterialMtlPathChoose"
+        Me.ButtonMaterialMtlPathChoose.Size = New System.Drawing.Size(85, 24)
+        Me.ButtonMaterialMtlPathChoose.TabIndex = 2
+        Me.ButtonMaterialMtlPathChoose.Text = "选择目录"
+        Me.ButtonMaterialMtlPathChoose.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel28
+        '
+        Me.TableLayoutPanel28.ColumnCount = 2
+        Me.TableLayoutPanel28.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel28.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel28.Controls.Add(Me.ButtonMaterialRead, 0, 0)
+        Me.TableLayoutPanel28.Controls.Add(Me.ButtonMaterialSet, 1, 0)
+        Me.TableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TableLayoutPanel28.Location = New System.Drawing.Point(756, 277)
+        Me.TableLayoutPanel28.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPanel28.Name = "TableLayoutPanel28"
+        Me.TableLayoutPanel28.RowCount = 1
+        Me.TableLayoutPanel28.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel28.Size = New System.Drawing.Size(224, 32)
+        Me.TableLayoutPanel28.TabIndex = 6
+        '
+        'ButtonMaterialRead
+        '
+        Me.ButtonMaterialRead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonMaterialRead.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonMaterialRead.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonMaterialRead.Name = "ButtonMaterialRead"
+        Me.ButtonMaterialRead.Size = New System.Drawing.Size(104, 24)
+        Me.ButtonMaterialRead.TabIndex = 0
+        Me.ButtonMaterialRead.Text = "读取信息"
+        Me.ButtonMaterialRead.UseVisualStyleBackColor = True
+        '
+        'ButtonMaterialSet
+        '
+        Me.ButtonMaterialSet.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonMaterialSet.Location = New System.Drawing.Point(116, 4)
+        Me.ButtonMaterialSet.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonMaterialSet.Name = "ButtonMaterialSet"
+        Me.ButtonMaterialSet.Size = New System.Drawing.Size(104, 24)
+        Me.ButtonMaterialSet.TabIndex = 1
+        Me.ButtonMaterialSet.Text = "批量设定"
+        Me.ButtonMaterialSet.UseVisualStyleBackColor = True
         '
         'PanelHelp
         '
         Me.PanelHelp.BackColor = System.Drawing.SystemColors.Window
         Me.PanelHelp.Controls.Add(Me.WebBrowserAbout)
-        Me.PanelHelp.Location = New System.Drawing.Point(30, 511)
+        Me.PanelHelp.Location = New System.Drawing.Point(40, 639)
+        Me.PanelHelp.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelHelp.Name = "PanelHelp"
-        Me.PanelHelp.Size = New System.Drawing.Size(758, 596)
+        Me.PanelHelp.Size = New System.Drawing.Size(1011, 745)
         Me.PanelHelp.TabIndex = 17
         '
         'WebBrowserAbout
         '
         Me.WebBrowserAbout.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebBrowserAbout.Location = New System.Drawing.Point(0, 0)
-        Me.WebBrowserAbout.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowserAbout.Margin = New System.Windows.Forms.Padding(4)
+        Me.WebBrowserAbout.MinimumSize = New System.Drawing.Size(27, 25)
         Me.WebBrowserAbout.Name = "WebBrowserAbout"
-        Me.WebBrowserAbout.Size = New System.Drawing.Size(758, 596)
+        Me.WebBrowserAbout.Size = New System.Drawing.Size(1011, 745)
         Me.WebBrowserAbout.TabIndex = 0
         Me.WebBrowserAbout.Url = New System.Uri("http://www.hudi.site/vbapitool.html", System.UriKind.Absolute)
         '
@@ -499,16 +811,17 @@ Partial Class FrmMain
         Me.TableLayoutPanelUnit.Controls.Add(Me.GroupBox6, 0, 3)
         Me.TableLayoutPanelUnit.Controls.Add(Me.TableLayoutPanel15, 0, 2)
         Me.TableLayoutPanelUnit.Controls.Add(Me.TableLayoutPanel14, 0, 4)
-        Me.TableLayoutPanelUnit.Location = New System.Drawing.Point(514, 45)
+        Me.TableLayoutPanelUnit.Location = New System.Drawing.Point(67, 75)
+        Me.TableLayoutPanelUnit.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelUnit.Name = "TableLayoutPanelUnit"
         Me.TableLayoutPanelUnit.RowCount = 5
-        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelUnit.Size = New System.Drawing.Size(424, 36)
+        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelUnit.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanelUnit.Size = New System.Drawing.Size(984, 239)
         Me.TableLayoutPanelUnit.TabIndex = 14
         '
         'Label15
@@ -518,9 +831,10 @@ Partial Class FrmMain
         Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label15.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label15.Location = New System.Drawing.Point(3, 0)
+        Me.Label15.Location = New System.Drawing.Point(4, 0)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(418, 30)
+        Me.Label15.Size = New System.Drawing.Size(976, 38)
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "批量单位转换"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -529,9 +843,10 @@ Partial Class FrmMain
         '
         Me.Label16.AutoSize = True
         Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label16.Location = New System.Drawing.Point(3, 30)
+        Me.Label16.Location = New System.Drawing.Point(4, 38)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(418, 26)
+        Me.Label16.Size = New System.Drawing.Size(976, 32)
         Me.Label16.TabIndex = 1
         Me.Label16.Text = "查看选定目录下所有prt的单位，同时提供批量替换单位为mmNs功能。"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -540,9 +855,11 @@ Partial Class FrmMain
         '
         Me.GroupBox6.Controls.Add(Me.DataGridViewUnit)
         Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox6.Location = New System.Drawing.Point(3, 91)
+        Me.GroupBox6.Location = New System.Drawing.Point(4, 114)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(418, 1)
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox6.Size = New System.Drawing.Size(976, 81)
         Me.GroupBox6.TabIndex = 2
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "prt单位"
@@ -557,15 +874,18 @@ Partial Class FrmMain
         Me.DataGridViewUnit.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxUnitSerial, Me.DataGridViewTextBoxColumnUnitName, Me.DataGridViewTextBoxColumnUnitUnit, Me.DataGridViewTextBoxColumnUnitMode})
         Me.DataGridViewUnit.Cursor = System.Windows.Forms.Cursors.Default
         Me.DataGridViewUnit.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridViewUnit.Location = New System.Drawing.Point(3, 17)
+        Me.DataGridViewUnit.Location = New System.Drawing.Point(4, 22)
+        Me.DataGridViewUnit.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridViewUnit.Name = "DataGridViewUnit"
+        Me.DataGridViewUnit.RowHeadersWidth = 51
         Me.DataGridViewUnit.RowTemplate.Height = 23
-        Me.DataGridViewUnit.Size = New System.Drawing.Size(412, 0)
+        Me.DataGridViewUnit.Size = New System.Drawing.Size(968, 55)
         Me.DataGridViewUnit.TabIndex = 1
         '
         'DataGridViewTextBoxUnitSerial
         '
         Me.DataGridViewTextBoxUnitSerial.HeaderText = "序号"
+        Me.DataGridViewTextBoxUnitSerial.MinimumWidth = 6
         Me.DataGridViewTextBoxUnitSerial.Name = "DataGridViewTextBoxUnitSerial"
         Me.DataGridViewTextBoxUnitSerial.ReadOnly = True
         Me.DataGridViewTextBoxUnitSerial.Width = 60
@@ -573,6 +893,7 @@ Partial Class FrmMain
         'DataGridViewTextBoxColumnUnitName
         '
         Me.DataGridViewTextBoxColumnUnitName.HeaderText = "模型"
+        Me.DataGridViewTextBoxColumnUnitName.MinimumWidth = 6
         Me.DataGridViewTextBoxColumnUnitName.Name = "DataGridViewTextBoxColumnUnitName"
         Me.DataGridViewTextBoxColumnUnitName.ReadOnly = True
         Me.DataGridViewTextBoxColumnUnitName.Width = 250
@@ -580,6 +901,7 @@ Partial Class FrmMain
         'DataGridViewTextBoxColumnUnitUnit
         '
         Me.DataGridViewTextBoxColumnUnitUnit.HeaderText = "单位"
+        Me.DataGridViewTextBoxColumnUnitUnit.MinimumWidth = 6
         Me.DataGridViewTextBoxColumnUnitUnit.Name = "DataGridViewTextBoxColumnUnitUnit"
         Me.DataGridViewTextBoxColumnUnitUnit.ReadOnly = True
         Me.DataGridViewTextBoxColumnUnitUnit.Width = 250
@@ -589,32 +911,36 @@ Partial Class FrmMain
         Me.DataGridViewTextBoxColumnUnitMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DataGridViewTextBoxColumnUnitMode.HeaderText = "转换方式"
         Me.DataGridViewTextBoxColumnUnitMode.Items.AddRange(New Object() {"转换尺寸", "解释尺寸"})
+        Me.DataGridViewTextBoxColumnUnitMode.MinimumWidth = 6
         Me.DataGridViewTextBoxColumnUnitMode.Name = "DataGridViewTextBoxColumnUnitMode"
+        Me.DataGridViewTextBoxColumnUnitMode.Width = 125
         '
         'TableLayoutPanel15
         '
         Me.TableLayoutPanel15.ColumnCount = 3
-        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
+        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
         Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel15.Controls.Add(Me.Label17, 0, 0)
         Me.TableLayoutPanel15.Controls.Add(Me.TextBoxUnit, 1, 0)
         Me.TableLayoutPanel15.Controls.Add(Me.ButtonUnitPathChoose, 2, 0)
         Me.TableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel15.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel15.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel15.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel15.Name = "TableLayoutPanel15"
         Me.TableLayoutPanel15.RowCount = 1
         Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel15.Size = New System.Drawing.Size(418, 26)
+        Me.TableLayoutPanel15.Size = New System.Drawing.Size(976, 32)
         Me.TableLayoutPanel15.TabIndex = 5
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label17.Location = New System.Drawing.Point(3, 0)
+        Me.Label17.Location = New System.Drawing.Point(4, 0)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(96, 26)
+        Me.Label17.Size = New System.Drawing.Size(128, 32)
         Me.Label17.TabIndex = 0
         Me.Label17.Text = "包含prt的目录："
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -622,17 +948,19 @@ Partial Class FrmMain
         'TextBoxUnit
         '
         Me.TextBoxUnit.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxUnit.Location = New System.Drawing.Point(105, 3)
+        Me.TextBoxUnit.Location = New System.Drawing.Point(140, 4)
+        Me.TextBoxUnit.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxUnit.Name = "TextBoxUnit"
-        Me.TextBoxUnit.Size = New System.Drawing.Size(240, 21)
+        Me.TextBoxUnit.Size = New System.Drawing.Size(739, 25)
         Me.TextBoxUnit.TabIndex = 1
         '
         'ButtonUnitPathChoose
         '
         Me.ButtonUnitPathChoose.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonUnitPathChoose.Location = New System.Drawing.Point(351, 3)
+        Me.ButtonUnitPathChoose.Location = New System.Drawing.Point(887, 4)
+        Me.ButtonUnitPathChoose.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonUnitPathChoose.Name = "ButtonUnitPathChoose"
-        Me.ButtonUnitPathChoose.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonUnitPathChoose.Size = New System.Drawing.Size(85, 24)
         Me.ButtonUnitPathChoose.TabIndex = 2
         Me.ButtonUnitPathChoose.Text = "选择目录"
         Me.ButtonUnitPathChoose.UseVisualStyleBackColor = True
@@ -645,19 +973,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel14.Controls.Add(Me.ButtonUnitRead, 0, 0)
         Me.TableLayoutPanel14.Controls.Add(Me.ButtonUnitConvert, 1, 0)
         Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TableLayoutPanel14.Location = New System.Drawing.Point(253, 7)
+        Me.TableLayoutPanel14.Location = New System.Drawing.Point(756, 203)
+        Me.TableLayoutPanel14.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
         Me.TableLayoutPanel14.RowCount = 1
         Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel14.Size = New System.Drawing.Size(168, 26)
+        Me.TableLayoutPanel14.Size = New System.Drawing.Size(224, 32)
         Me.TableLayoutPanel14.TabIndex = 6
         '
         'ButtonUnitRead
         '
         Me.ButtonUnitRead.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonUnitRead.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonUnitRead.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonUnitRead.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonUnitRead.Name = "ButtonUnitRead"
-        Me.ButtonUnitRead.Size = New System.Drawing.Size(78, 20)
+        Me.ButtonUnitRead.Size = New System.Drawing.Size(104, 24)
         Me.ButtonUnitRead.TabIndex = 0
         Me.ButtonUnitRead.Text = "读取信息"
         Me.ButtonUnitRead.UseVisualStyleBackColor = True
@@ -665,9 +995,10 @@ Partial Class FrmMain
         'ButtonUnitConvert
         '
         Me.ButtonUnitConvert.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonUnitConvert.Location = New System.Drawing.Point(87, 3)
+        Me.ButtonUnitConvert.Location = New System.Drawing.Point(116, 4)
+        Me.ButtonUnitConvert.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonUnitConvert.Name = "ButtonUnitConvert"
-        Me.ButtonUnitConvert.Size = New System.Drawing.Size(78, 20)
+        Me.ButtonUnitConvert.Size = New System.Drawing.Size(104, 24)
         Me.ButtonUnitConvert.TabIndex = 1
         Me.ButtonUnitConvert.Text = "批量转换"
         Me.ButtonUnitConvert.UseVisualStyleBackColor = True
@@ -682,16 +1013,17 @@ Partial Class FrmMain
         Me.TableLayoutPanelObject.Controls.Add(Me.TableLayoutPanel24, 0, 2)
         Me.TableLayoutPanelObject.Controls.Add(Me.TableLayoutPanel25, 0, 3)
         Me.TableLayoutPanelObject.Controls.Add(Me.TableLayoutPanel23, 0, 5)
-        Me.TableLayoutPanelObject.Location = New System.Drawing.Point(519, 10)
+        Me.TableLayoutPanelObject.Location = New System.Drawing.Point(692, 12)
+        Me.TableLayoutPanelObject.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelObject.Name = "TableLayoutPanelObject"
         Me.TableLayoutPanelObject.RowCount = 6
-        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelObject.Size = New System.Drawing.Size(539, 23)
+        Me.TableLayoutPanelObject.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelObject.Size = New System.Drawing.Size(719, 29)
         Me.TableLayoutPanelObject.TabIndex = 16
         '
         'Label25
@@ -701,9 +1033,10 @@ Partial Class FrmMain
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label25.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label25.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label25.Location = New System.Drawing.Point(3, 0)
+        Me.Label25.Location = New System.Drawing.Point(4, 0)
+        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(533, 30)
+        Me.Label25.Size = New System.Drawing.Size(711, 38)
         Me.Label25.TabIndex = 0
         Me.Label25.Text = "批量格式导出"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -712,9 +1045,10 @@ Partial Class FrmMain
         '
         Me.Label26.AutoSize = True
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label26.Location = New System.Drawing.Point(3, 30)
+        Me.Label26.Location = New System.Drawing.Point(4, 38)
+        Me.Label26.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(533, 26)
+        Me.Label26.Size = New System.Drawing.Size(711, 32)
         Me.Label26.TabIndex = 1
         Me.Label26.Text = "一键将将工作目录下的文件批量导出为PDF、Iges等。"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -723,9 +1057,11 @@ Partial Class FrmMain
         '
         Me.GroupBox9.Controls.Add(Me.ListViewObject)
         Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 123)
+        Me.GroupBox9.Location = New System.Drawing.Point(4, 154)
+        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(533, 1)
+        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox9.Size = New System.Drawing.Size(711, 1)
         Me.GroupBox9.TabIndex = 2
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "导出结果"
@@ -736,9 +1072,10 @@ Partial Class FrmMain
         Me.ListViewObject.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListViewObject.FullRowSelect = True
         Me.ListViewObject.HideSelection = False
-        Me.ListViewObject.Location = New System.Drawing.Point(3, 17)
+        Me.ListViewObject.Location = New System.Drawing.Point(4, 22)
+        Me.ListViewObject.Margin = New System.Windows.Forms.Padding(4)
         Me.ListViewObject.Name = "ListViewObject"
-        Me.ListViewObject.Size = New System.Drawing.Size(527, 0)
+        Me.ListViewObject.Size = New System.Drawing.Size(703, 0)
         Me.ListViewObject.TabIndex = 0
         Me.ListViewObject.UseCompatibleStateImageBehavior = False
         Me.ListViewObject.View = System.Windows.Forms.View.Details
@@ -761,27 +1098,29 @@ Partial Class FrmMain
         'TableLayoutPanel24
         '
         Me.TableLayoutPanel24.ColumnCount = 3
-        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187.0!))
         Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel24.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel24.Controls.Add(Me.Label27, 0, 0)
         Me.TableLayoutPanel24.Controls.Add(Me.TextBoxObjectSourcepathSelect, 1, 0)
         Me.TableLayoutPanel24.Controls.Add(Me.ButtonObjectSourcepathSelect, 2, 0)
         Me.TableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel24.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel24.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel24.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel24.Name = "TableLayoutPanel24"
         Me.TableLayoutPanel24.RowCount = 1
         Me.TableLayoutPanel24.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel24.Size = New System.Drawing.Size(533, 26)
+        Me.TableLayoutPanel24.Size = New System.Drawing.Size(711, 32)
         Me.TableLayoutPanel24.TabIndex = 3
         '
         'Label27
         '
         Me.Label27.AutoSize = True
         Me.Label27.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label27.Location = New System.Drawing.Point(3, 0)
+        Me.Label27.Location = New System.Drawing.Point(4, 0)
+        Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(134, 26)
+        Me.Label27.Size = New System.Drawing.Size(179, 32)
         Me.Label27.TabIndex = 0
         Me.Label27.Text = "源文件的目录："
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -789,17 +1128,19 @@ Partial Class FrmMain
         'TextBoxObjectSourcepathSelect
         '
         Me.TextBoxObjectSourcepathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxObjectSourcepathSelect.Location = New System.Drawing.Point(143, 3)
+        Me.TextBoxObjectSourcepathSelect.Location = New System.Drawing.Point(191, 4)
+        Me.TextBoxObjectSourcepathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxObjectSourcepathSelect.Name = "TextBoxObjectSourcepathSelect"
-        Me.TextBoxObjectSourcepathSelect.Size = New System.Drawing.Size(317, 21)
+        Me.TextBoxObjectSourcepathSelect.Size = New System.Drawing.Size(423, 25)
         Me.TextBoxObjectSourcepathSelect.TabIndex = 1
         '
         'ButtonObjectSourcepathSelect
         '
         Me.ButtonObjectSourcepathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonObjectSourcepathSelect.Location = New System.Drawing.Point(466, 3)
+        Me.ButtonObjectSourcepathSelect.Location = New System.Drawing.Point(622, 4)
+        Me.ButtonObjectSourcepathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonObjectSourcepathSelect.Name = "ButtonObjectSourcepathSelect"
-        Me.ButtonObjectSourcepathSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonObjectSourcepathSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonObjectSourcepathSelect.TabIndex = 2
         Me.ButtonObjectSourcepathSelect.Text = "选择目录"
         Me.ButtonObjectSourcepathSelect.UseVisualStyleBackColor = True
@@ -807,27 +1148,29 @@ Partial Class FrmMain
         'TableLayoutPanel25
         '
         Me.TableLayoutPanel25.ColumnCount = 3
-        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187.0!))
         Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel25.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel25.Controls.Add(Me.Label28, 0, 0)
         Me.TableLayoutPanel25.Controls.Add(Me.TextBoxObjectOutputpathSelect, 1, 0)
         Me.TableLayoutPanel25.Controls.Add(Me.ButtonObjectOutputpathSelect, 2, 0)
         Me.TableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel25.Location = New System.Drawing.Point(3, 91)
+        Me.TableLayoutPanel25.Location = New System.Drawing.Point(4, 114)
+        Me.TableLayoutPanel25.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel25.Name = "TableLayoutPanel25"
         Me.TableLayoutPanel25.RowCount = 1
         Me.TableLayoutPanel25.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel25.Size = New System.Drawing.Size(533, 26)
+        Me.TableLayoutPanel25.Size = New System.Drawing.Size(711, 32)
         Me.TableLayoutPanel25.TabIndex = 5
         '
         'Label28
         '
         Me.Label28.AutoSize = True
         Me.Label28.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label28.Location = New System.Drawing.Point(3, 0)
+        Me.Label28.Location = New System.Drawing.Point(4, 0)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(134, 26)
+        Me.Label28.Size = New System.Drawing.Size(179, 32)
         Me.Label28.TabIndex = 0
         Me.Label28.Text = "实例导出目录："
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -835,17 +1178,19 @@ Partial Class FrmMain
         'TextBoxObjectOutputpathSelect
         '
         Me.TextBoxObjectOutputpathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxObjectOutputpathSelect.Location = New System.Drawing.Point(143, 3)
+        Me.TextBoxObjectOutputpathSelect.Location = New System.Drawing.Point(191, 4)
+        Me.TextBoxObjectOutputpathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxObjectOutputpathSelect.Name = "TextBoxObjectOutputpathSelect"
-        Me.TextBoxObjectOutputpathSelect.Size = New System.Drawing.Size(317, 21)
+        Me.TextBoxObjectOutputpathSelect.Size = New System.Drawing.Size(423, 25)
         Me.TextBoxObjectOutputpathSelect.TabIndex = 1
         '
         'ButtonObjectOutputpathSelect
         '
         Me.ButtonObjectOutputpathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonObjectOutputpathSelect.Location = New System.Drawing.Point(466, 3)
+        Me.ButtonObjectOutputpathSelect.Location = New System.Drawing.Point(622, 4)
+        Me.ButtonObjectOutputpathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonObjectOutputpathSelect.Name = "ButtonObjectOutputpathSelect"
-        Me.ButtonObjectOutputpathSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonObjectOutputpathSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonObjectOutputpathSelect.TabIndex = 2
         Me.ButtonObjectOutputpathSelect.Text = "选择目录"
         Me.ButtonObjectOutputpathSelect.UseVisualStyleBackColor = True
@@ -862,19 +1207,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel23.Controls.Add(Me.ButtonObjectPdf, 2, 0)
         Me.TableLayoutPanel23.Controls.Add(Me.ButtonObjectDwg, 3, 0)
         Me.TableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TableLayoutPanel23.Location = New System.Drawing.Point(220, -6)
+        Me.TableLayoutPanel23.Location = New System.Drawing.Point(294, -7)
+        Me.TableLayoutPanel23.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel23.Name = "TableLayoutPanel23"
         Me.TableLayoutPanel23.RowCount = 1
         Me.TableLayoutPanel23.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel23.Size = New System.Drawing.Size(316, 26)
+        Me.TableLayoutPanel23.Size = New System.Drawing.Size(421, 32)
         Me.TableLayoutPanel23.TabIndex = 6
         '
         'ButtonObjectIgs
         '
         Me.ButtonObjectIgs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonObjectIgs.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonObjectIgs.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonObjectIgs.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonObjectIgs.Name = "ButtonObjectIgs"
-        Me.ButtonObjectIgs.Size = New System.Drawing.Size(73, 20)
+        Me.ButtonObjectIgs.Size = New System.Drawing.Size(97, 24)
         Me.ButtonObjectIgs.TabIndex = 0
         Me.ButtonObjectIgs.Text = "prt转igs"
         Me.ButtonObjectIgs.UseVisualStyleBackColor = True
@@ -882,9 +1229,10 @@ Partial Class FrmMain
         'ButtonObjectStp
         '
         Me.ButtonObjectStp.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonObjectStp.Location = New System.Drawing.Point(82, 3)
+        Me.ButtonObjectStp.Location = New System.Drawing.Point(109, 4)
+        Me.ButtonObjectStp.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonObjectStp.Name = "ButtonObjectStp"
-        Me.ButtonObjectStp.Size = New System.Drawing.Size(73, 20)
+        Me.ButtonObjectStp.Size = New System.Drawing.Size(97, 24)
         Me.ButtonObjectStp.TabIndex = 1
         Me.ButtonObjectStp.Text = "prt转stp"
         Me.ButtonObjectStp.UseVisualStyleBackColor = True
@@ -892,9 +1240,10 @@ Partial Class FrmMain
         'ButtonObjectPdf
         '
         Me.ButtonObjectPdf.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonObjectPdf.Location = New System.Drawing.Point(161, 3)
+        Me.ButtonObjectPdf.Location = New System.Drawing.Point(214, 4)
+        Me.ButtonObjectPdf.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonObjectPdf.Name = "ButtonObjectPdf"
-        Me.ButtonObjectPdf.Size = New System.Drawing.Size(73, 20)
+        Me.ButtonObjectPdf.Size = New System.Drawing.Size(97, 24)
         Me.ButtonObjectPdf.TabIndex = 2
         Me.ButtonObjectPdf.Text = "drw转pdf"
         Me.ButtonObjectPdf.UseVisualStyleBackColor = True
@@ -902,9 +1251,10 @@ Partial Class FrmMain
         'ButtonObjectDwg
         '
         Me.ButtonObjectDwg.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonObjectDwg.Location = New System.Drawing.Point(240, 3)
+        Me.ButtonObjectDwg.Location = New System.Drawing.Point(319, 4)
+        Me.ButtonObjectDwg.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonObjectDwg.Name = "ButtonObjectDwg"
-        Me.ButtonObjectDwg.Size = New System.Drawing.Size(73, 20)
+        Me.ButtonObjectDwg.Size = New System.Drawing.Size(98, 24)
         Me.ButtonObjectDwg.TabIndex = 3
         Me.ButtonObjectDwg.Text = "drw转dwg"
         Me.ButtonObjectDwg.UseVisualStyleBackColor = True
@@ -919,18 +1269,19 @@ Partial Class FrmMain
         Me.TableLayoutPanelFrm.Controls.Add(Me.TableLayoutPanel22, 0, 5)
         Me.TableLayoutPanelFrm.Controls.Add(Me.TableLayoutPanel21, 0, 2)
         Me.TableLayoutPanelFrm.Controls.Add(Me.TableLayoutPanel16, 0, 3)
-        Me.TableLayoutPanelFrm.Location = New System.Drawing.Point(25, 143)
+        Me.TableLayoutPanelFrm.Location = New System.Drawing.Point(33, 179)
+        Me.TableLayoutPanelFrm.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelFrm.Name = "TableLayoutPanelFrm"
         Me.TableLayoutPanelFrm.RowCount = 6
-        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelFrm.Size = New System.Drawing.Size(477, 35)
+        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanelFrm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanelFrm.Size = New System.Drawing.Size(636, 44)
         Me.TableLayoutPanelFrm.TabIndex = 15
         '
         'Label18
@@ -940,9 +1291,10 @@ Partial Class FrmMain
         Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label18.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label18.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label18.Location = New System.Drawing.Point(3, 0)
+        Me.Label18.Location = New System.Drawing.Point(4, 0)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(471, 30)
+        Me.Label18.Size = New System.Drawing.Size(628, 38)
         Me.Label18.TabIndex = 0
         Me.Label18.Text = "批量图框转换"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -951,9 +1303,10 @@ Partial Class FrmMain
         '
         Me.Label22.AutoSize = True
         Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label22.Location = New System.Drawing.Point(3, 30)
+        Me.Label22.Location = New System.Drawing.Point(4, 38)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(471, 26)
+        Me.Label22.Size = New System.Drawing.Size(628, 32)
         Me.Label22.TabIndex = 1
         Me.Label22.Text = "查看选定目录下所有drw的图框，同时提供批量替换图框的功能。"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -962,9 +1315,11 @@ Partial Class FrmMain
         '
         Me.GroupBox8.Controls.Add(Me.DataGridViewFrm)
         Me.GroupBox8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox8.Location = New System.Drawing.Point(3, 123)
+        Me.GroupBox8.Location = New System.Drawing.Point(4, 154)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(471, 1)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox8.Size = New System.Drawing.Size(628, 1)
         Me.GroupBox8.TabIndex = 2
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "drw图框信息"
@@ -979,15 +1334,18 @@ Partial Class FrmMain
         Me.DataGridViewFrm.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.Column2, Me.Column1, Me.DataGridViewComboBoxColumn1})
         Me.DataGridViewFrm.Cursor = System.Windows.Forms.Cursors.Default
         Me.DataGridViewFrm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridViewFrm.Location = New System.Drawing.Point(3, 17)
+        Me.DataGridViewFrm.Location = New System.Drawing.Point(4, 22)
+        Me.DataGridViewFrm.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridViewFrm.Name = "DataGridViewFrm"
+        Me.DataGridViewFrm.RowHeadersWidth = 51
         Me.DataGridViewFrm.RowTemplate.Height = 23
-        Me.DataGridViewFrm.Size = New System.Drawing.Size(465, 0)
+        Me.DataGridViewFrm.Size = New System.Drawing.Size(620, 0)
         Me.DataGridViewFrm.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.HeaderText = "序号"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Width = 60
@@ -995,6 +1353,7 @@ Partial Class FrmMain
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "drw文件"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
         Me.DataGridViewTextBoxColumn2.Width = 250
@@ -1002,20 +1361,26 @@ Partial Class FrmMain
         'Column2
         '
         Me.Column2.HeaderText = "页面"
+        Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
+        Me.Column2.Width = 125
         '
         'Column1
         '
         Me.Column1.HeaderText = "图框"
+        Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
+        Me.Column1.Width = 125
         '
         'DataGridViewComboBoxColumn1
         '
         Me.DataGridViewComboBoxColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DataGridViewComboBoxColumn1.HeaderText = "转换方式"
         Me.DataGridViewComboBoxColumn1.Items.AddRange(New Object() {"转换尺寸", "解释尺寸"})
+        Me.DataGridViewComboBoxColumn1.MinimumWidth = 6
         Me.DataGridViewComboBoxColumn1.Name = "DataGridViewComboBoxColumn1"
+        Me.DataGridViewComboBoxColumn1.Width = 125
         '
         'TableLayoutPanel22
         '
@@ -1027,19 +1392,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel22.Controls.Add(Me.ButtonFrmList, 1, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.ButtonFrmConvert, 2, 0)
         Me.TableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TableLayoutPanel22.Location = New System.Drawing.Point(189, 6)
+        Me.TableLayoutPanel22.Location = New System.Drawing.Point(252, 8)
+        Me.TableLayoutPanel22.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel22.Name = "TableLayoutPanel22"
         Me.TableLayoutPanel22.RowCount = 1
         Me.TableLayoutPanel22.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel22.Size = New System.Drawing.Size(285, 26)
+        Me.TableLayoutPanel22.Size = New System.Drawing.Size(380, 32)
         Me.TableLayoutPanel22.TabIndex = 6
         '
         'ButtonFrmInputList
         '
         Me.ButtonFrmInputList.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFrmInputList.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonFrmInputList.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonFrmInputList.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFrmInputList.Name = "ButtonFrmInputList"
-        Me.ButtonFrmInputList.Size = New System.Drawing.Size(89, 20)
+        Me.ButtonFrmInputList.Size = New System.Drawing.Size(118, 24)
         Me.ButtonFrmInputList.TabIndex = 2
         Me.ButtonFrmInputList.Text = "读取目录信息"
         Me.ButtonFrmInputList.UseVisualStyleBackColor = True
@@ -1047,9 +1414,10 @@ Partial Class FrmMain
         'ButtonFrmList
         '
         Me.ButtonFrmList.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFrmList.Location = New System.Drawing.Point(98, 3)
+        Me.ButtonFrmList.Location = New System.Drawing.Point(130, 4)
+        Me.ButtonFrmList.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFrmList.Name = "ButtonFrmList"
-        Me.ButtonFrmList.Size = New System.Drawing.Size(89, 20)
+        Me.ButtonFrmList.Size = New System.Drawing.Size(118, 24)
         Me.ButtonFrmList.TabIndex = 0
         Me.ButtonFrmList.Text = "读取Frm列表"
         Me.ButtonFrmList.UseVisualStyleBackColor = True
@@ -1057,9 +1425,10 @@ Partial Class FrmMain
         'ButtonFrmConvert
         '
         Me.ButtonFrmConvert.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFrmConvert.Location = New System.Drawing.Point(193, 3)
+        Me.ButtonFrmConvert.Location = New System.Drawing.Point(256, 4)
+        Me.ButtonFrmConvert.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFrmConvert.Name = "ButtonFrmConvert"
-        Me.ButtonFrmConvert.Size = New System.Drawing.Size(89, 20)
+        Me.ButtonFrmConvert.Size = New System.Drawing.Size(120, 24)
         Me.ButtonFrmConvert.TabIndex = 1
         Me.ButtonFrmConvert.Text = "批量转换"
         Me.ButtonFrmConvert.UseVisualStyleBackColor = True
@@ -1067,27 +1436,29 @@ Partial Class FrmMain
         'TableLayoutPanel21
         '
         Me.TableLayoutPanel21.ColumnCount = 3
-        Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
+        Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
         Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel21.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel21.Controls.Add(Me.Label23, 0, 0)
         Me.TableLayoutPanel21.Controls.Add(Me.TextBoxFrmInputPath, 1, 0)
         Me.TableLayoutPanel21.Controls.Add(Me.ButtonFrminputPathSelect, 2, 0)
         Me.TableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel21.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel21.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel21.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel21.Name = "TableLayoutPanel21"
         Me.TableLayoutPanel21.RowCount = 1
         Me.TableLayoutPanel21.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel21.Size = New System.Drawing.Size(471, 26)
+        Me.TableLayoutPanel21.Size = New System.Drawing.Size(628, 32)
         Me.TableLayoutPanel21.TabIndex = 5
         '
         'Label23
         '
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label23.Location = New System.Drawing.Point(3, 0)
+        Me.Label23.Location = New System.Drawing.Point(4, 0)
+        Me.Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(96, 26)
+        Me.Label23.Size = New System.Drawing.Size(128, 32)
         Me.Label23.TabIndex = 0
         Me.Label23.Text = "包含drw的目录："
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1095,17 +1466,19 @@ Partial Class FrmMain
         'TextBoxFrmInputPath
         '
         Me.TextBoxFrmInputPath.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxFrmInputPath.Location = New System.Drawing.Point(105, 3)
+        Me.TextBoxFrmInputPath.Location = New System.Drawing.Point(140, 4)
+        Me.TextBoxFrmInputPath.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxFrmInputPath.Name = "TextBoxFrmInputPath"
-        Me.TextBoxFrmInputPath.Size = New System.Drawing.Size(293, 21)
+        Me.TextBoxFrmInputPath.Size = New System.Drawing.Size(391, 25)
         Me.TextBoxFrmInputPath.TabIndex = 1
         '
         'ButtonFrminputPathSelect
         '
         Me.ButtonFrminputPathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFrminputPathSelect.Location = New System.Drawing.Point(404, 3)
+        Me.ButtonFrminputPathSelect.Location = New System.Drawing.Point(539, 4)
+        Me.ButtonFrminputPathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFrminputPathSelect.Name = "ButtonFrminputPathSelect"
-        Me.ButtonFrminputPathSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonFrminputPathSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonFrminputPathSelect.TabIndex = 2
         Me.ButtonFrminputPathSelect.Text = "选择目录"
         Me.ButtonFrminputPathSelect.UseVisualStyleBackColor = True
@@ -1113,26 +1486,28 @@ Partial Class FrmMain
         'TableLayoutPanel16
         '
         Me.TableLayoutPanel16.ColumnCount = 3
-        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
+        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136.0!))
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel16.Controls.Add(Me.ButtonFrmPathSelect, 0, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.TextBoxFrmPath, 0, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.Label24, 0, 0)
         Me.TableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel16.Location = New System.Drawing.Point(3, 91)
+        Me.TableLayoutPanel16.Location = New System.Drawing.Point(4, 114)
+        Me.TableLayoutPanel16.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel16.Name = "TableLayoutPanel16"
         Me.TableLayoutPanel16.RowCount = 1
         Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel16.Size = New System.Drawing.Size(471, 26)
+        Me.TableLayoutPanel16.Size = New System.Drawing.Size(628, 32)
         Me.TableLayoutPanel16.TabIndex = 7
         '
         'ButtonFrmPathSelect
         '
         Me.ButtonFrmPathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFrmPathSelect.Location = New System.Drawing.Point(404, 3)
+        Me.ButtonFrmPathSelect.Location = New System.Drawing.Point(539, 4)
+        Me.ButtonFrmPathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFrmPathSelect.Name = "ButtonFrmPathSelect"
-        Me.ButtonFrmPathSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonFrmPathSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonFrmPathSelect.TabIndex = 3
         Me.ButtonFrmPathSelect.Text = "选择目录"
         Me.ButtonFrmPathSelect.UseVisualStyleBackColor = True
@@ -1140,18 +1515,20 @@ Partial Class FrmMain
         'TextBoxFrmPath
         '
         Me.TextBoxFrmPath.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxFrmPath.Location = New System.Drawing.Point(105, 3)
+        Me.TextBoxFrmPath.Location = New System.Drawing.Point(140, 4)
+        Me.TextBoxFrmPath.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxFrmPath.Name = "TextBoxFrmPath"
-        Me.TextBoxFrmPath.Size = New System.Drawing.Size(293, 21)
+        Me.TextBoxFrmPath.Size = New System.Drawing.Size(391, 25)
         Me.TextBoxFrmPath.TabIndex = 2
         '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label24.Location = New System.Drawing.Point(3, 0)
+        Me.Label24.Location = New System.Drawing.Point(4, 0)
+        Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(96, 26)
+        Me.Label24.Size = New System.Drawing.Size(128, 32)
         Me.Label24.TabIndex = 1
         Me.Label24.Text = "包含Frm的目录："
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1166,16 +1543,17 @@ Partial Class FrmMain
         Me.TableLayoutPanelRelation.Controls.Add(Me.TableLayoutPanel17, 0, 2)
         Me.TableLayoutPanelRelation.Controls.Add(Me.TableLayoutPanel18, 0, 5)
         Me.TableLayoutPanelRelation.Controls.Add(Me.GroupBox4, 0, 3)
-        Me.TableLayoutPanelRelation.Location = New System.Drawing.Point(22, 380)
+        Me.TableLayoutPanelRelation.Location = New System.Drawing.Point(426, 616)
+        Me.TableLayoutPanelRelation.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelRelation.Name = "TableLayoutPanelRelation"
         Me.TableLayoutPanelRelation.RowCount = 6
-        Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanelRelation.Size = New System.Drawing.Size(655, 125)
+        Me.TableLayoutPanelRelation.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanelRelation.Size = New System.Drawing.Size(476, 50)
         Me.TableLayoutPanelRelation.TabIndex = 13
         '
         'Label19
@@ -1185,9 +1563,10 @@ Partial Class FrmMain
         Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label19.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label19.Location = New System.Drawing.Point(3, 0)
+        Me.Label19.Location = New System.Drawing.Point(4, 0)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(649, 30)
+        Me.Label19.Size = New System.Drawing.Size(468, 38)
         Me.Label19.TabIndex = 0
         Me.Label19.Text = "批量关系处理"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1196,9 +1575,10 @@ Partial Class FrmMain
         '
         Me.Label20.AutoSize = True
         Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label20.Location = New System.Drawing.Point(3, 30)
+        Me.Label20.Location = New System.Drawing.Point(4, 38)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(649, 26)
+        Me.Label20.Size = New System.Drawing.Size(468, 32)
         Me.Label20.TabIndex = 1
         Me.Label20.Text = "在此完成对prt批量参数处理，可以实现批量关系添加、清空等操作。注意导入关系的txt文件应为UTF8编码，最简单的方法是从Creo程序里面编辑好后导出。"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1207,9 +1587,11 @@ Partial Class FrmMain
         '
         Me.GroupBox5.Controls.Add(Me.RichTextBoxRelation)
         Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox5.Location = New System.Drawing.Point(3, 90)
+        Me.GroupBox5.Location = New System.Drawing.Point(4, 48)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(649, 1)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox5.Size = New System.Drawing.Size(468, 1)
         Me.GroupBox5.TabIndex = 2
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "预览关系文本"
@@ -1218,37 +1600,40 @@ Partial Class FrmMain
         '
         Me.RichTextBoxRelation.BackColor = System.Drawing.SystemColors.Window
         Me.RichTextBoxRelation.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RichTextBoxRelation.Location = New System.Drawing.Point(3, 17)
+        Me.RichTextBoxRelation.Location = New System.Drawing.Point(4, 22)
+        Me.RichTextBoxRelation.Margin = New System.Windows.Forms.Padding(4)
         Me.RichTextBoxRelation.Name = "RichTextBoxRelation"
         Me.RichTextBoxRelation.ReadOnly = True
-        Me.RichTextBoxRelation.Size = New System.Drawing.Size(643, 0)
+        Me.RichTextBoxRelation.Size = New System.Drawing.Size(460, 0)
         Me.RichTextBoxRelation.TabIndex = 0
         Me.RichTextBoxRelation.Text = ""
         '
         'TableLayoutPanel17
         '
         Me.TableLayoutPanel17.ColumnCount = 3
-        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253.0!))
         Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel17.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel17.Controls.Add(Me.Label21, 0, 0)
         Me.TableLayoutPanel17.Controls.Add(Me.TextBoxRelation, 1, 0)
         Me.TableLayoutPanel17.Controls.Add(Me.ButtonRelationChoosePath, 2, 0)
         Me.TableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel17.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel17.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel17.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel17.Name = "TableLayoutPanel17"
         Me.TableLayoutPanel17.RowCount = 1
         Me.TableLayoutPanel17.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel17.Size = New System.Drawing.Size(649, 26)
+        Me.TableLayoutPanel17.Size = New System.Drawing.Size(468, 32)
         Me.TableLayoutPanel17.TabIndex = 3
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label21.Location = New System.Drawing.Point(3, 0)
+        Me.Label21.Location = New System.Drawing.Point(4, 0)
+        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(184, 26)
+        Me.Label21.Size = New System.Drawing.Size(245, 32)
         Me.Label21.TabIndex = 0
         Me.Label21.Text = "选择包含需要修改零件的目录："
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1256,17 +1641,19 @@ Partial Class FrmMain
         'TextBoxRelation
         '
         Me.TextBoxRelation.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxRelation.Location = New System.Drawing.Point(193, 3)
+        Me.TextBoxRelation.Location = New System.Drawing.Point(257, 4)
+        Me.TextBoxRelation.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxRelation.Name = "TextBoxRelation"
-        Me.TextBoxRelation.Size = New System.Drawing.Size(383, 21)
+        Me.TextBoxRelation.Size = New System.Drawing.Size(114, 25)
         Me.TextBoxRelation.TabIndex = 1
         '
         'ButtonRelationChoosePath
         '
         Me.ButtonRelationChoosePath.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonRelationChoosePath.Location = New System.Drawing.Point(582, 3)
+        Me.ButtonRelationChoosePath.Location = New System.Drawing.Point(379, 4)
+        Me.ButtonRelationChoosePath.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonRelationChoosePath.Name = "ButtonRelationChoosePath"
-        Me.ButtonRelationChoosePath.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonRelationChoosePath.Size = New System.Drawing.Size(85, 24)
         Me.ButtonRelationChoosePath.TabIndex = 2
         Me.ButtonRelationChoosePath.Text = "选择目录"
         Me.ButtonRelationChoosePath.UseVisualStyleBackColor = True
@@ -1276,16 +1663,17 @@ Partial Class FrmMain
         Me.TableLayoutPanel18.ColumnCount = 2
         Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel18.Controls.Add(Me.TableLayoutPanel19, 1, 0)
         Me.TableLayoutPanel18.Controls.Add(Me.TableLayoutPanel20, 0, 0)
         Me.TableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel18.Location = New System.Drawing.Point(3, 89)
+        Me.TableLayoutPanel18.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel18.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel18.Name = "TableLayoutPanel18"
         Me.TableLayoutPanel18.RowCount = 1
         Me.TableLayoutPanel18.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel18.Size = New System.Drawing.Size(649, 34)
+        Me.TableLayoutPanel18.Size = New System.Drawing.Size(468, 42)
         Me.TableLayoutPanel18.TabIndex = 4
         '
         'TableLayoutPanel19
@@ -1297,19 +1685,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel19.Controls.Add(Me.ButtonRelationAdd, 0, 0)
         Me.TableLayoutPanel19.Controls.Add(Me.ButtonRelationClear, 1, 0)
         Me.TableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TableLayoutPanel19.Location = New System.Drawing.Point(482, 3)
+        Me.TableLayoutPanel19.Location = New System.Drawing.Point(245, 4)
+        Me.TableLayoutPanel19.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel19.Name = "TableLayoutPanel19"
         Me.TableLayoutPanel19.RowCount = 1
         Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel19.Size = New System.Drawing.Size(164, 28)
+        Me.TableLayoutPanel19.Size = New System.Drawing.Size(219, 34)
         Me.TableLayoutPanel19.TabIndex = 1
         '
         'ButtonRelationAdd
         '
         Me.ButtonRelationAdd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonRelationAdd.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonRelationAdd.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonRelationAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonRelationAdd.Name = "ButtonRelationAdd"
-        Me.ButtonRelationAdd.Size = New System.Drawing.Size(76, 22)
+        Me.ButtonRelationAdd.Size = New System.Drawing.Size(101, 26)
         Me.ButtonRelationAdd.TabIndex = 0
         Me.ButtonRelationAdd.Text = "批量添加"
         Me.ButtonRelationAdd.UseVisualStyleBackColor = True
@@ -1317,9 +1707,10 @@ Partial Class FrmMain
         'ButtonRelationClear
         '
         Me.ButtonRelationClear.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonRelationClear.Location = New System.Drawing.Point(85, 3)
+        Me.ButtonRelationClear.Location = New System.Drawing.Point(113, 4)
+        Me.ButtonRelationClear.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonRelationClear.Name = "ButtonRelationClear"
-        Me.ButtonRelationClear.Size = New System.Drawing.Size(76, 22)
+        Me.ButtonRelationClear.Size = New System.Drawing.Size(102, 26)
         Me.ButtonRelationClear.TabIndex = 1
         Me.ButtonRelationClear.Text = "批量清空"
         Me.ButtonRelationClear.UseVisualStyleBackColor = True
@@ -1330,19 +1721,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel20.Controls.Add(Me.ButtonRelationTextImport, 0, 0)
         Me.TableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel20.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel20.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel20.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel20.Name = "TableLayoutPanel20"
         Me.TableLayoutPanel20.RowCount = 1
         Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel20.Size = New System.Drawing.Size(318, 28)
+        Me.TableLayoutPanel20.Size = New System.Drawing.Size(226, 34)
         Me.TableLayoutPanel20.TabIndex = 2
         '
         'ButtonRelationTextImport
         '
         Me.ButtonRelationTextImport.Dock = System.Windows.Forms.DockStyle.Left
-        Me.ButtonRelationTextImport.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonRelationTextImport.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonRelationTextImport.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonRelationTextImport.Name = "ButtonRelationTextImport"
-        Me.ButtonRelationTextImport.Size = New System.Drawing.Size(104, 22)
+        Me.ButtonRelationTextImport.Size = New System.Drawing.Size(139, 26)
         Me.ButtonRelationTextImport.TabIndex = 0
         Me.ButtonRelationTextImport.Text = "导入Text文件"
         Me.ButtonRelationTextImport.UseVisualStyleBackColor = True
@@ -1351,9 +1744,11 @@ Partial Class FrmMain
         '
         Me.GroupBox4.Controls.Add(Me.ListViewRelation)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(3, 91)
+        Me.GroupBox4.Location = New System.Drawing.Point(4, 114)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(649, 1)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox4.Size = New System.Drawing.Size(468, 1)
         Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "操作结果"
@@ -1364,9 +1759,10 @@ Partial Class FrmMain
         Me.ListViewRelation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListViewRelation.FullRowSelect = True
         Me.ListViewRelation.HideSelection = False
-        Me.ListViewRelation.Location = New System.Drawing.Point(3, 17)
+        Me.ListViewRelation.Location = New System.Drawing.Point(4, 22)
+        Me.ListViewRelation.Margin = New System.Windows.Forms.Padding(4)
         Me.ListViewRelation.Name = "ListViewRelation"
-        Me.ListViewRelation.Size = New System.Drawing.Size(643, 0)
+        Me.ListViewRelation.Size = New System.Drawing.Size(460, 0)
         Me.ListViewRelation.TabIndex = 1
         Me.ListViewRelation.UseCompatibleStateImageBehavior = False
         Me.ListViewRelation.View = System.Windows.Forms.View.Details
@@ -1391,9 +1787,10 @@ Partial Class FrmMain
         Me.PanelConfig.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PanelConfig.BackColor = System.Drawing.SystemColors.Window
         Me.PanelConfig.Controls.Add(Me.Panel2)
-        Me.PanelConfig.Location = New System.Drawing.Point(324, 81)
+        Me.PanelConfig.Location = New System.Drawing.Point(699, 304)
+        Me.PanelConfig.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelConfig.Name = "PanelConfig"
-        Me.PanelConfig.Size = New System.Drawing.Size(464, 282)
+        Me.PanelConfig.Size = New System.Drawing.Size(531, 98)
         Me.PanelConfig.TabIndex = 11
         '
         'Panel2
@@ -1403,9 +1800,10 @@ Partial Class FrmMain
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.SystemColors.Window
         Me.Panel2.Controls.Add(Me.TableLayoutPanel11)
-        Me.Panel2.Location = New System.Drawing.Point(58, 49)
+        Me.Panel2.Location = New System.Drawing.Point(77, 61)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(364, 203)
+        Me.Panel2.Size = New System.Drawing.Size(397, 47)
         Me.Panel2.TabIndex = 0
         '
         'TableLayoutPanel11
@@ -1417,21 +1815,22 @@ Partial Class FrmMain
         Me.TableLayoutPanel11.Controls.Add(Me.ButtonConfigSave, 0, 3)
         Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel11.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel11.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 4
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250.0!))
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(364, 200)
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(397, 250)
         Me.TableLayoutPanel11.TabIndex = 0
         '
         'TableLayoutPanel12
         '
         Me.TableLayoutPanel12.ColumnCount = 3
-        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187.0!))
         Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel12.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel12.Controls.Add(Me.Label13, 0, 1)
         Me.TableLayoutPanel12.Controls.Add(Me.TextBoxConfigExe, 1, 0)
@@ -1440,22 +1839,24 @@ Partial Class FrmMain
         Me.TableLayoutPanel12.Controls.Add(Me.ButtonConfigConfig, 2, 1)
         Me.TableLayoutPanel12.Controls.Add(Me.CheckBoxShowWindow, 0, 2)
         Me.TableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel12.Location = New System.Drawing.Point(3, 35)
+        Me.TableLayoutPanel12.Location = New System.Drawing.Point(4, 44)
+        Me.TableLayoutPanel12.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel12.Name = "TableLayoutPanel12"
         Me.TableLayoutPanel12.RowCount = 3
         Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel12.Size = New System.Drawing.Size(358, 80)
+        Me.TableLayoutPanel12.Size = New System.Drawing.Size(389, 100)
         Me.TableLayoutPanel12.TabIndex = 1
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label11.Location = New System.Drawing.Point(3, 0)
+        Me.Label11.Location = New System.Drawing.Point(4, 0)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(89, 26)
+        Me.Label11.Size = New System.Drawing.Size(114, 33)
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "Creo程序路径："
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1464,9 +1865,10 @@ Partial Class FrmMain
         '
         Me.Label13.AutoSize = True
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label13.Location = New System.Drawing.Point(3, 26)
+        Me.Label13.Location = New System.Drawing.Point(4, 33)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(125, 26)
+        Me.Label13.Size = New System.Drawing.Size(162, 33)
         Me.Label13.TabIndex = 1
         Me.Label13.Text = "config.pro配置文件："
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1474,25 +1876,28 @@ Partial Class FrmMain
         'TextBoxConfigExe
         '
         Me.TextBoxConfigExe.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxConfigExe.Location = New System.Drawing.Point(143, 3)
+        Me.TextBoxConfigExe.Location = New System.Drawing.Point(191, 4)
+        Me.TextBoxConfigExe.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxConfigExe.Name = "TextBoxConfigExe"
-        Me.TextBoxConfigExe.Size = New System.Drawing.Size(142, 21)
+        Me.TextBoxConfigExe.Size = New System.Drawing.Size(101, 25)
         Me.TextBoxConfigExe.TabIndex = 2
         '
         'TextBoxConfigConfig
         '
         Me.TextBoxConfigConfig.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxConfigConfig.Location = New System.Drawing.Point(143, 29)
+        Me.TextBoxConfigConfig.Location = New System.Drawing.Point(191, 37)
+        Me.TextBoxConfigConfig.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxConfigConfig.Name = "TextBoxConfigConfig"
-        Me.TextBoxConfigConfig.Size = New System.Drawing.Size(142, 21)
+        Me.TextBoxConfigConfig.Size = New System.Drawing.Size(101, 25)
         Me.TextBoxConfigConfig.TabIndex = 3
         '
         'ButtonConfigExe
         '
         Me.ButtonConfigExe.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonConfigExe.Location = New System.Drawing.Point(291, 3)
+        Me.ButtonConfigExe.Location = New System.Drawing.Point(300, 4)
+        Me.ButtonConfigExe.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonConfigExe.Name = "ButtonConfigExe"
-        Me.ButtonConfigExe.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonConfigExe.Size = New System.Drawing.Size(85, 25)
         Me.ButtonConfigExe.TabIndex = 4
         Me.ButtonConfigExe.Text = "选择文件"
         Me.ButtonConfigExe.UseVisualStyleBackColor = True
@@ -1500,9 +1905,10 @@ Partial Class FrmMain
         'ButtonConfigConfig
         '
         Me.ButtonConfigConfig.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonConfigConfig.Location = New System.Drawing.Point(291, 29)
+        Me.ButtonConfigConfig.Location = New System.Drawing.Point(300, 37)
+        Me.ButtonConfigConfig.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonConfigConfig.Name = "ButtonConfigConfig"
-        Me.ButtonConfigConfig.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonConfigConfig.Size = New System.Drawing.Size(85, 25)
         Me.ButtonConfigConfig.TabIndex = 5
         Me.ButtonConfigConfig.Text = "选择文件"
         Me.ButtonConfigConfig.UseVisualStyleBackColor = True
@@ -1511,9 +1917,10 @@ Partial Class FrmMain
         '
         Me.CheckBoxShowWindow.AutoSize = True
         Me.CheckBoxShowWindow.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CheckBoxShowWindow.Location = New System.Drawing.Point(3, 55)
+        Me.CheckBoxShowWindow.Location = New System.Drawing.Point(4, 70)
+        Me.CheckBoxShowWindow.Margin = New System.Windows.Forms.Padding(4)
         Me.CheckBoxShowWindow.Name = "CheckBoxShowWindow"
-        Me.CheckBoxShowWindow.Size = New System.Drawing.Size(132, 22)
+        Me.CheckBoxShowWindow.Size = New System.Drawing.Size(166, 26)
         Me.CheckBoxShowWindow.TabIndex = 6
         Me.CheckBoxShowWindow.Text = "运行时显示Creo窗体"
         Me.CheckBoxShowWindow.UseVisualStyleBackColor = True
@@ -1524,9 +1931,10 @@ Partial Class FrmMain
         Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label14.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Label14.Location = New System.Drawing.Point(3, 0)
+        Me.Label14.Location = New System.Drawing.Point(4, 0)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(358, 32)
+        Me.Label14.Size = New System.Drawing.Size(389, 40)
         Me.Label14.TabIndex = 2
         Me.Label14.Text = "设置"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1534,9 +1942,10 @@ Partial Class FrmMain
         'ButtonConfigSave
         '
         Me.ButtonConfigSave.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ButtonConfigSave.Location = New System.Drawing.Point(294, 174)
+        Me.ButtonConfigSave.Location = New System.Drawing.Point(304, 218)
+        Me.ButtonConfigSave.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonConfigSave.Name = "ButtonConfigSave"
-        Me.ButtonConfigSave.Size = New System.Drawing.Size(67, 23)
+        Me.ButtonConfigSave.Size = New System.Drawing.Size(89, 28)
         Me.ButtonConfigSave.TabIndex = 3
         Me.ButtonConfigSave.Text = "保存修改"
         Me.ButtonConfigSave.UseVisualStyleBackColor = True
@@ -1550,16 +1959,17 @@ Partial Class FrmMain
         Me.TableLayoutPanelModelPurge.Controls.Add(Me.GroupBox3, 0, 3)
         Me.TableLayoutPanelModelPurge.Controls.Add(Me.TableLayoutPanel13, 0, 2)
         Me.TableLayoutPanelModelPurge.Controls.Add(Me.ButtonModelPurge, 0, 4)
-        Me.TableLayoutPanelModelPurge.Location = New System.Drawing.Point(25, 93)
+        Me.TableLayoutPanelModelPurge.Location = New System.Drawing.Point(33, 116)
+        Me.TableLayoutPanelModelPurge.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelModelPurge.Name = "TableLayoutPanelModelPurge"
         Me.TableLayoutPanelModelPurge.RowCount = 5
-        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelModelPurge.Size = New System.Drawing.Size(477, 38)
+        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelModelPurge.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanelModelPurge.Size = New System.Drawing.Size(636, 48)
         Me.TableLayoutPanelModelPurge.TabIndex = 10
         '
         'Label9
@@ -1569,9 +1979,10 @@ Partial Class FrmMain
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label9.Location = New System.Drawing.Point(3, 0)
+        Me.Label9.Location = New System.Drawing.Point(4, 0)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(471, 30)
+        Me.Label9.Size = New System.Drawing.Size(628, 38)
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "批量旧版本删除"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1580,9 +1991,10 @@ Partial Class FrmMain
         '
         Me.Label10.AutoSize = True
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label10.Location = New System.Drawing.Point(3, 30)
+        Me.Label10.Location = New System.Drawing.Point(4, 38)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(471, 26)
+        Me.Label10.Size = New System.Drawing.Size(628, 32)
         Me.Label10.TabIndex = 1
         Me.Label10.Text = "一键清除工作目录下PRT、ASM以及DRW旧版本，文件移到回收站而不是直接删除"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1591,9 +2003,11 @@ Partial Class FrmMain
         '
         Me.GroupBox3.Controls.Add(Me.ListViewModelPurge)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 91)
+        Me.GroupBox3.Location = New System.Drawing.Point(4, 114)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(471, 1)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox3.Size = New System.Drawing.Size(628, 1)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "删除情况"
@@ -1604,9 +2018,10 @@ Partial Class FrmMain
         Me.ListViewModelPurge.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListViewModelPurge.FullRowSelect = True
         Me.ListViewModelPurge.HideSelection = False
-        Me.ListViewModelPurge.Location = New System.Drawing.Point(3, 17)
+        Me.ListViewModelPurge.Location = New System.Drawing.Point(4, 22)
+        Me.ListViewModelPurge.Margin = New System.Windows.Forms.Padding(4)
         Me.ListViewModelPurge.Name = "ListViewModelPurge"
-        Me.ListViewModelPurge.Size = New System.Drawing.Size(465, 0)
+        Me.ListViewModelPurge.Size = New System.Drawing.Size(620, 0)
         Me.ListViewModelPurge.TabIndex = 0
         Me.ListViewModelPurge.UseCompatibleStateImageBehavior = False
         Me.ListViewModelPurge.View = System.Windows.Forms.View.Details
@@ -1629,27 +2044,29 @@ Partial Class FrmMain
         'TableLayoutPanel13
         '
         Me.TableLayoutPanel13.ColumnCount = 3
-        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187.0!))
         Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel13.Controls.Add(Me.Label12, 0, 0)
         Me.TableLayoutPanel13.Controls.Add(Me.TextBoxModelPurge, 1, 0)
         Me.TableLayoutPanel13.Controls.Add(Me.ButtonModelPurgePathSelect, 2, 0)
         Me.TableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel13.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel13.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel13.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel13.Name = "TableLayoutPanel13"
         Me.TableLayoutPanel13.RowCount = 1
         Me.TableLayoutPanel13.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel13.Size = New System.Drawing.Size(471, 26)
+        Me.TableLayoutPanel13.Size = New System.Drawing.Size(628, 32)
         Me.TableLayoutPanel13.TabIndex = 5
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(3, 0)
+        Me.Label12.Location = New System.Drawing.Point(4, 0)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(134, 26)
+        Me.Label12.Size = New System.Drawing.Size(179, 32)
         Me.Label12.TabIndex = 0
         Me.Label12.Text = "需要清空的目录："
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1657,17 +2074,19 @@ Partial Class FrmMain
         'TextBoxModelPurge
         '
         Me.TextBoxModelPurge.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxModelPurge.Location = New System.Drawing.Point(143, 3)
+        Me.TextBoxModelPurge.Location = New System.Drawing.Point(191, 4)
+        Me.TextBoxModelPurge.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxModelPurge.Name = "TextBoxModelPurge"
-        Me.TextBoxModelPurge.Size = New System.Drawing.Size(255, 21)
+        Me.TextBoxModelPurge.Size = New System.Drawing.Size(340, 25)
         Me.TextBoxModelPurge.TabIndex = 1
         '
         'ButtonModelPurgePathSelect
         '
         Me.ButtonModelPurgePathSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonModelPurgePathSelect.Location = New System.Drawing.Point(404, 3)
+        Me.ButtonModelPurgePathSelect.Location = New System.Drawing.Point(539, 4)
+        Me.ButtonModelPurgePathSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonModelPurgePathSelect.Name = "ButtonModelPurgePathSelect"
-        Me.ButtonModelPurgePathSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonModelPurgePathSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonModelPurgePathSelect.TabIndex = 2
         Me.ButtonModelPurgePathSelect.Text = "选择目录"
         Me.ButtonModelPurgePathSelect.UseVisualStyleBackColor = True
@@ -1675,9 +2094,10 @@ Partial Class FrmMain
         'ButtonModelPurge
         '
         Me.ButtonModelPurge.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ButtonModelPurge.Location = New System.Drawing.Point(399, 9)
+        Me.ButtonModelPurge.Location = New System.Drawing.Point(532, 12)
+        Me.ButtonModelPurge.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonModelPurge.Name = "ButtonModelPurge"
-        Me.ButtonModelPurge.Size = New System.Drawing.Size(75, 26)
+        Me.ButtonModelPurge.Size = New System.Drawing.Size(100, 32)
         Me.ButtonModelPurge.TabIndex = 6
         Me.ButtonModelPurge.Text = "清空"
         Me.ButtonModelPurge.UseVisualStyleBackColor = True
@@ -1692,17 +2112,18 @@ Partial Class FrmMain
         Me.TableLayoutPanelFamTab.Controls.Add(Me.TableLayoutPanel10, 0, 2)
         Me.TableLayoutPanelFamTab.Controls.Add(Me.TableLayoutPanel9, 0, 3)
         Me.TableLayoutPanelFamTab.Controls.Add(Me.ButtonFamTabExport, 0, 5)
-        Me.TableLayoutPanelFamTab.Location = New System.Drawing.Point(22, 7)
+        Me.TableLayoutPanelFamTab.Location = New System.Drawing.Point(29, 9)
+        Me.TableLayoutPanelFamTab.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelFamTab.Name = "TableLayoutPanelFamTab"
         Me.TableLayoutPanelFamTab.RowCount = 6
-        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelFamTab.Size = New System.Drawing.Size(480, 26)
+        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanelFamTab.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanelFamTab.Size = New System.Drawing.Size(640, 32)
         Me.TableLayoutPanelFamTab.TabIndex = 9
         '
         'Label5
@@ -1712,9 +2133,10 @@ Partial Class FrmMain
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label5.Location = New System.Drawing.Point(3, 0)
+        Me.Label5.Location = New System.Drawing.Point(4, 0)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(474, 30)
+        Me.Label5.Size = New System.Drawing.Size(632, 38)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "批量导出族表实例"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1723,9 +2145,10 @@ Partial Class FrmMain
         '
         Me.Label6.AutoSize = True
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Location = New System.Drawing.Point(3, 30)
+        Me.Label6.Location = New System.Drawing.Point(4, 38)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(474, 26)
+        Me.Label6.Size = New System.Drawing.Size(632, 32)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "一键将族表文件批量保存成单独实例文件。"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1734,9 +2157,11 @@ Partial Class FrmMain
         '
         Me.GroupBox2.Controls.Add(Me.ListViewFamTab)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 123)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 154)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(474, 1)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Size = New System.Drawing.Size(632, 1)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "导出结果"
@@ -1747,9 +2172,10 @@ Partial Class FrmMain
         Me.ListViewFamTab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListViewFamTab.FullRowSelect = True
         Me.ListViewFamTab.HideSelection = False
-        Me.ListViewFamTab.Location = New System.Drawing.Point(3, 17)
+        Me.ListViewFamTab.Location = New System.Drawing.Point(4, 22)
+        Me.ListViewFamTab.Margin = New System.Windows.Forms.Padding(4)
         Me.ListViewFamTab.Name = "ListViewFamTab"
-        Me.ListViewFamTab.Size = New System.Drawing.Size(468, 0)
+        Me.ListViewFamTab.Size = New System.Drawing.Size(624, 0)
         Me.ListViewFamTab.TabIndex = 0
         Me.ListViewFamTab.UseCompatibleStateImageBehavior = False
         Me.ListViewFamTab.View = System.Windows.Forms.View.Details
@@ -1772,27 +2198,29 @@ Partial Class FrmMain
         'TableLayoutPanel10
         '
         Me.TableLayoutPanel10.ColumnCount = 3
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.Label7, 0, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.TextBoxFamTabFile, 1, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.ButtonFamTabFileSelect, 2, 0)
         Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel10.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
         Me.TableLayoutPanel10.RowCount = 1
         Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(474, 26)
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(632, 32)
         Me.TableLayoutPanel10.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Location = New System.Drawing.Point(3, 0)
+        Me.Label7.Location = New System.Drawing.Point(4, 0)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(134, 26)
+        Me.Label7.Size = New System.Drawing.Size(179, 32)
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "选择需要导出的零件："
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1800,17 +2228,19 @@ Partial Class FrmMain
         'TextBoxFamTabFile
         '
         Me.TextBoxFamTabFile.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxFamTabFile.Location = New System.Drawing.Point(143, 3)
+        Me.TextBoxFamTabFile.Location = New System.Drawing.Point(191, 4)
+        Me.TextBoxFamTabFile.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxFamTabFile.Name = "TextBoxFamTabFile"
-        Me.TextBoxFamTabFile.Size = New System.Drawing.Size(258, 21)
+        Me.TextBoxFamTabFile.Size = New System.Drawing.Size(344, 25)
         Me.TextBoxFamTabFile.TabIndex = 1
         '
         'ButtonFamTabFileSelect
         '
         Me.ButtonFamTabFileSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFamTabFileSelect.Location = New System.Drawing.Point(407, 3)
+        Me.ButtonFamTabFileSelect.Location = New System.Drawing.Point(543, 4)
+        Me.ButtonFamTabFileSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFamTabFileSelect.Name = "ButtonFamTabFileSelect"
-        Me.ButtonFamTabFileSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonFamTabFileSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonFamTabFileSelect.TabIndex = 2
         Me.ButtonFamTabFileSelect.Text = "选择文件"
         Me.ButtonFamTabFileSelect.UseVisualStyleBackColor = True
@@ -1818,27 +2248,29 @@ Partial Class FrmMain
         'TableLayoutPanel9
         '
         Me.TableLayoutPanel9.ColumnCount = 3
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187.0!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.Label8, 0, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.TextBoxFamTabPath, 1, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.ButtonFamTabDirSelect, 2, 0)
         Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(3, 91)
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 114)
+        Me.TableLayoutPanel9.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 1
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(474, 26)
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(632, 32)
         Me.TableLayoutPanel9.TabIndex = 5
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label8.Location = New System.Drawing.Point(3, 0)
+        Me.Label8.Location = New System.Drawing.Point(4, 0)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(134, 26)
+        Me.Label8.Size = New System.Drawing.Size(179, 32)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "实例导出目录："
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1846,17 +2278,19 @@ Partial Class FrmMain
         'TextBoxFamTabPath
         '
         Me.TextBoxFamTabPath.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxFamTabPath.Location = New System.Drawing.Point(143, 3)
+        Me.TextBoxFamTabPath.Location = New System.Drawing.Point(191, 4)
+        Me.TextBoxFamTabPath.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxFamTabPath.Name = "TextBoxFamTabPath"
-        Me.TextBoxFamTabPath.Size = New System.Drawing.Size(258, 21)
+        Me.TextBoxFamTabPath.Size = New System.Drawing.Size(344, 25)
         Me.TextBoxFamTabPath.TabIndex = 1
         '
         'ButtonFamTabDirSelect
         '
         Me.ButtonFamTabDirSelect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFamTabDirSelect.Location = New System.Drawing.Point(407, 3)
+        Me.ButtonFamTabDirSelect.Location = New System.Drawing.Point(543, 4)
+        Me.ButtonFamTabDirSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFamTabDirSelect.Name = "ButtonFamTabDirSelect"
-        Me.ButtonFamTabDirSelect.Size = New System.Drawing.Size(64, 20)
+        Me.ButtonFamTabDirSelect.Size = New System.Drawing.Size(85, 24)
         Me.ButtonFamTabDirSelect.TabIndex = 2
         Me.ButtonFamTabDirSelect.Text = "选择目录"
         Me.ButtonFamTabDirSelect.UseVisualStyleBackColor = True
@@ -1864,9 +2298,10 @@ Partial Class FrmMain
         'ButtonFamTabExport
         '
         Me.ButtonFamTabExport.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ButtonFamTabExport.Location = New System.Drawing.Point(402, -3)
+        Me.ButtonFamTabExport.Location = New System.Drawing.Point(536, -4)
+        Me.ButtonFamTabExport.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonFamTabExport.Name = "ButtonFamTabExport"
-        Me.ButtonFamTabExport.Size = New System.Drawing.Size(75, 26)
+        Me.ButtonFamTabExport.Size = New System.Drawing.Size(100, 32)
         Me.ButtonFamTabExport.TabIndex = 6
         Me.ButtonFamTabExport.Text = "导出"
         Me.ButtonFamTabExport.UseVisualStyleBackColor = True
@@ -1881,26 +2316,29 @@ Partial Class FrmMain
         Me.TableLayoutPanelParam.Controls.Add(Me.TableLayoutPanel5, 0, 2)
         Me.TableLayoutPanelParam.Controls.Add(Me.TableLayoutPanel6, 0, 5)
         Me.TableLayoutPanelParam.Controls.Add(Me.GroupBox1, 0, 4)
-        Me.TableLayoutPanelParam.Location = New System.Drawing.Point(22, 182)
+        Me.TableLayoutPanelParam.Location = New System.Drawing.Point(605, 416)
+        Me.TableLayoutPanelParam.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanelParam.Name = "TableLayoutPanelParam"
         Me.TableLayoutPanelParam.RowCount = 6
-        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
         Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelParam.Size = New System.Drawing.Size(871, 176)
+        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanelParam.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanelParam.Size = New System.Drawing.Size(585, 31)
         Me.TableLayoutPanelParam.TabIndex = 0
         '
         'GroupBox7
         '
         Me.GroupBox7.Controls.Add(Me.ListViewParam)
         Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox7.Location = New System.Drawing.Point(3, 91)
+        Me.GroupBox7.Location = New System.Drawing.Point(4, 114)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(865, 18)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox7.Size = New System.Drawing.Size(577, 1)
         Me.GroupBox7.TabIndex = 7
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "操作结果"
@@ -1911,9 +2349,10 @@ Partial Class FrmMain
         Me.ListViewParam.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListViewParam.FullRowSelect = True
         Me.ListViewParam.HideSelection = False
-        Me.ListViewParam.Location = New System.Drawing.Point(3, 17)
+        Me.ListViewParam.Location = New System.Drawing.Point(4, 22)
+        Me.ListViewParam.Margin = New System.Windows.Forms.Padding(4)
         Me.ListViewParam.Name = "ListViewParam"
-        Me.ListViewParam.Size = New System.Drawing.Size(859, 0)
+        Me.ListViewParam.Size = New System.Drawing.Size(569, 0)
         Me.ListViewParam.TabIndex = 1
         Me.ListViewParam.UseCompatibleStateImageBehavior = False
         Me.ListViewParam.View = System.Windows.Forms.View.Details
@@ -1940,9 +2379,10 @@ Partial Class FrmMain
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("SimSun", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label2.Location = New System.Drawing.Point(3, 0)
+        Me.Label2.Location = New System.Drawing.Point(4, 0)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(865, 30)
+        Me.Label2.Size = New System.Drawing.Size(577, 38)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "批量参数处理"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1951,9 +2391,10 @@ Partial Class FrmMain
         '
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Location = New System.Drawing.Point(3, 30)
+        Me.Label3.Location = New System.Drawing.Point(4, 38)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(865, 26)
+        Me.Label3.Size = New System.Drawing.Size(577, 32)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "在此完成对prt批量参数处理，可以实现批量参数添加、修改以及删除等操作。CSV文件请务必从Creo程序里参数设置对话框导出！"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1961,27 +2402,29 @@ Partial Class FrmMain
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.ColumnCount = 3
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 253.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.Label4, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.TextBoxPathParam, 1, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.BtnChosefileParam, 2, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 59)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 74)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(865, 26)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(577, 32)
         Me.TableLayoutPanel5.TabIndex = 3
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Location = New System.Drawing.Point(3, 0)
+        Me.Label4.Location = New System.Drawing.Point(4, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(184, 26)
+        Me.Label4.Size = New System.Drawing.Size(245, 32)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "选择包含需要修改零件的目录："
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1989,17 +2432,19 @@ Partial Class FrmMain
         'TextBoxPathParam
         '
         Me.TextBoxPathParam.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxPathParam.Location = New System.Drawing.Point(193, 3)
+        Me.TextBoxPathParam.Location = New System.Drawing.Point(257, 4)
+        Me.TextBoxPathParam.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxPathParam.Name = "TextBoxPathParam"
-        Me.TextBoxPathParam.Size = New System.Drawing.Size(599, 21)
+        Me.TextBoxPathParam.Size = New System.Drawing.Size(223, 25)
         Me.TextBoxPathParam.TabIndex = 1
         '
         'BtnChosefileParam
         '
         Me.BtnChosefileParam.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BtnChosefileParam.Location = New System.Drawing.Point(798, 3)
+        Me.BtnChosefileParam.Location = New System.Drawing.Point(488, 4)
+        Me.BtnChosefileParam.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnChosefileParam.Name = "BtnChosefileParam"
-        Me.BtnChosefileParam.Size = New System.Drawing.Size(64, 20)
+        Me.BtnChosefileParam.Size = New System.Drawing.Size(85, 24)
         Me.BtnChosefileParam.TabIndex = 2
         Me.BtnChosefileParam.Text = "选择目录"
         Me.BtnChosefileParam.UseVisualStyleBackColor = True
@@ -2009,16 +2454,17 @@ Partial Class FrmMain
         Me.TableLayoutPanel6.ColumnCount = 2
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.36478!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.63522!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel7, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel8, 0, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 139)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(4, -14)
+        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(865, 34)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(577, 42)
         Me.TableLayoutPanel6.TabIndex = 4
         '
         'TableLayoutPanel7
@@ -2031,19 +2477,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel7.Controls.Add(Me.ButtonParamClear, 1, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.ButtonParamDesignate, 2, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(533, 3)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(225, 4)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(329, 28)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(348, 34)
         Me.TableLayoutPanel7.TabIndex = 1
         '
         'ButtonParamAdd
         '
         Me.ButtonParamAdd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonParamAdd.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonParamAdd.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonParamAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonParamAdd.Name = "ButtonParamAdd"
-        Me.ButtonParamAdd.Size = New System.Drawing.Size(103, 22)
+        Me.ButtonParamAdd.Size = New System.Drawing.Size(108, 26)
         Me.ButtonParamAdd.TabIndex = 0
         Me.ButtonParamAdd.Text = "批量添加修改"
         Me.ButtonParamAdd.UseVisualStyleBackColor = True
@@ -2051,9 +2499,10 @@ Partial Class FrmMain
         'ButtonParamClear
         '
         Me.ButtonParamClear.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonParamClear.Location = New System.Drawing.Point(112, 3)
+        Me.ButtonParamClear.Location = New System.Drawing.Point(120, 4)
+        Me.ButtonParamClear.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonParamClear.Name = "ButtonParamClear"
-        Me.ButtonParamClear.Size = New System.Drawing.Size(103, 22)
+        Me.ButtonParamClear.Size = New System.Drawing.Size(108, 26)
         Me.ButtonParamClear.TabIndex = 1
         Me.ButtonParamClear.Text = "批量清空"
         Me.ButtonParamClear.UseVisualStyleBackColor = True
@@ -2061,9 +2510,10 @@ Partial Class FrmMain
         'ButtonParamDesignate
         '
         Me.ButtonParamDesignate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonParamDesignate.Location = New System.Drawing.Point(221, 3)
+        Me.ButtonParamDesignate.Location = New System.Drawing.Point(236, 4)
+        Me.ButtonParamDesignate.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonParamDesignate.Name = "ButtonParamDesignate"
-        Me.ButtonParamDesignate.Size = New System.Drawing.Size(105, 22)
+        Me.ButtonParamDesignate.Size = New System.Drawing.Size(108, 26)
         Me.ButtonParamDesignate.TabIndex = 2
         Me.ButtonParamDesignate.Text = "批量指定"
         Me.ButtonParamDesignate.UseVisualStyleBackColor = True
@@ -2074,19 +2524,21 @@ Partial Class FrmMain
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel8.Controls.Add(Me.ButtonImportCSVParam, 0, 0)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 1
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(325, 28)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(213, 34)
         Me.TableLayoutPanel8.TabIndex = 2
         '
         'ButtonImportCSVParam
         '
         Me.ButtonImportCSVParam.Dock = System.Windows.Forms.DockStyle.Left
-        Me.ButtonImportCSVParam.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonImportCSVParam.Location = New System.Drawing.Point(4, 4)
+        Me.ButtonImportCSVParam.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonImportCSVParam.Name = "ButtonImportCSVParam"
-        Me.ButtonImportCSVParam.Size = New System.Drawing.Size(96, 22)
+        Me.ButtonImportCSVParam.Size = New System.Drawing.Size(128, 26)
         Me.ButtonImportCSVParam.TabIndex = 0
         Me.ButtonImportCSVParam.Text = "导入CSV"
         Me.ButtonImportCSVParam.UseVisualStyleBackColor = True
@@ -2095,9 +2547,11 @@ Partial Class FrmMain
         '
         Me.GroupBox1.Controls.Add(Me.DataGridViewParam)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 115)
+        Me.GroupBox1.Location = New System.Drawing.Point(4, 50)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(865, 18)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(577, 1)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "参数列表"
@@ -2109,11 +2563,13 @@ Partial Class FrmMain
         Me.DataGridViewParam.BackgroundColor = System.Drawing.SystemColors.Window
         Me.DataGridViewParam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewParam.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridViewParam.Location = New System.Drawing.Point(3, 17)
+        Me.DataGridViewParam.Location = New System.Drawing.Point(4, 22)
+        Me.DataGridViewParam.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridViewParam.Name = "DataGridViewParam"
         Me.DataGridViewParam.ReadOnly = True
+        Me.DataGridViewParam.RowHeadersWidth = 51
         Me.DataGridViewParam.RowTemplate.Height = 23
-        Me.DataGridViewParam.Size = New System.Drawing.Size(859, 0)
+        Me.DataGridViewParam.Size = New System.Drawing.Size(569, 0)
         Me.DataGridViewParam.TabIndex = 0
         '
         'FolderBrowserDialogCommon
@@ -2126,12 +2582,13 @@ Partial Class FrmMain
         '
         'FrmMain
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(967, 604)
+        Me.ClientSize = New System.Drawing.Size(1289, 755)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(800, 600)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MinimumSize = New System.Drawing.Size(1061, 738)
         Me.Name = "FrmMain"
         Me.Text = "Creo批处理工具"
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -2141,6 +2598,15 @@ Partial Class FrmMain
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.TableLayoutPanelMaterialSet.ResumeLayout(False)
+        Me.TableLayoutPanelMaterialSet.PerformLayout()
+        Me.TableLayoutPanel26.ResumeLayout(False)
+        Me.TableLayoutPanel26.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        CType(Me.DataGridViewMaterial, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel27.ResumeLayout(False)
+        Me.TableLayoutPanel27.PerformLayout()
+        Me.TableLayoutPanel28.ResumeLayout(False)
         Me.PanelHelp.ResumeLayout(False)
         Me.TableLayoutPanelUnit.ResumeLayout(False)
         Me.TableLayoutPanelUnit.PerformLayout()
@@ -2367,4 +2833,25 @@ Partial Class FrmMain
     Friend WithEvents WebBrowserAbout As WebBrowser
     Friend WithEvents LinkLabelFrm As LinkLabel
     Friend WithEvents CheckBoxShowWindow As CheckBox
+    Friend WithEvents LinkLabelMaterialSet As LinkLabel
+    Friend WithEvents TableLayoutPanelMaterialSet As TableLayoutPanel
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents DataGridViewMaterial As DataGridView
+    Friend WithEvents TableLayoutPanel27 As TableLayoutPanel
+    Friend WithEvents Label31 As Label
+    Friend WithEvents TextBoxMaterialMtl As TextBox
+    Friend WithEvents ButtonMaterialMtlPathChoose As Button
+    Friend WithEvents TableLayoutPanel28 As TableLayoutPanel
+    Friend WithEvents ButtonMaterialRead As Button
+    Friend WithEvents ButtonMaterialSet As Button
+    Friend WithEvents TableLayoutPanel26 As TableLayoutPanel
+    Friend WithEvents ButtonMaterialPrtPathChoose As Button
+    Friend WithEvents TextBoxMaterialPrt As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewComboBoxColumn2 As DataGridViewComboBoxColumn
 End Class

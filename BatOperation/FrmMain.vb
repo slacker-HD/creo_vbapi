@@ -1,12 +1,13 @@
 ﻿Option Explicit On
 Imports System.Configuration
 Public Class FrmMain
-    Private _linklabels(6) As LinkLabel
-    Private _tableLayoutPanels(6) As TableLayoutPanel
+    Private _linklabels(7) As LinkLabel
+    Private _tableLayoutPanels(7) As TableLayoutPanel
 
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim i As Integer
 
+        PanelHelp.BringToFront()
         PanelHelp.Dock = DockStyle.Fill
 
         _linklabels(0) = LinkLabelParam
@@ -16,6 +17,7 @@ Public Class FrmMain
         _linklabels(4) = LinkLabelModelPurge
         _linklabels(5) = LinkLabelFamTab
         _linklabels(6) = LinkLabelFrm
+        _linklabels(7) = LinkLabelMaterialSet
 
         _tableLayoutPanels(0) = TableLayoutPanelParam
         _tableLayoutPanels(1) = TableLayoutPanelRelation
@@ -24,6 +26,7 @@ Public Class FrmMain
         _tableLayoutPanels(4) = TableLayoutPanelModelPurge
         _tableLayoutPanels(5) = TableLayoutPanelFamTab
         _tableLayoutPanels(6) = TableLayoutPanelFrm
+        _tableLayoutPanels(7) = TableLayoutPanelMaterialSet
 
         For i = 0 To _linklabels.Length - 1
             _linklabels(i).Tag = i
@@ -580,5 +583,72 @@ Public Class FrmMain
     Private Sub LinkLabelHelp_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         PanelHelp.Dock = DockStyle.Fill
         PanelHelp.BringToFront()
+    End Sub
+
+    Private Sub ButtonMaterialPrtPathChoose_Click(sender As Object, e As EventArgs) Handles ButtonMaterialPrtPathChoose.Click
+        FolderBrowserDialogCommon.Description = "选择包含prt的文件夹"
+        If (FolderBrowserDialogCommon.ShowDialog = DialogResult.OK) Then
+            TextBoxMaterialPrt.Text = FolderBrowserDialogCommon.SelectedPath
+        End If
+    End Sub
+
+    Private Sub ButtonMaterialMtlPathChoose_Click(sender As Object, e As EventArgs) Handles ButtonMaterialMtlPathChoose.Click
+        FolderBrowserDialogCommon.Description = "选择包含mtl的文件夹"
+        If (FolderBrowserDialogCommon.ShowDialog = DialogResult.OK) Then
+            TextBoxMaterialMtl.Text = FolderBrowserDialogCommon.SelectedPath
+        End If
+    End Sub
+
+    Private Sub ButtonMaterialRead_Click(sender As Object, e As EventArgs) Handles ButtonMaterialRead.Click
+        Dim prts As New Hashtable
+        Dim mtls As String()
+        Dim i As Integer = 1
+        prts = GetMaterials(TextBoxMaterialPrt.Text)
+        mtls = GetMtls(TextBoxMaterialMtl.Text)
+        DataGridViewMaterial.Rows.Clear()
+        If prts IsNot Nothing Then
+            For Each item In prts
+                Dim row As New DataGridViewRow
+                Dim textboxcell1 As New DataGridViewTextBoxCell
+                Dim textboxcell2 As New DataGridViewTextBoxCell
+                Dim textboxcell3 As New DataGridViewTextBoxCell
+                Dim comboxcell As New DataGridViewComboBoxCell
+
+                textboxcell1.Value = i
+                row.Cells.Add(textboxcell1)
+                textboxcell1.ReadOnly = True
+
+                textboxcell2.Value = item.key
+                row.Cells.Add(textboxcell2)
+                textboxcell2.ReadOnly = True
+
+                textboxcell3.Value = prts(item.key)
+                row.Cells.Add(textboxcell3)
+                textboxcell3.ReadOnly = True
+
+                comboxcell.Items.AddRange(mtls)
+                comboxcell.FlatStyle = FlatStyle.Flat
+                comboxcell.Value = comboxcell.Items(0)
+
+                row.Cells.Add(comboxcell)
+
+                DataGridViewMaterial.Rows.Add(row)
+                i += 1
+            Next
+        End If
+
+    End Sub
+
+    Private Sub ButtonMaterialSet_Click(sender As Object, e As EventArgs) Handles ButtonMaterialSet.Click
+        Dim items As New Hashtable
+        Dim i As Integer
+        For i = 0 To DataGridViewMaterial.Rows.Count - 1
+            If DataGridViewMaterial.Rows(i).Cells(3).Value <> "不修改" Then
+                items.Add(DataGridViewMaterial.Rows(i).Cells(1).Value, DataGridViewMaterial.Rows(i).Cells(3).Value)
+            End If
+        Next
+        ChangeMaterials(items, TextBoxMaterialMtl.Text)
+        ButtonMaterialRead.PerformClick()
+        MessageBox.Show("批量材料设定操作完毕!")
     End Sub
 End Class
