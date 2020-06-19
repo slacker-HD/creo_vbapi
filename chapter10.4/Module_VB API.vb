@@ -3,6 +3,12 @@ Imports pfcls
 
 Module Module_vbapi
     Public asyncConnection As IpfcAsyncConnection = Nothing '全局变量，用于存储连接会话的句柄
+    Public Enum ExportType
+        jpg = 1
+        bmp = 2
+        tif = 3
+        eps = 4
+    End Enum
 
     ''' <summary>
     ''' 连接现有会话
@@ -65,31 +71,52 @@ Module Module_vbapi
     ''' 导出打开的模型到jpg
     ''' </summary>
     ''' <param name="FilePath">导出jpg文件路径</param>
-    Public Sub ExporttoJpg(ByVal FilePath As String)
+    Public Sub ExporttoImg(ByVal FilePath As String, ByVal Type As ExportType)
         Dim currentwindow As IpfcWindow
         Dim jpegoption As IpfcJPEGImageExportInstructions
+        Dim bmpoption As IpfcBitmapImageExportInstructions
+        Dim tifoption As IpfcTIFFImageExportInstructions
+        Dim epsoption As IpfcEPSImageExportInstructions
         Try
             If IsPrtorAsm() = True Then
                 currentwindow = CType(asyncConnection.Session, IpfcBaseSession).CurrentWindow
-                '设置导出jpg文件的宽度和高度
-                jpegoption = (New CCpfcJPEGImageExportInstructions).Create(currentwindow.GraphicsAreaWidth * 10, currentwindow.GraphicsAreaHeight * 10)
-                '设置导出jpg文件的dpi
-                jpegoption.DotsPerInch = EpfcDotsPerInch.EpfcRASTERDPI_600
-                '设置导出jpg文件的像素
-                jpegoption.ImageDepth = EpfcRasterDepth.EpfcRASTERDEPTH_24
                 '调整为默认视图
                 CType(CType(asyncConnection.Session, IpfcBaseSession).CurrentModel, IpfcViewOwner).GetCurrentView().Reset()
                 Reset()
-                '显示线框、基准面等，和toolkit一样，这个0、1运行多次效果是切换而不是设定指定值
-                asyncConnection.Session.RunMacro("IMICLEARITEM ~ Command `ProCmdEnvDtmDisp` 1; ~ Command `ProCmdEnvAxisDisp` 1; ~ Command `ProCmdViewSpinCntr` 1; ~ Command `ProCmdEnvPntsDisp`  1;~ Command `ProCmdEnvCsysDisp`  1;")
-                currentwindow.Refresh()
-                currentwindow.Repaint()
-                '不显示线框、基准面等，和toolkit一样，这个0、1运行多次效果是切换而不是设定指定值
-                asyncConnection.Session.RunMacro("IMICLEARITEM ~ Command `ProCmdEnvDtmDisp` 0; ~ Command `ProCmdEnvAxisDisp` 0; ~ Command `ProCmdViewSpinCntr` 0; ~ Command `ProCmdEnvPntsDisp`  0;~ Command `ProCmdEnvCsysDisp`  0;")
-                currentwindow.Refresh()
-                currentwindow.Repaint()
-                '根据要求导出jpg
-                currentwindow.ExportRasterImage(FilePath, jpegoption)
+                Select Case Type
+                    Case ExportType.jpg
+                        '设置导出文件的宽度和高度
+                        jpegoption = (New CCpfcJPEGImageExportInstructions).Create(currentwindow.GraphicsAreaWidth * 10, currentwindow.GraphicsAreaHeight * 10)
+                        '设置导出jpg文件的dpi
+                        jpegoption.DotsPerInch = EpfcDotsPerInch.EpfcRASTERDPI_600
+                        '设置导出jpg文件的像素
+                        jpegoption.ImageDepth = EpfcRasterDepth.EpfcRASTERDEPTH_24
+                        currentwindow.ExportRasterImage(FilePath, jpegoption)
+                    Case ExportType.bmp
+                        '设置导出文件的宽度和高度
+                        bmpoption = (New CCpfcBitmapImageExportInstructions).Create(currentwindow.GraphicsAreaWidth * 10, currentwindow.GraphicsAreaHeight * 10)
+                        '设置导出jpg文件的dpi
+                        bmpoption.DotsPerInch = EpfcDotsPerInch.EpfcRASTERDPI_600
+                        '设置导出jpg文件的像素
+                        bmpoption.ImageDepth = EpfcRasterDepth.EpfcRASTERDEPTH_24
+                        currentwindow.ExportRasterImage(FilePath, bmpoption)
+                    Case ExportType.tif
+                        '设置导出文件的宽度和高度
+                        tifoption = (New CCpfcTIFFImageExportInstructions).Create(currentwindow.GraphicsAreaWidth * 10, currentwindow.GraphicsAreaHeight * 10)
+                        '设置导出jpg文件的dpi
+                        tifoption.DotsPerInch = EpfcDotsPerInch.EpfcRASTERDPI_600
+                        '设置导出jpg文件的像素
+                        tifoption.ImageDepth = EpfcRasterDepth.EpfcRASTERDEPTH_24
+                        currentwindow.ExportRasterImage(FilePath, tifoption)
+                    Case ExportType.eps
+                        '设置导出文件的宽度和高度
+                        epsoption = (New CCpfcEPSImageExportInstructions).Create(currentwindow.GraphicsAreaWidth * 10, currentwindow.GraphicsAreaHeight * 10)
+                        '设置导出jpg文件的dpi
+                        epsoption.DotsPerInch = EpfcDotsPerInch.EpfcRASTERDPI_600
+                        '设置导出jpg文件的像素
+                        epsoption.ImageDepth = EpfcRasterDepth.EpfcRASTERDEPTH_24
+                        currentwindow.ExportRasterImage(FilePath, epsoption)
+                End Select
             End If
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Chr(13) + ex.StackTrace.ToString)
