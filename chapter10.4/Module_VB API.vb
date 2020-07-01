@@ -82,7 +82,6 @@ Module Module_vbapi
                 currentwindow = CType(asyncConnection.Session, IpfcBaseSession).CurrentWindow
                 '调整为默认视图
                 CType(CType(asyncConnection.Session, IpfcBaseSession).CurrentModel, IpfcViewOwner).GetCurrentView().Reset()
-                Reset()
                 Select Case Type
                     Case ExportType.jpg
                         '设置导出文件的宽度和高度
