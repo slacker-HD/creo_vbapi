@@ -92,20 +92,22 @@ Module Module_vbapi
     ''' </summary>
     ''' <returns></returns>
     Public Function CurrentOutlineCustom() As Double()
-        Dim transform As IpfcTransform3D
-        '构建一个新坐标系，X轴指向基准坐标系的Y轴，Y轴指向基准坐标系的Z轴，Z轴指向基准坐标系的X轴
-        transform = (New CCpfcTransform3D).Create(Nothing)
-        For i = 0 To 3
-            For j = 0 To 3
-                transform.Matrix.Set(i, j, 0)
-            Next
-        Next
-        transform.Matrix.Set(0, 1, 1)
-        transform.Matrix.Set(1, 2, 1)
-        transform.Matrix.Set(2, 0, 1)
-        transform.Matrix.Set(3, 3, 1)
-
-        Return _CurrentOutlineCustom(transform)
+        Dim selectionOptions As IpfcSelectionOptions
+        Dim selections As CpfcSelections
+        Dim coord As IpfcCoordSystem
+        Try
+            MessageBox.Show("请在模型图中选择一个坐标系用以计算。")
+            selectionOptions = (New CCpfcSelectionOptions).Create("csys")
+            selectionOptions.MaxNumSels = 1
+            selections = asyncConnection.Session.Select(selectionOptions, Nothing)
+            If selections.Count > 0 Then
+                coord = CType(selections.Item(0).SelItem, IpfcCoordSystem)
+                Return _CurrentOutlineCustom(coord.CoordSys)
+            End If
+        Catch
+            Return Nothing
+        End Try
+        Return Nothing
     End Function
     ''' <summary>
     ''' 计算指定坐标系下零件的outline
