@@ -241,7 +241,7 @@ Module Module_vbapi
             '以下添加按钮，各函数的参数与toolkit的ProMenubarmenuPushbuttonAdd类似
             UICommandActionListener = New MyUICommandActionListener()
             '添加Command
-            UICommand = asyncConnection.Session.UICreateCommand("TEST2", UICommandActionListener)
+            UICommand = asyncConnection.Session.UICreateCommand("TEST1", UICommandActionListener)
             '创建UICommandAccessListener
             UICommandAccessListener = New MyUICommandAccessListener(asyncConnection)
             '判断按钮是否可用
