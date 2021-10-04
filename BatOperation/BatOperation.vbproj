@@ -77,10 +77,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A79E616A26A93E9909A42382811B02F70CACE4FF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A517302017C3331887227AFBF973C3B7F6656AAB</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>BatOperation_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>BatOperation_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -165,6 +165,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BatOperation_1_TemporaryKey.pfx" />
     <None Include="BatOperation_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
