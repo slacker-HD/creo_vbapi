@@ -36,6 +36,8 @@ Module Module_Win
             Catch ex As Exception
                 Recycle = False
             End Try
+        Else
+            Recycle = True
         End If
     End Function
     ''' <summary>
